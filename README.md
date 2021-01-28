@@ -11,10 +11,11 @@ Looking to use TypeScript and React
   * transform all svg files in assets/bliss_svg_id 
     * I should probably test with a smaller group
     * use the -icon flag
-    * use the typescript flag
+    * use the -typescript flag
     * Look through other flags
 * Remove custom.d.ts
 * Remove @svg/webpack
+* Need to look at how AntD and FontAwesome work
 
 ### Basic layout of the application
 * Output Box 
@@ -47,3 +48,11 @@ Looking to use TypeScript and React
   * text input that limits displayed characters in the Characters box
 * Characters Box 
   * output of the menu selection or search box
+
+### Ideas to include
+* Adding in a default language property
+* adding in properties to toggle the inclusion of the translation, search and 
+  flag boxes
+* Need to include a tooltip, or some other way to rollover a translation of the 
+  individual symbols
+* need to indicate on each symbol if it has a sub-menu or is the final character

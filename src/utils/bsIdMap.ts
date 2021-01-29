@@ -3,13 +3,13 @@ interface IBlissIdMap {[key: number]: string}
 
 // Utils
 export const getIdByName = (name: string) => {
-  return Object.keys(blissIdMap).find((key: string | number) => blissIdMap[key as number] === name);
+  return Object.keys(bsIdMap).find((key: string | number) => bsIdMap[key as number] === name);
 };
 
-export const getNameById = (id: number): string => blissIdMap[id];
+export const getNameById = (id: number): string => bsIdMap[id];
 
 // Bliss ID Map
-const blissIdMap: IBlissIdMap = {
+const bsIdMap: IBlissIdMap = {
   12321: "a,an,any",
   8521: "a_(lowercase)",
   8551: "A_(uppercase)",

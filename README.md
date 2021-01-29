@@ -7,15 +7,17 @@ available.
 Looking to use TypeScript and React
 
 ### Current idea for loading SVG files (so I don't forget)
-* Setup @svgr/cli
-  * transform all svg files in assets/bliss_svg_id 
-    * I should probably test with a smaller group
-    * use the -icon flag
-    * use the -typescript flag
-    * Look through other flags
-* Remove custom.d.ts
-* Remove @svg/webpack
-* Need to look at how AntD and FontAwesome work
+* Create an icon font
+  * using fantasticon or glyphs2font
+  * break up into three sections
+    * bs-diacritics - punctuation, numbers, letters, indicators
+    * bs-characters - Characters
+    * bs-words - Words
+  * Create a .eot, .ttf .woff and .woff2
+  * need to also create css to use the font
+* Create a React Package to use the icon font
+  * follow the React-fontawesome example
+* Create a React Keyboard 
 
 ### Basic layout of the application
 * Output Box 

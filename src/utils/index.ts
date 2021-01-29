@@ -1,1 +1,1 @@
-export * from "./blissIdMap";
+export * from "./bsIdMap";

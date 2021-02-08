@@ -6,19 +6,6 @@ available.
 
 Looking to use TypeScript and React
 
-### Current idea for loading SVG files (so I don't forget)
-* Create an icon font
-  * using fantasticon or glyphs2font
-  * break up into three sections
-    * bs-diacritics - punctuation, numbers, letters, indicators
-    * bs-characters - Characters
-    * bs-words - Words
-  * Create a .eot, .ttf .woff and .woff2
-  * need to also create css to use the font
-* Create a React Package to use the icon font
-  * follow the React-fontawesome example
-* Create a React Keyboard 
-
 ### Basic layout of the application
 * Output Box 
   * this is where to output the bliss symbols

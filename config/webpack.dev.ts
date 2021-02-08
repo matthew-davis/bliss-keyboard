@@ -14,8 +14,7 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {test: /\.tsx?$/, loader: "ts-loader", exclude: /node_modules/, options: {transpileOnly: true}},
-      {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]},
-      {test: /\.svg$/, use: [{loader: "@svgr/webpack", options: {icon: true}}]}
+      {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]}
     ]
   },
   plugins: [htmlPlugin, tsCheckerPlugin]

@@ -54,15 +54,6 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Build special character menu
-    * Create svgs for space, backspace and enter
-      * Space is a square bracket on its side
-      * Backspace is an arrow pointed left
-      * Enter is an arrow that points down then left 
-      * use a different colour to differentiate these from actual symbols
-    * Connect these special characters to their equivalents on a keyboard
-    * If easy connect numbers and letters to their respective keys as well
-    * Also punctuation
   * Create function to return list of character IDs from a character ID 
     * Also create ability to fetch home and special character menus
   * Create function to return the parent menu of any ID
@@ -71,6 +62,10 @@ Looking to use TypeScript and React
   * When visible, look through every menu and group/order symbols
     * Roughly maneuver symbols into 15 groups of about 70
     * Count both Tier 2 and 3 together to get the 70 number
+  * Connect characters to their equivalent on the keyboard
+    * Connect these special characters to their equivalents on a keyboard
+    * If easy connect numbers and letters to their respective keys as well
+    * Also punctuation
 
 * Structure
   * Block out the html sections for the various components in teh keyboard

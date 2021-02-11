@@ -53,14 +53,13 @@ Looking to use TypeScript and React
   * This is a mandatory component
 
 ### Tasks
-
 * Menu Logic
-  * Add unused symbols (that fit) into the tier 2 menus
-  * Group remaining symbols into Tier 3
-  * Roughly maneuver symbols into 15 groups of about 70
-    * Count both Tier 2 and 3 together to get the 70 number
   * Build special character menu
     * Create svgs for space, backspace and enter
+      * Space is a square bracket on its side
+      * Backspace is an arrow pointed left
+      * Enter is an arrow that points down then left 
+      * use a different colour to differentiate these from actual symbols
     * Connect these special characters to their equivalents on a keyboard
     * If easy connect numbers and letters to their respective keys as well
     * Also punctuation
@@ -70,6 +69,8 @@ Looking to use TypeScript and React
   * Confirm all indicators are used in the final menu for a character
   * Confirm there are no duplicates on the keyboard
   * When visible, look through every menu and group/order symbols
+    * Roughly maneuver symbols into 15 groups of about 70
+    * Count both Tier 2 and 3 together to get the 70 number
 
 * Structure
   * Block out the html sections for the various components in teh keyboard
@@ -91,7 +92,6 @@ Looking to use TypeScript and React
   * Support highest level of web accessibility WCAG 2.0 AAA
 
 ### Colour Details
-
 Red: #f9c7b0
 Green: #dce8ba
 Blue: #d6ecf7
@@ -102,6 +102,18 @@ White: #ffffff
 Mark each key with a coloured strip across the top corresponding to it's 
 POS and the above colours
 
+### Keyboard Changes/Justification
+I started with the bliss-keyboard from owencm: 
+[https://github.com/owencm/bliss-keyboard](https://github.com/owencm/bliss-keyboard)
+
+This keyboard appears to be arranged roughly by shape. This seems logical as 
+bliss symbols appear to be derived from common shapes. This keyboard however, does
+not include the symbols, and it had a habit of including symbols twice if it 
+made sense in multiple locations. I removed the duplicates and included all missing 
+symbols.
+
+I considered using the POS colours, but the distribution of the types are very uneven
+across the characters.
 
 
 

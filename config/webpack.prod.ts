@@ -16,7 +16,9 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {test: /\.tsx?$/, loader: "ts-loader", exclude: /node_modules/, options: {transpileOnly: true}},
-      {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]}
+      {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]},
+      {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline"},
+      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource"}
     ]
   },
   plugins: [htmlPlugin, tsCheckerPlugin]

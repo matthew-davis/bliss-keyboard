@@ -54,11 +54,24 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Create function to return list of character IDs from a character ID 
-    * Also create ability to fetch home and special character menus
-  * Create function to return the parent menu of any ID
+  * Display IDs on screen
+  * Allow clicking through to each main character menu 
+  * Add menu level indicator 
+  * Add ability to go up a level
+  
+* Structure
+  * Block out the html sections for the various components in teh keyboard
+  * Set up the props required to turn off and on the display of certain components
+  * Create key containers for each of the characters
+  * Create key containers for words
+  * Build functionality to display them flexibly and responsively
+  * Build in the colour coding for each of the keys
+  * Figure out how to consume the icon font
+  
+* Finish Menu
+  * Create indicator menu
+  * Link indicator menu to final character selection in menu functions
   * Confirm all indicators are used in the final menu for a character
-  * Confirm there are no duplicates on the keyboard
   * When visible, look through every menu and group/order symbols
     * Roughly maneuver symbols into 15 groups of about 70
     * Count both Tier 2 and 3 together to get the 70 number
@@ -67,16 +80,6 @@ Looking to use TypeScript and React
     * If easy connect numbers and letters to their respective keys as well
     * Also punctuation
 
-* Structure
-  * Block out the html sections for the various components in teh keyboard
-  * Set up the props required to turn off and on the display of certain components
-  * Create key containers for each of the characters
-  * Create key containers for words
-  * Build functionality to display them flexibly and responsively
-  * Create tree navigation/indicators 
-  * Build in the colour coding for each of the keys
-  * Figure out how to consume the icon font
-  
 * Tests
   * Create tests for all of this work
   

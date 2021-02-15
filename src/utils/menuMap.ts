@@ -3,7 +3,42 @@ interface IMenuMap {
   [id: number]: number[],
 }
 
+interface ICharacterMap {
+  id: number,
+  parentMenuId: number,
+  parentMenu: number[],
+  currentMenuId: number,
+  currentMenu: number[],
+  indicatorMenu: boolean,
+}
+
 // Export
+export const getHomeMenu = (): number[] => menuMap[1000];
+
+export const getSpecialMenu = (): number[] => menuMap[2000];
+
+const checkFinal = (id: number): boolean => menuMap[id] === undefined;
+
+export const getNextMenu = (id: number, charMap: ICharacterMap): ICharacterMap => {
+  const result = {
+    id,
+    parentMenuId: charMap.currentMenuId,
+    parentMenu: charMap.currentMenu,
+    currentMenuId: -1,
+    currentMenu: [-1],
+    indicatorMenu: checkFinal(id),
+  }
+
+  if (charMap.indicatorMenu) {
+    // This is where I would build the indicator Menu
+    return result;
+  } else {
+    result.currentMenuId = id;
+    result.currentMenu = menuMap[id];
+    return result;
+  }
+}
+
 export const menuMap: IMenuMap = {
   // Home Menu
   1000: [15214,15474,15991,24883,15666,14417,15975,13403,15471,13867,14164,8485,12366,13089],

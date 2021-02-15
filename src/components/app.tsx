@@ -5,8 +5,8 @@ import {BlissKeyboard} from "./blissKeyboard";
 // Component
 export const App = (): React.ReactElement => {
   return (
-    <div className={"base-app"}>
+    <React.Fragment>
       <BlissKeyboard />
-    </div>
+    </React.Fragment>
   );
 };

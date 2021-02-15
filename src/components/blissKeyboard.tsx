@@ -1,27 +1,29 @@
 // Imports
+import * as _ from "lodash";
 import * as React from "react";
-import {getNextMenu} from "../utils"
+import {getHomeMenu, getNextMenu, ICharacterMap} from "../utils"
 
 // Component
 export const BlissKeyboard = (): React.ReactElement => {
 
-  const testId = 15214;
-  const testCharMap = {
-    id: 15214,
-    parentMenuId: -1,
-    parentMenu: [],
-    currentMenuId: 1000,
-    currentMenu: [15214, 15474, 15991, 24883, 15666, 14417, 15975, 13403, 15471, 13867, 14164, 8485, 12366, 13089],
-    indicatorMenu: false,
-  };
+  const [charMap, setCharMap] = React.useState<ICharacterMap>(getHomeMenu());
 
-  console.log(getNextMenu(testId, testCharMap));
+  const handleClick = (x: any) => setCharMap(getNextMenu(x.target.dataset.id, charMap));
 
+  const keyboard = _.map(charMap.currentMenu, x => {
+    return (
+      <div key={x} className={"key"}>
+        <div className={"key-inner"} onClick={handleClick} data-id={x}>
+          {x.toString()}
+        </div>
+      </div>
+    );
+  });
 
   return (
     <React.Fragment>
-      <div>
-        Hello
+      <div className={"keyboard"}>
+        {keyboard}
       </div>
     </React.Fragment>
   );

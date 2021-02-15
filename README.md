@@ -54,13 +54,18 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Display IDs on screen
-  * Allow clicking through to each main character menu 
-  * Add menu level indicator 
-  * Add ability to go up a level
+  * Add menu level indicator on the left side
+    * Have this look like an up arrow with a small diacritic
+      * H (small version) for Home Menu
+      * 2 (small version) for Second Tier Menu
+      * 3 (small version) for Third Tier Menu
+      * I (small version) for Indicator Menu
+  * Add ability to go up a level by clicking level indicator (disabled at Home)
+  * Add in Special menu stacked on top of each other on the right side
+  * Do the math to make the buttons 16 wide (using calc() in CSS)
   
 * Structure
-  * Block out the html sections for the various components in teh keyboard
+  * Block out the html sections for the various components in the keyboard
   * Set up the props required to turn off and on the display of certain components
   * Create key containers for each of the characters
   * Create key containers for words

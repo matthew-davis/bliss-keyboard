@@ -1,9 +1,9 @@
-// Interface
+// Interfaces
 interface IMenuMap {
   [id: number]: number[],
 }
 
-interface ICharacterMap {
+export interface ICharacterMap {
   id: number,
   parentMenuId: number,
   parentMenu: number[],
@@ -12,8 +12,17 @@ interface ICharacterMap {
   indicatorMenu: boolean,
 }
 
-// Export
-export const getHomeMenu = (): number[] => menuMap[1000];
+// Utils
+export const getHomeMenu = (): ICharacterMap => {
+  return {
+    id: -1,
+    parentMenuId: -1,
+    parentMenu: [-1],
+    currentMenuId: 1000,
+    currentMenu: menuMap[1000],
+    indicatorMenu: false
+  };
+};
 
 export const getSpecialMenu = (): number[] => menuMap[2000];
 
@@ -39,7 +48,7 @@ export const getNextMenu = (id: number, charMap: ICharacterMap): ICharacterMap =
   }
 }
 
-export const menuMap: IMenuMap = {
+const menuMap: IMenuMap = {
   // Home Menu
   1000: [15214,15474,15991,24883,15666,14417,15975,13403,15471,13867,14164,8485,12366,13089],
 

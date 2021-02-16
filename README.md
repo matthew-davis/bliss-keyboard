@@ -54,16 +54,17 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Add ability to go up a level by clicking level indicator (disabled at Home)
-  * Add in Special menu stacked on top of each other on the right side
-  * Do the math to make the buttons 16 wide (using calc() in CSS)
+  * Remove Navigation Menu
+  * With each click keep the menu above
+  * Keep the selected icon highlighted in the menu above
+  * Delineate menus with colour or something
   
 * Structure
   * Block out the html sections for the various components in the keyboard
   * Set up the props required to turn off and on the display of certain components
-  * Create key containers for each of the characters
-  * Create key containers for words
   * Build functionality to display them flexibly and responsively
+    * Look at using media queries to fundamentally change the keyboard for different sizes
+    * need to find major size changes and redesign keyboard for that
   * Build in the colour coding for each of the keys
   * Figure out how to consume the icon font
   
@@ -78,6 +79,7 @@ Looking to use TypeScript and React
     * Connect these special characters to their equivalents on a keyboard
     * If easy connect numbers and letters to their respective keys as well
     * Also punctuation
+  * Create key containers for words
 
 * Tests
   * Create tests for all of this work

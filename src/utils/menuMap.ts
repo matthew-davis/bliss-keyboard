@@ -26,6 +26,8 @@ export const getHomeMenu = (): ICharacterMap => {
 
 export const getSpecialMenu = (): number[] => menuMap[2000];
 
+export const getNavigationMenu = (): number[] => menuMap[3000];
+
 const checkFinal = (id: number): boolean => menuMap[id] === undefined;
 
 export const getNextMenu = (id: number, charMap: ICharacterMap): ICharacterMap => {
@@ -173,4 +175,7 @@ const menuMap: IMenuMap = {
 
   // Special Menu
   2000: [2001,2002,2003],
+
+  // Navigation Menu
+  3000: [3001,3002,3003,3004],
 }

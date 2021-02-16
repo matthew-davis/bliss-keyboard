@@ -4,6 +4,7 @@ import {BlissKeyboard} from "./blissKeyboard";
 
 // Component
 export const App = (): React.ReactElement => {
+
   return (
     <React.Fragment>
       <BlissKeyboard />

@@ -45,7 +45,7 @@ Looking to use TypeScript and React
   * This is a mandatory component
 * Characters Box 
   * Output for characters/words returned from menu selection or searching
-  * Each character gets s tooltip with the default language used to indicate the 
+  * Each character gets a tooltip with the default language used to indicate the 
     character
   * Need to indicate on each key a colour tab representing the POS colour
   * Need to indicate where in the tree structure the user is as well as letting them
@@ -54,10 +54,20 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Remove Navigation Menu
+  * Set up each component file
+    * Make each component and give it the space it requires
+  * Breakup types and utils into matching types and utils files
   * With each click keep the menu above
+    * Need to put logic into getNextMenu() to not duplicate and allow traversing back up menu tree
+    * Need to sort buildMenu() to allow building multiple menus
+    * Need to adjust buildMenu() to detect when given a single or multiple menus
   * Keep the selected icon highlighted in the menu above
   * Delineate menus with colour or something
+  * Add in tooltips for each character
+  * Build prop to control using this feature or not
+  * Build prop to control language of tooltip
+  * Add in POS colours for each character
+  * Build prop to control using this feature or not
   
 * Structure
   * Block out the html sections for the various components in the keyboard
@@ -68,7 +78,7 @@ Looking to use TypeScript and React
   * Build in the colour coding for each of the keys
   * Figure out how to consume the icon font
   
-* Finish Menu
+* Finish Main Keyboard
   * Create indicator menu
   * Link indicator menu to final character selection in menu functions
   * Confirm all indicators are used in the final menu for a character
@@ -80,6 +90,8 @@ Looking to use TypeScript and React
     * If easy connect numbers and letters to their respective keys as well
     * Also punctuation
   * Create key containers for words
+
+* Plan Additional Section Functionality
 
 * Tests
   * Create tests for all of this work

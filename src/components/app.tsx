@@ -1,28 +1,11 @@
 // Imports
 import * as React from "react";
 import {Keyboard} from "./keyboard";
-
-export enum ELanguage {
-  ENGLISH = "ENGLISH",
-  SWEDISH = "SWEDISH",
-  NORWEGIAN = "NORWEGIAN",
-  FINNISH = "FINNISH",
-  HUNGARIAN = "HUNGARIAN",
-  GERMAN = "GERMAN",
-  DUTCH = "DUTCH",
-  AFRIKAANS = "AFRIKAANS",
-  RUSSIAN = "RUSSIAN",
-  LATVIAN = "LATVIAN",
-  POLISH = "POLISH",
-  FRENCH = "FRENCH",
-  SPANISH = "SPANISH",
-}
-
-interface IOptions {
-  language: ELanguage,
-  tooltips: boolean,
-  posColours: boolean,
-}
+import {ELanguage, IOptions} from "../types";
+import {Output} from "./output";
+import {Translation} from "./translation";
+import {Search} from "./search";
+import {Languages} from "./languages";
 
 // Component
 export const App = (): React.ReactElement => {
@@ -33,19 +16,12 @@ export const App = (): React.ReactElement => {
     posColours: true,
   }
 
-
-
   return (
     <React.Fragment>
-
-      <div>Output</div>
-      <div>Translation</div>
-      <div>Search</div>
-      <div>Languages</div>
-
-
-
-
+      <Output />
+      <Translation />
+      <Search />
+      <Languages />
       <Keyboard language={options.language} tooltips={options.tooltips} posColours={options.posColours} />
     </React.Fragment>
   );

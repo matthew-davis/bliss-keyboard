@@ -18,7 +18,8 @@ const config: webpack.Configuration = {
       {test: /\.tsx?$/, loader: "ts-loader", exclude: /node_modules/, options: {transpileOnly: true}},
       {test: /\.css$/, use: [{loader: "style-loader"}, {loader: "css-loader"}]},
       {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline"},
-      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource"}
+      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource"},
+      {test: /\.js$/, enforce: "pre", use: ["source-map-loader"]}
     ]
   },
   plugins: [htmlPlugin, tsCheckerPlugin]

@@ -1,71 +1,20 @@
-// Interfaces
-interface IMenuMap {
-  [id: number]: number[],
-}
-
-// export interface ICharacterMap {
-//   id: number,
-//   parentMenuId: number,
-//   parentMenu: number[],
-//   currentMenuId: number,
-//   currentMenu: number[],
-//   indicatorMenu: boolean,
-// }
-
-export interface ITestMap {
-  highlights: number[],
-  menus: number[][],
-  indicatorMenu: boolean,
-}
+// Imports
+import {ICharacterMap, IMenuMap} from "../types";
 
 // Utils
-export const getHomeMenu = (): ITestMap => {
-  return {
-    highlights: [],
-    menus: [menuMap[1000]],
-    indicatorMenu: false,
-
-
-    // id: -1,
-    // parentMenuId: -1,
-    // parentMenu: [-1],
-    // currentMenuId: 1000,
-    // currentMenu: menuMap[1000],
-    // indicatorMenu: false
-  };
-};
+export const getHomeMenu = (): ICharacterMap => ({highlights: [], menus: [menuMap[1000]], indicatorMenu: false});
 
 export const getSpecialMenu = (): number[] => menuMap[2000];
 
 const checkFinal = (id: number): boolean => menuMap[id] === undefined;
 
-export const getNextMenu = (id: number, characterMap: ITestMap): ITestMap => {
+export const getNextMenu = (id: number, characterMap: ICharacterMap): ICharacterMap => {
   characterMap.highlights.push(id);
   characterMap.menus.push(menuMap[id]);
   characterMap.indicatorMenu = checkFinal(id);
 
   return characterMap;
 };
-
-// export const getNextMenu = (id: number, charMap: ICharacterMap): ICharacterMap => {
-//   const result = {
-//     id,
-//     parentMenuId: charMap.currentMenuId,
-//     parentMenu: charMap.currentMenu,
-//     currentMenuId: -1,
-//     currentMenu: [-1],
-//     indicatorMenu: checkFinal(id),
-//   }
-//
-//   if (charMap.indicatorMenu) {
-//     // This is where I would build the indicator Menu
-//     return result;
-//   } else {
-//     result.currentMenuId = id;
-//     result.currentMenu = menuMap[id];
-//     return result;
-//   }
-// }
 
 const menuMap: IMenuMap = {
   // Home Menu

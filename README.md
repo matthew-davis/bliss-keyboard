@@ -54,13 +54,9 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Set up each component file
-    * Make each component and give it the space it requires
-  * Breakup types and utils into matching types and utils files
   * With each click keep the menu above
     * Need to put logic into getNextMenu() to not duplicate and allow traversing back up menu tree
     * Need to sort buildMenu() to allow building multiple menus
-    * Need to adjust buildMenu() to detect when given a single or multiple menus
   * Keep the selected icon highlighted in the menu above
   * Delineate menus with colour or something
   * Add in tooltips for each character

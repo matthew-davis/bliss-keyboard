@@ -9,11 +9,17 @@ export const getSpecialMenu = (): number[] => menuMap[2000];
 const checkFinal = (id: number): boolean => menuMap[id] === undefined;
 
 export const getNextMenu = (id: number, characterMap: ICharacterMap): ICharacterMap => {
-  characterMap.highlights.push(id);
-  characterMap.menus.push(menuMap[id]);
-  characterMap.indicatorMenu = checkFinal(id);
 
-  return characterMap;
+  const result = {
+    highlights: characterMap.highlights.concat([id]),
+    menus: characterMap.menus.concat([menuMap[id]]),
+    indicatorMenu: checkFinal(id),
+  };
+
+
+  console.log(result);
+
+  return result;
 };
 
 const menuMap: IMenuMap = {

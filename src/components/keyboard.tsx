@@ -9,6 +9,9 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const [charMap, setCharMap] = React.useState<ICharacterMap>(getHomeMenu());
 
+  console.log(charMap);
+
+
   const characterClick = (event: TMouseEvent) => {
     setCharMap(getNextMenu(parseInt(event.currentTarget.dataset.id || "-1"), charMap));
   };
@@ -19,39 +22,51 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const isSimpleMenu = (menu: number[] | number[][]) => !(menu[0] as number[])[0];
 
-  const buildMenu = (menu: number[] | number[][], css: string, onClick: TOnClick): React.ReactElement[] => {
-    const result: React.ReactElement[] = [];
+  const buildMenu = (iteration: number, menus: number[][], css: string, onClick: TOnClick): React.ReactElement[] => {
+    let tempResult: React.ReactElement[] = [];
 
-    if (isSimpleMenu(menu)) {
-      _.map(menu, id => {
-        result.push(
-          <div key={id as unknown as number} className={`keyboard ${css}-key`}>
+    for (let i = 0; i < menus.length; i++) {
+
+      let colour = "";
+
+      if (i === 1 - menus.length) {
+        colour = "red";
+      }
+
+
+      tempResult = tempResult.concat(_.map(menus[i], id => {
+        return (
+          <div key={`${iteration}-${i}-${id}`} className={`keyboard ${css}-key ${colour}`}>
             <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>
               {id.toString()}
             </div>
           </div>
         );
-      });
-    } else {
-
-      // Need to build the function for building multiple components
-      // Alternatively I take the map function above and refactor it to take single menus
-      // then this if statement can just divy up the menus and submit them to the map function
-
-      console.log("is not simple menu")
+      }));
     }
 
-    return result;
+    return tempResult;
+  }
+
+  const buildAllMenus = (menu: number[] | number[][], css: string, onClick: TOnClick): React.ReactElement[] => {
+    let menus: number[][] = [];
+    let finalResult: React.ReactElement[] = [];
+
+    isSimpleMenu(menu) ? menus.push(menu as number[]) : menus = menu as number[][];
+
+    for (let i = 0; i < menus.length; i++) finalResult = finalResult.concat(buildMenu(i, menus, css, onClick));
+
+    return finalResult;
   };
 
   return (
     <React.Fragment>
       <div className={"keyboard"}>
         <div className={"keyboard character-keyboard"}>
-          {buildMenu(charMap.menus, "character", characterClick)}
+          {buildAllMenus(charMap.menus, "character", characterClick)}
         </div>
         <div className={"keyboard special-keyboard"}>
-          {buildMenu(getSpecialMenu(), "special", specialClick)}
+          {buildAllMenus(getSpecialMenu(), "special", specialClick)}
         </div>
       </div>
     </React.Fragment>

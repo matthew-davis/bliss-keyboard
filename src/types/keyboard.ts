@@ -3,12 +3,6 @@ import * as React from "react";
 import {ELanguage} from "./app";
 
 // Interfaces
-export interface ICharacterMap {
-  highlights: number[],
-  menus: number[][],
-  indicatorMenu: boolean,
-}
-
 export interface IMenuMap {
   [id: number]: number[],
 }

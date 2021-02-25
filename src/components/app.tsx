@@ -11,7 +11,10 @@ import {Languages} from "./languages";
 export const App = (): React.ReactElement => {
 
   const options: IOptions = {
-    language: ELanguage.ENGLISH,
+    translation: true,
+    search: true,
+    languages: true,
+    defaultLanguage: ELanguage.ENGLISH,
     tooltips: true,
     posColours: true,
   }
@@ -19,10 +22,10 @@ export const App = (): React.ReactElement => {
   return (
     <React.Fragment>
       <Output />
-      <Translation />
-      <Search />
-      <Languages />
-      <Keyboard language={options.language} tooltips={options.tooltips} posColours={options.posColours} />
+      {options.translation && <Translation />}
+      {options.search && <Search />}
+      {options.languages && <Languages />}
+      <Keyboard language={options.defaultLanguage} tooltips={options.tooltips} posColours={options.posColours} />
     </React.Fragment>
   );
 };

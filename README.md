@@ -54,24 +54,15 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * With each click keep the menu above
-    * Need to put logic into getNextMenu() to not duplicate and allow traversing back up menu tree
-    * Need to sort buildMenu() to allow building multiple menus
-  * Keep the selected icon highlighted in the menu above
-  * Delineate menus with colour or something
+  * Use a special button to traverse back up menus
+  * Sort keeping the special menu where it is as opposed to moving with size of keyboard
   * Add in tooltips for each character
-  * Build prop to control using this feature or not
-  * Build prop to control language of tooltip
   * Add in POS colours for each character
-  * Build prop to control using this feature or not
   
 * Structure
-  * Block out the html sections for the various components in the keyboard
-  * Set up the props required to turn off and on the display of certain components
   * Build functionality to display them flexibly and responsively
     * Look at using media queries to fundamentally change the keyboard for different sizes
     * need to find major size changes and redesign keyboard for that
-  * Build in the colour coding for each of the keys
   * Figure out how to consume the icon font
   
 * Finish Main Keyboard

@@ -1,72 +1,57 @@
 // Imports
 import * as _ from "lodash";
 import * as React from "react";
-import {ICharacterMap, IPassedProps, TMouseEvent, TOnClick} from "../types";
-import {getHomeMenu, getNextMenu, getSpecialMenu} from "../utils"
+import {IPassedProps, TMouseEvent, TOnClick} from "../types";
+import {getHomeMenu, getNextMenu, getPreviousMenu, getSpecialMenu} from "../utils"
 
 // Component
 export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
-  const [charMap, setCharMap] = React.useState<ICharacterMap>(getHomeMenu());
-
-  console.log(charMap);
-
+  const [characterMap, setCharacterMap] = React.useState<number[][]>(getHomeMenu());
 
   const characterClick = (event: TMouseEvent) => {
-    setCharMap(getNextMenu(parseInt(event.currentTarget.dataset.id || "-1"), charMap));
+    setCharacterMap(getNextMenu(parseInt(event.currentTarget.dataset.id || "-1"), characterMap));
   };
 
   const specialClick = (event: TMouseEvent) => {
-    console.log(event);
+    if (parseInt(event.currentTarget.dataset.id || "-1") === 2001) {
+      setCharacterMap(getPreviousMenu(parseInt(event.currentTarget.dataset.id || "-1"), characterMap));
+    } else {
+      console.log("Didn't hit 2001");
+    }
   };
 
-  const isSimpleMenu = (menu: number[] | number[][]) => !(menu[0] as number[])[0];
-
-  const buildMenu = (iteration: number, menus: number[][], css: string, onClick: TOnClick): React.ReactElement[] => {
-    let tempResult: React.ReactElement[] = [];
-
-    for (let i = 0; i < menus.length; i++) {
-
-      let colour = "";
-
-      if (i === 1 - menus.length) {
-        colour = "red";
-      }
+  const buildMenu = (menus: number[][], css: string, onClick: TOnClick, home: boolean = true): React.ReactElement[] => {
 
 
-      tempResult = tempResult.concat(_.map(menus[i], id => {
-        return (
-          <div key={`${iteration}-${i}-${id}`} className={`keyboard ${css}-key ${colour}`}>
-            <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>
-              {id.toString()}
-            </div>
+    // I'm updating the menus, but the screen isn't reacting to the change so I need to chase the values all the way through the motions
+    // Best guess right now is that it has something to do with the array memory address not changing so something is cached
+    // or perhaps not done.
+
+    console.log(menus);
+
+    return _.map(menus[menus.length - 1], id => {
+      let disabled = "";
+      if (!home && id === 2001) {disabled = " disabled"}
+
+      return (
+        <div key={`${menus.indexOf(menus[menus.length - 1])}-${id}`} className={`keyboard ${css}-key${disabled}`}>
+          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>
+            {id.toString()}
           </div>
-        );
-      }));
-    }
-
-    return tempResult;
-  }
-
-  const buildAllMenus = (menu: number[] | number[][], css: string, onClick: TOnClick): React.ReactElement[] => {
-    let menus: number[][] = [];
-    let finalResult: React.ReactElement[] = [];
-
-    isSimpleMenu(menu) ? menus.push(menu as number[]) : menus = menu as number[][];
-
-    for (let i = 0; i < menus.length; i++) finalResult = finalResult.concat(buildMenu(i, menus, css, onClick));
-
-    return finalResult;
+        </div>
+      );
+    });
   };
 
   return (
     <React.Fragment>
       <div className={"keyboard"}>
         <div className={"keyboard character-keyboard"}>
-          {buildAllMenus(charMap.menus, "character", characterClick)}
+          {buildMenu(characterMap, "character", characterClick)}
         </div>
         <div className={"keyboard special-keyboard"}>
-          {buildAllMenus(getSpecialMenu(), "special", specialClick)}
+          {buildMenu(getSpecialMenu(), "special", specialClick, characterMap.length === 1)}
         </div>
       </div>
     </React.Fragment>

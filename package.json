@@ -5,7 +5,7 @@
   "repository": "git@github.com:matthew-davis/bliss-keyboard.git",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development --open --config config/webpack.dev.ts",
+    "start": "webpack serve --mode development --open --config config/webpack.dev.ts",
     "build": "webpack --mode production --config config/webpack.prod.ts"
   },
   "author": "Matthew Davis",

@@ -1,26 +1,17 @@
 // Imports
-import {ICharacterMap, IMenuMap} from "../types";
+import {IMenuMap} from "../types";
 
 // Utils
-export const getHomeMenu = (): ICharacterMap => ({highlights: [], menus: [menuMap[1000]], indicatorMenu: false});
+export const getHomeMenu = (): number[][] => ([menuMap[1000]]);
 
-export const getSpecialMenu = (): number[] => menuMap[2000];
+export const getSpecialMenu = (): number[][] => [menuMap[2000]];
 
-const checkFinal = (id: number): boolean => menuMap[id] === undefined;
+export const getNextMenu = (id: number, characterMap: number[][]): number[][] => characterMap.concat([menuMap[id]]);
 
-export const getNextMenu = (id: number, characterMap: ICharacterMap): ICharacterMap => {
-
-  const result = {
-    highlights: characterMap.highlights.concat([id]),
-    menus: characterMap.menus.concat([menuMap[id]]),
-    indicatorMenu: checkFinal(id),
-  };
-
-
-  console.log(result);
-
-  return result;
-};
+export const getPreviousMenu = (id: number, characterMap: number[][]): number[][] => {
+  characterMap.pop();
+  return characterMap;
+}
 
 export const indicators = [8993,8994,8995,8996,8997,8998,8999,9000,9001,9002,9003,9004,9005,9006,9007,9008,9009,9010,9011,24665,24666,24667,24668,24669,24670,24671,24672,24673,24674,24675,24676,24677,24678,24679,24807,25458]
 
@@ -148,5 +139,5 @@ const menuMap: IMenuMap = {
   // Menu showing indicators against the selected character
 
   // Special Menu
-  2000: [2001,2002,2003],
+  2000: [2001,2002,2003, 2004],
 }

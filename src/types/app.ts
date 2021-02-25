@@ -17,7 +17,10 @@ export enum ELanguage {
 
 // Interface
 export interface IOptions {
-  language: ELanguage,
+  translation: boolean,
+  search: boolean,
+  languages: boolean,
+  defaultLanguage: ELanguage,
   tooltips: boolean,
   posColours: boolean,
 }

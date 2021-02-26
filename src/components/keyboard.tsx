@@ -23,16 +23,23 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const buildMenu = (menus: number[][], css: string, onClick: TOnClick, home: boolean = true): React.ReactElement[] => {
 
+    // Can probably get away with just passing in the type fo menu and then most items can be pulled within this function
+    // such as home, onclick and css string (although you could use that as the deciding factor)
 
-    // I'm updating the menus, but the screen isn't reacting to the change so I need to chase the values all the way through the motions
-    // Best guess right now is that it has something to do with the array memory address not changing so something is cached
-    // or perhaps not done.
+    console.log(props.posColours);
+    // build the actual structure that will get coloured
+    // add in the css to add the colours
+    // toggle calling the css with the prop
 
-    console.log(menus);
+    console.log(props.tooltips);
+    console.log(props.language);
+    // Build tooltips for each character button
+    // Once tooltip comes up build search functionality based on language and id
+    // Display searched tooltip with each character key
 
     return _.map(menus[menus.length - 1], id => {
       let disabled = "";
-      if (!home && id === 2001) {disabled = " disabled"}
+      if (id === 2001) {!home ? disabled = " disabled" : onClick = () => true}
 
       return (
         <div key={`${menus.indexOf(menus[menus.length - 1])}-${id}`} className={`keyboard ${css}-key${disabled}`}>

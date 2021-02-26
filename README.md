@@ -54,8 +54,6 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Menu Logic
-  * Use a special button to traverse back up menus
-  * Sort keeping the special menu where it is as opposed to moving with size of keyboard
   * Add in tooltips for each character
   * Add in POS colours for each character
   

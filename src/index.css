@@ -18,8 +18,16 @@ html, body {margin: 0; height: 100vh; width: 100vw;}
 .keyboard {display: flex; align-items: flex-start; flex-direction: row; justify-content: center;}
 .character-keyboard {flex-wrap: wrap; justify-content: center; width: 100%}
 .special-keyboard {flex-direction: column;}
-.character-key, .special-key {align-items: center; width: calc(81vw / 15); margin: 1vh 0.5vw; background: #f5f5f5;}
+.character-key, .special-key {display: flex; align-items: center; flex-direction: column; width: calc(81vw / 15); margin: 1vh 0.5vw; background: #f5f5f5;}
 .character-key, .special-key {-webkit-border-radius: 0.25vw 0.25vw 0 0; -moz-border-radius: 0.25vw 0.25vw 0 0; border-radius: 0.25vw 0.25vw 0 0;}
 .character-key-inner, .special-key-inner {cursor: pointer; padding: 2vh 1vw; width: 100%; height: 100%;}
+.character-key-pos-colour {height: 8px; width: 100%;}
+.RED {background-color: #f9c7b0;}
+.GREEN {background-color: #dce8ba;}
+.BLUE {background-color: #d6ecf7;}
+.YELLOW {background-color: #fee885;}
+.GRAY {background-color: #cccccc;}
+.WHITE {background-color: #ffffff;}
+.BLACK {background-color: #000000;}
 
 .disabled {background: #1565c0;}

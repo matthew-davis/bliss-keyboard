@@ -1,3 +1,3 @@
 // Exports
-export * from "./conversionMap";
+export * from "./translation";
 export * from "./keyboard";

@@ -55,7 +55,6 @@ Looking to use TypeScript and React
 ### Tasks
 * Menu Logic
   * Add in tooltips for each character
-  * Add in POS colours for each character
   
 * Structure
   * Build functionality to display them flexibly and responsively
@@ -86,17 +85,6 @@ Looking to use TypeScript and React
   * Support all tools supporting hard of hearing 
   * Support all tools supporting poor eye sight
   * Support highest level of web accessibility WCAG 2.0 AAA
-
-### Colour Details
-Red: #f9c7b0
-Green: #dce8ba
-Blue: #d6ecf7
-Yellow: #fee885
-Grey: #cccccc
-White: #ffffff
-
-Mark each key with a coloured strip across the top corresponding to it's 
-POS and the above colours
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm: 

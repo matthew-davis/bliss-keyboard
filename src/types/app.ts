@@ -1,18 +1,18 @@
 // Enum
 export enum ELanguage {
-  ENGLISH = "ENGLISH",
-  SWEDISH = "SWEDISH",
-  NORWEGIAN = "NORWEGIAN",
-  FINNISH = "FINNISH",
-  HUNGARIAN = "HUNGARIAN",
-  GERMAN = "GERMAN",
-  DUTCH = "DUTCH",
-  AFRIKAANS = "AFRIKAANS",
-  RUSSIAN = "RUSSIAN",
-  LATVIAN = "LATVIAN",
-  POLISH = "POLISH",
-  FRENCH = "FRENCH",
-  SPANISH = "SPANISH",
+  ENGLISH = "english",
+  SWEDISH = "swedish",
+  NORWEGIAN = "norwegian",
+  FINNISH = "finnish",
+  HUNGARIAN = "hungarian",
+  GERMAN = "german",
+  DUTCH = "dutch",
+  AFRIKAANS = "afrikaans",
+  RUSSIAN = "russian",
+  LATVIAN = "latvian",
+  POLISH = "polish",
+  FRENCH = "french",
+  SPANISH = "spanish",
 }
 
 // Interface

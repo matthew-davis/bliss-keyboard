@@ -23,6 +23,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
       let getDefinition = "";
       let onClick: TOnClick = () => true;
       let colour = "";
+      let keySymbol = <span>&nbsp;</span>;
 
       if (id === -1) {return <p key={1}>Character Indicator Keys Go Here!</p>;}
 
@@ -33,6 +34,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
       if (css === "character") {
         onClick = characterClick;
+        keySymbol = <i className={`bs bs-${id.toString()}`} />;
       } else if (css === "special") {
         if (!home && id === 2001) {
           onClick = navigateClick;
@@ -47,7 +49,9 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
           onMouseOver={() => characterDefinition(getDefinition)}
           onMouseOut={() => setDefinition("")}
         >
-          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>{id.toString()}</div>
+          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>
+            {keySymbol}
+          </div>
           {props.posColours && <div className={`character-key-pos-colour${colour}`}/>}
         </div>
       );
@@ -56,6 +60,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   return (
     <React.Fragment>
+
       {props.displayDefinitions && <div className={"character-definitions"}>&nbsp;{definition}&nbsp;</div>}
       <div className={"keyboard"}>
         <div className={"keyboard character-keyboard"}>

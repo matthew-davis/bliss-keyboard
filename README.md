@@ -6,65 +6,53 @@ available.
 
 Looking to use TypeScript and React
 
-### Basic layout of the application
-* Output Box 
-  * This is where to output the bliss symbols
-  * Needs to respond to keyboard (space, backspace and enter at least)
-  * This is mandatory in the app
-* Translation Box 
-  * This is where to write the translations of the characters/words to
-  * It sits under the Output Box
-  * Use a property to turn this component visibility on or off
-* Search Box
-  * Text input that limits displayed characters/words/diacrtics in the Characters box
-  * Use a property to turn this component visibility on or off
-* Flags Box
-  * List flags for all translation languages
-    * English
-    * Swedish
-    * Norwegian
-    * Finnish
-    * Hungarian
-    * German
-    * Dutch
-    * Afrikaans
-    * Russian
-    * Latvian
-    * Polish
-    * French
-    * Spanish
-  * The chosen flag influences the translation, and the search language as well as
-    the language used in the roll over tooltips for each character and finally for
-    the alt tags for each symbol (and any accessibility text included)
-  * You can use a property to set a default language
-  * Use a property to turn this component visibility on or off this can be turned
-    off while a default language is set
-* Header Menu Box 
-  * Start with the initial symbols
-  * Each symbol represents a hidden tree of sub menus
-  * This is a mandatory component
-* Characters Box 
-  * Output for characters/words returned from menu selection or searching
-  * Each character gets a tooltip with the default language used to indicate the 
-    character
-  * Need to indicate on each key a colour tab representing the POS colour
-  * Need to indicate where in the tree structure the user is as well as letting them
-    return to a higher up menu
-  * This is a mandatory component
-
 ### Tasks
+* Keyboard
+  * Figure out how to use all four symbol sources at the same time (different 
+    leading classes: e.g. bs-cha, bs-dia, bs-dep, and bs-wor)
+  * Increase the size of symbols within their keys
+  * Sort the use of fill in the font
+  * Find a way to display the special characters
+  * Maybe make their own font/css files
+  * Create indicator menu
+  * Confirm all indicators are used in the final menu for a character
+  * When visible, look through every menu and group/order symbols
+    * Roughly maneuver symbols into 15 groups of about 70
+    * Count both Tier 2 and 3 together to get the 70 number
+  * Create key containers for words
 
-* Figure out how to consume the icon font
-* Create indicator menu
-* Confirm all indicators are used in the final menu for a character
-* When visible, look through every menu and group/order symbols
-  * Roughly maneuver symbols into 15 groups of about 70
-  * Count both Tier 2 and 3 together to get the 70 number
-* Create key containers for words
+
+* Output
+  * Need to build the output box structurally/aesthetically 
+  * Need to build the ability to accept Characters and depict them
+    * Perhaps an array of objects holding the character/indicator pair
+    * Build functionality to translate this stream to characters
+  * Need to set up function to type character when in the indicator menu
+  * Need to build special functionality to respond to special characters
+  
+
+* Translation
+  * Sort structure/aesthetics of the translation box
+  * Create a translation using the first word in the series of words from the 
+    definition for each character/word in the output box
+  * Run this from the same character array that runs the output box
 
 
-* Plan Additional Sections Functionality
+* Search
+  * Create text input structure to accept characters
+  * Write function to search definitions for matches (use the selected language)
+  * Limit what is in the characters menu to search matches
+  * Allow search to return words 
 
+
+* Languages
+  * Create structure aesthetics for language list
+  * Add in flags for each language
+  * onMouseOver of each flag writes the language in the area where definitions 
+    go
+  * Make that area available 100% of the time even if the definitions are 
+    turned off
+    
 
 * Tests
   * Create tests for all of this work
@@ -78,7 +66,6 @@ Looking to use TypeScript and React
   
 
 * Further down the line
-  * Connect characters to their equivalent on the keyboard
   * Connect special characters to their equivalents on a keyboard
   * If easy connect numbers and letters to their respective keys as well
   * Also punctuation
@@ -95,6 +82,3 @@ symbols.
 
 I considered using the POS colours, but the distribution of the types are very uneven
 across the characters.
-
-
-

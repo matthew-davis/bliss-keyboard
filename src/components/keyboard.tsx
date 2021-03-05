@@ -1,5 +1,4 @@
 // Imports
-import * as _ from "lodash";
 import * as React from "react";
 import {IPassedProps, TMouseEvent, TOnClick} from "../types";
 import {getHomeMenu, getNextMenu, getPreviousMenu, getRecordById, getSpecialMenu} from "../utils"
@@ -8,45 +7,48 @@ import {getHomeMenu, getNextMenu, getPreviousMenu, getRecordById, getSpecialMenu
 export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const [characterMap, setCharacterMap] = React.useState<number[][]>(getHomeMenu());
+  const [definition, setDefinition] = React.useState<string>("");
+
+  const characterDefinition = (text: string): void => setDefinition(text.replace(/,/g, ", "));
 
   const characterClick = (event: TMouseEvent) => {
     setCharacterMap(getNextMenu(parseInt(event.currentTarget.dataset.id || "-1"), characterMap));
   };
 
-  const specialClick = (event: TMouseEvent) => {
-    if (parseInt(event.currentTarget.dataset.id || "-1") === 2001) {
-      setCharacterMap(getPreviousMenu(parseInt(event.currentTarget.dataset.id || "-1"), characterMap));
-    } else {
-      console.log("Didn't hit 2001");
-    }
-  };
+  const navigateClick = () => setCharacterMap(getPreviousMenu(characterMap));
 
   const buildMenu = (menus: number[][], css: string, home: boolean = true): React.ReactElement[] => {
-
-    console.log(props.tooltips);
-    console.log(props.language);
-    // Build tooltip structure for each character button
-    // Once tooltip comes up build search functionality based on language and id => getRecordById(id)[props.language]
-    // Display searched tooltip with each character key
-
-    return _.map(menus[menus.length - 1], id => {
+    return menus[menus.length - 1].map(id => {
       let disabled = "";
+      let getDefinition = "";
       let onClick: TOnClick = () => true;
       let colour = "";
 
-      if (css === "character") {
+      if (id === -1) {return <p key={1}>Character Indicator Keys Go Here!</p>;}
+
+      if (getRecordById(id)) {
+        getDefinition = getRecordById(id)[props.language];
         colour = " " + getRecordById(id).pos;
+      }
+
+      if (css === "character") {
         onClick = characterClick;
       } else if (css === "special") {
-        if (!home) {disabled = " disabled";}
-        onClick = specialClick;
-        colour = " BLACK";
+        if (!home && id === 2001) {
+          onClick = navigateClick;
+          disabled = " navigateUp";
+        }
       }
 
       return (
-        <div key={`${menus.indexOf(menus[menus.length - 1])}-${id}`} className={`keyboard ${css}-key${disabled}`}>
+        <div
+          key={`${menus.indexOf(menus[menus.length - 1])}-${id}`}
+          className={`keyboard ${css}-key${disabled}`}
+          onMouseOver={() => characterDefinition(getDefinition)}
+          onMouseOut={() => setDefinition("")}
+        >
           <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>{id.toString()}</div>
-          {props.posColours && <div className={`character-key-pos-colour${colour}`} />}
+          {props.posColours && <div className={`character-key-pos-colour${colour}`}/>}
         </div>
       );
     });
@@ -54,6 +56,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   return (
     <React.Fragment>
+      {props.displayDefinitions && <div className={"character-definitions"}>&nbsp;{definition}&nbsp;</div>}
       <div className={"keyboard"}>
         <div className={"keyboard character-keyboard"}>
           {buildMenu(characterMap, "character")}

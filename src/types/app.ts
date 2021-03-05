@@ -21,6 +21,6 @@ export interface IOptions {
   search: boolean,
   languages: boolean,
   defaultLanguage: ELanguage,
-  tooltips: boolean,
+  displayDefinitions: boolean,
   posColours: boolean,
 }

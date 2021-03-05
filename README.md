@@ -53,38 +53,35 @@ Looking to use TypeScript and React
   * This is a mandatory component
 
 ### Tasks
-* Menu Logic
-  * Add in tooltips for each character
-  
-* Structure
-  * Build functionality to display them flexibly and responsively
-    * Look at using media queries to fundamentally change the keyboard for different sizes
-    * need to find major size changes and redesign keyboard for that
-  * Figure out how to consume the icon font
-  
-* Finish Main Keyboard
-  * Create indicator menu
-  * Link indicator menu to final character selection in menu functions
-  * Confirm all indicators are used in the final menu for a character
-  * When visible, look through every menu and group/order symbols
-    * Roughly maneuver symbols into 15 groups of about 70
-    * Count both Tier 2 and 3 together to get the 70 number
-  * Connect characters to their equivalent on the keyboard
-    * Connect these special characters to their equivalents on a keyboard
-    * If easy connect numbers and letters to their respective keys as well
-    * Also punctuation
-  * Create key containers for words
 
-* Plan Additional Section Functionality
+* Figure out how to consume the icon font
+* Create indicator menu
+* Confirm all indicators are used in the final menu for a character
+* When visible, look through every menu and group/order symbols
+  * Roughly maneuver symbols into 15 groups of about 70
+  * Count both Tier 2 and 3 together to get the 70 number
+* Create key containers for words
+
+
+* Plan Additional Sections Functionality
+
 
 * Tests
   * Create tests for all of this work
   
+
 * Accessibility
   * Read up on accessibility
   * Support all tools supporting hard of hearing 
   * Support all tools supporting poor eye sight
   * Support highest level of web accessibility WCAG 2.0 AAA
+  
+
+* Further down the line
+  * Connect characters to their equivalent on the keyboard
+  * Connect special characters to their equivalents on a keyboard
+  * If easy connect numbers and letters to their respective keys as well
+  * Also punctuation
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm: 

@@ -15,7 +15,7 @@ export const App = (): React.ReactElement => {
     search: true,
     languages: true,
     defaultLanguage: ELanguage.ENGLISH,
-    tooltips: true,
+    displayDefinitions: true,
     posColours: true,
   }
 
@@ -25,7 +25,7 @@ export const App = (): React.ReactElement => {
       {options.translation && <Translation />}
       {options.search && <Search />}
       {options.languages && <Languages />}
-      <Keyboard language={options.defaultLanguage} tooltips={options.tooltips} posColours={options.posColours} />
+      <Keyboard language={options.defaultLanguage} displayDefinitions={options.displayDefinitions} posColours={options.posColours} />
     </React.Fragment>
   );
 };

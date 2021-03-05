@@ -9,7 +9,7 @@ export interface IMenuMap {
 
 export interface IPassedProps {
   language: ELanguage,
-  tooltips: boolean,
+  displayDefinitions: boolean,
   posColours: boolean,
 }
 

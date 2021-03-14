@@ -8,18 +8,14 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Figure out how to use all four symbol sources at the same time (different 
-    leading classes: e.g. bs-cha, bs-dia, bs-dep, and bs-wor)
-  * Increase the size of symbols within their keys
-  * Sort the use of fill in the font
-  * Find a way to display the special characters
-  * Maybe make their own font/css files
   * Create indicator menu
   * Confirm all indicators are used in the final menu for a character
   * When visible, look through every menu and group/order symbols
     * Roughly maneuver symbols into 15 groups of about 70
     * Count both Tier 2 and 3 together to get the 70 number
   * Create key containers for words
+  * Capitalize first letters of definitions as well as removing underscores
+  * Add a little padding underneath symbols 
 
 
 * Output

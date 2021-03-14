@@ -17,13 +17,13 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const navigateClick = () => setCharacterMap(getPreviousMenu(characterMap));
 
-  const buildMenu = (menus: number[][], css: string, home: boolean = true): React.ReactElement[] => {
+  const buildMenu = (menus: number[][], css: string, home: boolean = true): any[] => {
     return menus[menus.length - 1].map(id => {
       let disabled = "";
       let getDefinition = "";
       let onClick: TOnClick = () => true;
       let colour = "";
-      let keySymbol = <span>&nbsp;</span>;
+      let keySymbol: any = <span>&nbsp;</span>;
 
       if (id === -1) {return <p key={1}>Character Indicator Keys Go Here!</p>;}
 
@@ -34,13 +34,15 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
       if (css === "character") {
         onClick = characterClick;
-        keySymbol = <i className={`bs bs-${id.toString()}`} />;
       } else if (css === "special") {
         if (!home && id === 2001) {
           onClick = navigateClick;
           disabled = " navigateUp";
         }
       }
+
+      keySymbol = <svg className="bs-icon"><use href={`#${css}_${id.toString()}`} /></svg>;
+
 
       return (
         <div
@@ -60,7 +62,6 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   return (
     <React.Fragment>
-
       {props.displayDefinitions && <div className={"character-definitions"}>&nbsp;{definition}&nbsp;</div>}
       <div className={"keyboard"}>
         <div className={"keyboard character-keyboard"}>

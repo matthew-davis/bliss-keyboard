@@ -8,14 +8,10 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Create indicator menu
   * Confirm all indicators are used in the final menu for a character
   * When visible, look through every menu and group/order symbols
     * Roughly maneuver symbols into 15 groups of about 70
     * Count both Tier 2 and 3 together to get the 70 number
-  * Create key containers for words
-  * Capitalize first letters of definitions as well as removing underscores
-  * Add a little padding underneath symbols 
 
 
 * Output
@@ -39,6 +35,7 @@ Looking to use TypeScript and React
   * Write function to search definitions for matches (use the selected language)
   * Limit what is in the characters menu to search matches
   * Allow search to return words 
+  * Create key containers for words
 
 
 * Languages

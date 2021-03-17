@@ -1,7 +1,7 @@
 // Imports
 import * as React from "react";
 import {IPassedProps, TMouseEvent, TOnClick} from "../types";
-import {getHomeMenu, getNextMenu, getPreviousMenu, getRecordById, getSpecialMenu} from "../utils"
+import {getHomeMenu, getIndicatorMenu, getNextMenu, getPreviousMenu, getRecordById, getSpecialMenu} from "../utils"
 
 // Component
 export const Keyboard = (props: IPassedProps): React.ReactElement => {
@@ -9,7 +9,13 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
   const [characterMap, setCharacterMap] = React.useState<number[][]>(getHomeMenu());
   const [definition, setDefinition] = React.useState<string>("");
 
-  const characterDefinition = (text: string): void => setDefinition(text.replace(/,/g, ", "));
+  const characterDefinition = (text: string): void => {
+    const def1 = text.replace(/,/g, ", ");
+    const def2 = def1.replace(/_/g, " ");
+    const def3 = def2.replace(/\b\w/g, l => l.toUpperCase());
+
+    setDefinition(def3);
+  };
 
   const characterClick = (event: TMouseEvent) => {
     setCharacterMap(getNextMenu(parseInt(event.currentTarget.dataset.id || "-1"), characterMap));
@@ -17,32 +23,39 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const navigateClick = () => setCharacterMap(getPreviousMenu(characterMap));
 
+  const outputClick = () => console.log("Output Click");
+
   const buildMenu = (menus: number[][], css: string, home: boolean = true): any[] => {
     return menus[menus.length - 1].map(id => {
       let disabled = "";
-      let getDefinition = "";
-      let onClick: TOnClick = () => true;
-      let colour = "";
-      let keySymbol: any = <span>&nbsp;</span>;
-
-      if (id === -1) {return <p key={1}>Character Indicator Keys Go Here!</p>;}
+      let getDefinition = "Can't find a definition";
+      let onClick: TOnClick = characterClick;
+      let colour = "no-colour";
+      let keySymbol: React.ReactElement = <svg className="bs-icon"><use href={`#${css}_${id.toString()}`} /></svg>;
+      let dataId = id;
+      const indicators = getIndicatorMenu()[0];
 
       if (getRecordById(id)) {
         getDefinition = getRecordById(id)[props.language];
-        colour = " " + getRecordById(id).pos;
+        colour = " " + getRecordById(id).pos
       }
 
-      if (css === "character") {
-        onClick = characterClick;
-      } else if (css === "special") {
-        if (!home && id === 2001) {
-          onClick = navigateClick;
-          disabled = " navigateUp";
-        }
+      if (indicators.indexOf(id) > -1) {
+        const charId = characterMap[characterMap.length - 2][0];
+        dataId = charId;
+        onClick = outputClick;
+        keySymbol = (
+          <svg className="bs-icon">
+            <use href={`#${css}_${id.toString()}`} />
+            <use href={`#${css}_${charId.toString()}`} />
+          </svg>
+        );
       }
 
-      keySymbol = <svg className="bs-icon"><use href={`#${css}_${id.toString()}`} /></svg>;
-
+      if (css === "special" && !home && id === 2001) {
+        onClick = navigateClick;
+        disabled = " navigateUp";
+      }
 
       return (
         <div
@@ -51,7 +64,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
           onMouseOver={() => characterDefinition(getDefinition)}
           onMouseOut={() => setDefinition("")}
         >
-          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={id}>
+          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={dataId}>
             {keySymbol}
           </div>
           {props.posColours && <div className={`character-key-pos-colour${colour}`}/>}

@@ -45,10 +45,13 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
         dataId = charId;
         onClick = outputClick;
         keySymbol = (
-          <svg className="bs-icon">
-            <use href={`#${css}_${id.toString()}`} />
-            <use href={`#${css}_${charId.toString()}`} />
-          </svg>
+          <React.Fragment>
+            {charId}
+            <svg className="bs-icon">
+              <use href={`#${css}_${id.toString()}`} />
+              <use href={`#${css}_${charId.toString()}`} />
+            </svg>
+          </React.Fragment>
         );
       }
 
@@ -65,6 +68,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
           onMouseOut={() => setDefinition("")}
         >
           <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={dataId}>
+            {dataId}
             {keySymbol}
           </div>
           {props.posColours && <div className={`character-key-pos-colour${colour}`}/>}

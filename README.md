@@ -8,11 +8,10 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Confirm all indicators are used in the final menu for a character
-  * When visible, look through every menu and group/order symbols
-    * Roughly maneuver symbols into 15 groups of about 70
-    * Count both Tier 2 and 3 together to get the 70 number
-
+  * Find and surface all missing symbols
+  * Combine 15214 and 15474, 15991 and 24883, 14417 and 15975, 13403 and 15471
+  * Once combined find four new home level menu items: suggestions for box and people for two of them
+  * Sort a level indicator giving names to the menus and showing them at the far left of the definition section
 
 * Output
   * Need to build the output box structurally/aesthetically 

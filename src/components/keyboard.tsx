@@ -27,13 +27,16 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
 
   const buildMenu = (menus: number[][], css: string, home: boolean = true): any[] => {
     return menus[menus.length - 1].map(id => {
-      let disabled = "";
       let getDefinition = "Can't find a definition";
       let onClick: TOnClick = characterClick;
       let colour = "no-colour";
       let keySymbol: React.ReactElement = <svg className="bs-icon"><use href={`#${css}_${id.toString()}`} /></svg>;
       let dataId = id;
       const indicators = getIndicatorMenu()[0];
+      const key = `${menus.indexOf(menus[menus.length - 1])}-${id}`;
+      let className = `keyboard ${css}-key`;
+      const onMouseOver = () => characterDefinition(getDefinition);
+      const onMouseOut = () => setDefinition("");
 
       if (getRecordById(id)) {
         getDefinition = getRecordById(id)[props.language];
@@ -46,7 +49,6 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
         onClick = outputClick;
         keySymbol = (
           <React.Fragment>
-            {charId}
             <svg className="bs-icon">
               <use href={`#${css}_${id.toString()}`} />
               <use href={`#${css}_${charId.toString()}`} />
@@ -55,22 +57,18 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
         );
       }
 
-      if (css === "special" && !home && id === 2001) {
-        onClick = navigateClick;
-        disabled = " navigateUp";
+      if (css === "special" && id === 2001) {
+        onClick = () => true;
+        if (!home) {
+          onClick = navigateClick;
+          className += " navigate-up";
+          keySymbol = <svg className="bs-icon"><use href={`#${css}_${(id + characterMap.length - 1).toString()}`} /></svg>;
+        }
       }
 
       return (
-        <div
-          key={`${menus.indexOf(menus[menus.length - 1])}-${id}`}
-          className={`keyboard ${css}-key${disabled}`}
-          onMouseOver={() => characterDefinition(getDefinition)}
-          onMouseOut={() => setDefinition("")}
-        >
-          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={dataId}>
-            {dataId}
-            {keySymbol}
-          </div>
+        <div key={key} className={className} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+          <div className={`keyboard ${css}-key-inner`} onClick={onClick} data-id={dataId}>{dataId}{keySymbol}</div>
           {props.posColours && <div className={`character-key-pos-colour${colour}`}/>}
         </div>
       );

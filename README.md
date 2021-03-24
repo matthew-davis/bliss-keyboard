@@ -8,8 +8,17 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Once combined find four new home level menu items: suggestions for box and people for two of them
-  * Group all symbols
+  * Create all top level menus
+  * Move all items to two levels
+  * Move each menu's items to all qualifying menus
+  * Work through Bus menu item 
+  * Order each menu's items
+  * Re-distribute all items and even them up: attempt home menu of 28 items (2 rows)
+  * Re-distribute all items in sub-menus try to cap at 70 (5 rows)
+  * In home menu instead of definition put the menu name 
+  * Sub-menu items get their definition shown
+  * Indicator menus get their definition with character definition shown
+  * Improve the Level indicator, add the menu name in the left of the definition box: Home, Menu Name, Character Name Indicator
 
 
 * Output

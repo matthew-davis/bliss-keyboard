@@ -8,10 +8,10 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Create all top level menus
   * Move all items to two levels
   * Move each menu's items to all qualifying menus
   * Work through Bus menu item 
+  * Check all menus for duplicates within the menu
   * Order each menu's items
   * Re-distribute all items and even them up: attempt home menu of 28 items (2 rows)
   * Re-distribute all items in sub-menus try to cap at 70 (5 rows)

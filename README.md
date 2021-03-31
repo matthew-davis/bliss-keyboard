@@ -8,13 +8,8 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Move all items to two levels
+  * Look at ways to minimize number of element in each menu
   * Move each menu's items to all qualifying menus
-  * Work through Bus menu item 
-  * Check all menus for duplicates within the menu
-  * Consider combining all shapes apart from straight and diagonal
-  * Consider removing all themed menus apart from direction and pointer
-  * Consider combining Alphanumeric and Punctuation
   * Order each menu's items
   * Re-distribute all items and even them up: attempt home menu of 28 items (2 rows)
   * Re-distribute all items in sub-menus try to cap at 70 (5 rows)

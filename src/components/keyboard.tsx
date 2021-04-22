@@ -1,7 +1,15 @@
 // Imports
 import * as React from "react";
 import {IPassedProps, TMouseEvent, TOnClick} from "../types";
-import {getHomeMenu, getIndicatorMenu, getNextMenu, getPreviousMenu, getRecordById, getSpecialMenu} from "../utils"
+import {
+  getHomeMenu,
+  getIndicatorMenu,
+  getNextMenu,
+  getPreviousMenu,
+  getRecordById,
+  getSpecialMenuA,
+  getSpecialMenuB
+} from "../utils"
 
 // Component
 export const Keyboard = (props: IPassedProps): React.ReactElement => {
@@ -34,7 +42,7 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
       let dataId = id;
       const indicators = getIndicatorMenu()[0];
       const key = `${menus.indexOf(menus[menus.length - 1])}-${id}`;
-      let className = `keyboard ${css}-key`;
+      let className = `bs keyboard ${css}-key`;
       const onMouseOver = () => characterDefinition(getDefinition);
       const onMouseOut = () => setDefinition("");
 
@@ -83,7 +91,10 @@ export const Keyboard = (props: IPassedProps): React.ReactElement => {
           {buildMenu(characterMap, "character")}
         </div>
         <div className={"keyboard special-keyboard"}>
-          {buildMenu(getSpecialMenu(), "special", characterMap.length === 1)}
+          {buildMenu(getSpecialMenuA(), "special", characterMap.length === 1)}
+        </div>
+        <div className={"keyboard special-keyboard"}>
+          {buildMenu(getSpecialMenuB(), "special", characterMap.length === 1)}
         </div>
       </div>
     </React.Fragment>

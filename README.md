@@ -8,12 +8,12 @@ Looking to use TypeScript and React
 
 ### Tasks
 * Keyboard
-  * Look at ways to minimize number of element in each menu
-  * Move each menu's items to all qualifying menus
+  * Aiming to match 35 characters to a home menu 
+  * Each home menu character then relating to 35 characters
+  * Write the corresponding keyboard character name on each block
+    * Pull from actual keyboard if I can
   * Order each menu's items
-  * Re-distribute all items and even them up: attempt home menu of 28 items (2 rows)
-  * Re-distribute all items in sub-menus try to cap at 70 (5 rows)
-  * In home menu instead of definition put the menu name 
+  * Find a way to define the menu level 
   * Sub-menu items get their definition shown
   * Indicator menus get their definition with character definition shown
   * Improve the Level indicator, add the menu name in the left of the definition box: Home, Menu Name, Character Name Indicator

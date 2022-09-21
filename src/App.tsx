@@ -7,7 +7,6 @@ const sizeKeyboard = () => {
 };
 
 const App = () => {
-
   useEffect(() => sizeKeyboard(), []);
 
   window.addEventListener('resize', function (e) {

@@ -1,11 +1,11 @@
-import { ELanguage } from "../../types/app";
+import { ELanguage } from "../../types";
 
 type TKeyboardLanguage = {
   [key in ELanguage]: any;
-}
+};
 
 export const keyboardLanguage: TKeyboardLanguage = {
-  [ELanguage.ENGLISH]: {
+  [ELanguage.English]: {
     row1: [
       { className: "key--letter", dataCode: "192", character: "&#96;" },
       { className: "key--letter", dataCode: "49", character: "&#49;" },
@@ -20,10 +20,18 @@ export const keyboardLanguage: TKeyboardLanguage = {
       { className: "key--letter", dataCode: "48", character: "&#48;" },
       { className: "key--letter", dataCode: "173", character: "&#45;" },
       { className: "key--letter", dataCode: "61", character: "&#61;" },
-      { className: "key--bottom-right key--word key--w2", dataCode: "8", character: "<span>backspace</span>" },
+      {
+        className: "key--bottom-right key--word key--w2",
+        dataCode: "8",
+        character: "<span>backspace</span>",
+      },
     ],
     row2: [
-      { className: "key--bottom-left key--word key--w2", dataCode: "9", character: "<span>menu up</span>" },
+      {
+        className: "key--bottom-left key--word key--w2",
+        dataCode: "9",
+        character: "<span>menu up</span>",
+      },
       { className: "key--letter", dataCode: "81", character: "&#81;" },
       { className: "key--letter", dataCode: "87", character: "&#87;" },
       { className: "key--letter", dataCode: "69", character: "&#69;" },
@@ -39,7 +47,11 @@ export const keyboardLanguage: TKeyboardLanguage = {
       { className: "key--letter", dataCode: "220", character: "&#92;" },
     ],
     row3: [
-      { className: "key--bottom-left key--word key--w3", dataCode: "20", character: "<span>caps lock</span>" },
+      {
+        className: "key--bottom-left key--word key--w3",
+        dataCode: "20",
+        character: "<span>caps lock</span>",
+      },
       { className: "key--letter", dataCode: "65", character: "&#65;" },
       { className: "key--letter", dataCode: "83", character: "&#83;" },
       { className: "key--letter", dataCode: "68", character: "&#68;" },
@@ -51,10 +63,18 @@ export const keyboardLanguage: TKeyboardLanguage = {
       { className: "key--letter", dataCode: "76", character: "&#76;" },
       { className: "key--letter", dataCode: "59", character: "&#59;" },
       { className: "key--letter", dataCode: "222", character: "&#42;" },
-      { className: "key--bottom-right key--word key--w3", dataCode: "13", character: "<span>return</span>" },
+      {
+        className: "key--bottom-right key--word key--w3",
+        dataCode: "13",
+        character: "<span>return</span>",
+      },
     ],
     row4: [
-      { className: "key--bottom-left key--word key--w4", dataCode: "16", character: "<span>shift</span>" },
+      {
+        className: "key--bottom-left key--word key--w4",
+        dataCode: "16",
+        character: "<span>shift</span>",
+      },
       { className: "key--letter", dataCode: "90", character: "&#90;" },
       { className: "key--letter", dataCode: "88", character: "&#88;" },
       { className: "key--letter", dataCode: "67", character: "&#67;" },
@@ -65,31 +85,59 @@ export const keyboardLanguage: TKeyboardLanguage = {
       { className: "key--letter", dataCode: "188", character: "&#44;" },
       { className: "key--letter", dataCode: "190", character: "&#46;" },
       { className: "key--letter", dataCode: "191", character: "&#47;" },
-      { className: "key--bottom-right key--word key--w4", dataCode: "16-R", character: "<span>shift</span>" },
+      {
+        className: "key--bottom-right key--word key--w4",
+        dataCode: "16-R",
+        character: "<span>shift</span>",
+      },
     ],
     row5: [
-      { className: "key--bottom-left key--word key--w1", dataCode: "17", character: "<span>ctrl</span>" },
-      { className: "key--bottom-left key--word", dataCode: "X1", character: "<span>fn</span>" },
-      { className: "key--bottom-left key--word", dataCode: "X2", character: "<span>option</span>" },
-      { className: "key--bottom-left key--word key--w1", dataCode: "18", character: "<span>alt</span>" },
+      {
+        className: "key--bottom-left key--word key--w1",
+        dataCode: "17",
+        character: "<span>ctrl</span>",
+      },
+      {
+        className: "key--bottom-left key--word",
+        dataCode: "X1",
+        character: "<span>fn</span>",
+      },
+      {
+        className: "key--bottom-left key--word",
+        dataCode: "X2",
+        character: "<span>option</span>",
+      },
+      {
+        className: "key--bottom-left key--word key--w1",
+        dataCode: "18",
+        character: "<span>alt</span>",
+      },
       { className: "key--space", dataCode: "32", character: "&nbsp;" },
-      { className: "key--bottom-right key--word", dataCode: "225", character: "<span>alt gr</span>" },
-      { className: "key--bottom-right key--word", dataCode: "17-R", character: "<span>ctrl</span>" },
+      {
+        className: "key--bottom-right key--word",
+        dataCode: "225",
+        character: "<span>alt gr</span>",
+      },
+      {
+        className: "key--bottom-right key--word",
+        dataCode: "17-R",
+        character: "<span>ctrl</span>",
+      },
       { className: "key--arrow", dataCode: "Y1", character: "&nbsp;" },
       { className: "key--arrow--tall", dataCode: "X3", character: "&nbsp;" },
       { className: "key--arrow", dataCode: "Y2", character: "&nbsp;" },
     ],
   },
-  [ELanguage.SWEDISH]: {},
-  [ELanguage.NORWEGIAN]: {},
-  [ELanguage.FINNISH]: {},
-  [ELanguage.HUNGARIAN]: {},
-  [ELanguage.GERMAN]: {},
-  [ELanguage.DUTCH]: {},
-  [ELanguage.AFRIKAANS]: {},
-  [ELanguage.RUSSIAN]: {},
-  [ELanguage.LATVIAN]: {},
-  [ELanguage.POLISH]: {},
-  [ELanguage.FRENCH]: {},
-  [ELanguage.SPANISH]: {},
+  [ELanguage.Swedish]: {},
+  [ELanguage.Norwegian]: {},
+  [ELanguage.Finnish]: {},
+  [ELanguage.Hungarian]: {},
+  [ELanguage.German]: {},
+  [ELanguage.Dutch]: {},
+  [ELanguage.Afrikaans]: {},
+  [ELanguage.Russian]: {},
+  [ELanguage.Latvian]: {},
+  [ELanguage.Polish]: {},
+  [ELanguage.French]: {},
+  [ELanguage.Spanish]: {},
 };

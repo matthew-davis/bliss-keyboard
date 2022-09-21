@@ -10,8 +10,6 @@ Looking to use TypeScript and React
 
 SEPTEMBER
 
-* Remove unecessary junk from project (web vitals etc)
-
 * Keyboard
   * Given a list of character keys write them to the keyboard
   * Write characters to the keyboard keys instead of their keys

@@ -1,26 +1,26 @@
 // Enum
 export enum ELanguage {
-  ENGLISH = "english",
-  SWEDISH = "swedish",
-  NORWEGIAN = "norwegian",
-  FINNISH = "finnish",
-  HUNGARIAN = "hungarian",
-  GERMAN = "german",
-  DUTCH = "dutch",
-  AFRIKAANS = "afrikaans",
-  RUSSIAN = "russian",
-  LATVIAN = "latvian",
-  POLISH = "polish",
-  FRENCH = "french",
-  SPANISH = "spanish",
+  English = "ENGLISH",
+  Swedish = "SWEDISH",
+  Norwegian = "NORWEGIAN",
+  Finnish = "FINNISH",
+  Hungarian = "HUNGARIAN",
+  German = "GERMAN",
+  Dutch = "DUTCH",
+  Afrikaans = "AFRIKAANS",
+  Russian = "RUSSIAN",
+  Latvian = "LATVIAN",
+  Polish = "POLISH",
+  French = "FRENCH",
+  Spanish = "SPANISH",
 }
 
 // Interface
 export interface IOptions {
-  translation: boolean,
-  search: boolean,
-  languages: boolean,
-  defaultLanguage: ELanguage,
-  displayDefinitions: boolean,
-  posColours: boolean,
+  translation: boolean;
+  search: boolean;
+  languages: boolean;
+  defaultLanguage: ELanguage;
+  displayDefinitions: boolean;
+  posColours: boolean;
 }

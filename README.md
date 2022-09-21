@@ -1,46 +1,100 @@
-# Getting Started with Create React App
+# bliss-keyboard
+An application that renders a keyboard of bliss symbols. The intention is to build
+a performant npm package to allow for the integration of a bliss-keyboard into
+projects. Currently, there are roughly 1200 Bliss Characters and 4800 Bliss Words
+available.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Looking to use TypeScript and React
 
-## Available Scripts
+### Tasks
 
-In the project directory, you can run:
+SEPTEMBER
 
-### `npm start`
+* Remove unecessary junk from project (web vitals etc)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Keyboard
+  * Given a list of character keys write them to the keyboard
+  * Write characters to the keyboard keys instead of their keys
+  * Add the POS colours to the keys
+  
+  * Aiming to group 35 base character shapes to a home-menu
+  * Each home-menu character then relating to 35 characters in a sub-menu
+  * Each sub-menu character then has a diacritic-menu 
+  * Order each menu's characters
+  
+  * Create a function that takes a home/sub menu character and moves down a menu
+    * Create a function that lets you move back up menus with the menu up button
+  * Find a way to define/indicate the menu level (home, sub, diacritic)
+  
+  * Write keyboard tests
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+OCTOBER
 
-### `npm test`
+* Output
+  * Need to build the output box structurally/aesthetically
+    * Add in a blinking cursor vertical line
+  * Need to build the ability to accept Characters and depict them
+    * Perhaps an array of objects holding the character/indicator pair
+    * Build functionality to translate this stream to characters
+  * Need to set up function to type character when in the indicator menu
+  * Need to build special functionality to respond to special characters (space, backspace and return)
+  * create output tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Translation
+  * Sort structure/aesthetics of the translation box
+  * Create a translation using the first word in the series of words from the
+    definition for each character/word in the output box
+  * Run this from the same character array that runs the output box
+  * create translation tests
 
-### `npm run build`
+NOVEMBER
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Search
+  * Create text input structure to accept characters
+  * Write function to search definitions for matches (use the selected language)
+  * Limit what is in the characters menu to search matches
+  * Allow search to return words
+  * Create key containers for words
+  * Create search tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Languages
+  * Create structure aesthetics for language list
+  * Add in flags for each language
+  * onMouseOver of each flag writes the language in the area where definitions
+    go
+  * Make that area available 100% of the time even if the definitions are
+    turned off
+  * Change keyboard key characters in response to language selection
+  * Generate 13 (one for each language) keyboard character lists for each language
+  * Create language tests
 
-### `npm run eject`
+DECEMBER
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Accessibility
+  * Read up on accessibility
+  * Support all tools supporting hard of hearing
+  * Support all tools supporting poor eyesight
+  * Support the highest level of web accessibility WCAG 2.0 AAA
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Further down the line
+  * Connect special characters to their equivalents on a keyboard
+  * If easy connect numbers and letters to their respective keys as well
+  * Also punctuation 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Keyboard Changes/Justification
+I started with the bliss-keyboard from owencm:
+[https://github.com/owencm/bliss-keyboard](https://github.com/owencm/bliss-keyboard)
 
-## Learn More
+The layout was begun from this work by Gregory Schier:
+[https://codepen.io/gschier/pen/VKgyaY](https://codepen.io/gschier/pen/VKgyaY)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This keyboard appears to be arranged roughly by shape. This seems logical as
+bliss symbols appear to be derived from common shapes. This keyboard however, does
+not include the symbols, and it had a habit of including symbols twice if it
+made sense in multiple locations. I removed the duplicates and included all missing
+symbols.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I considered breaking up the symbols by the POS colours, but the distribution of the 
+types are very uneven across the characters.

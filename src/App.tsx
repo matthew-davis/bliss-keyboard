@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import Keyboard from './components/Keyboard/Keyboard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const sizeKeyboard = () => {
+  const keyboard = document.getElementById('keyboard');
+  keyboard && (keyboard.style.fontSize = `${keyboard.parentElement!.clientWidth / 55}px`);
+};
+
+const App = () => {
+
+  useEffect(() => sizeKeyboard(), []);
+
+  window.addEventListener('resize', function (e) {
+    sizeKeyboard();
+  });
+
+  return <Keyboard />;
+};
 
 export default App;

@@ -1,0 +1,118 @@
+#keyboard {
+    text-align: center;
+    font-size: 1em;
+    font-family: sans-serif;
+    width: 55em;
+    height: 18.8em;
+}
+
+.keyboard__row {
+    display: inline-block;
+    height: 3em;
+    margin: 0.2em;
+}
+
+.keyboard__row > * {
+    position: relative;
+    background: #333;
+    text-align: center;
+    color: #eee;
+    float: left;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.2em;
+    width: 3.3em;
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-user-select: none;
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    border-bottom-color: #555;
+}
+
+.key--letter {
+    line-height: 2.8em;
+}
+
+.key--letter > .key--character {
+    position: absolute;
+    top: -1.8em;
+    right: 0.4em;
+    font-size: 0.5em;
+    height: 100%;
+}
+
+.key--letter > .menu--character {
+
+}
+
+.key--placeholder {
+    background: #eee;
+    cursor: default;
+    border: 1px solid #ddd;
+    box-shadow: 0 0.2em 0 0.05em #ccc;
+    border-bottom-color: #bbb;
+}
+
+.key--placeholder > * {
+    position: absolute;
+    top: 0.3em;
+    right: 0.4em;
+    font-size: 0.5em;
+    color: #111;
+}
+
+.keyboard__row > .key--letter[data-pressed],
+.keyboard__row > .key--word[data-pressed],
+.keyboard__row > .key--space[data-pressed],
+.keyboard__row > .key--letter:active,
+.keyboard__row > .key--word:active,
+.keyboard__row > .key--space:active {
+    background: #2a2a2a;
+    color: #aaa;
+    position: relative;
+    top: 0.2em;
+    box-shadow: 0 0 0 0.05em black;
+}
+
+.key--w1 {
+    width: 4.6em;
+}
+
+.key--w2 {
+    width: 6em;
+}
+
+.key--w3 {
+    width: 6.5em;
+}
+
+.key--w4 {
+    width: 8.3em;
+}
+
+.key--space {
+    width: 18em;
+}
+
+.key--bottom-left > * {
+    position: absolute;
+    bottom: 0.4em;
+    left: 0.4em;
+}
+
+.key--bottom-right > * {
+    position: absolute;
+    bottom: 0.4em;
+    right: 0.4em;
+}
+
+.key--word > * {
+    font-size: 0.7em;
+}
+
+.key--arrow {
+    height: 1.8em;
+    margin-top: 1.4em;
+}

@@ -8,12 +8,14 @@ const Keyboard = () => {
   const [menuKey, setMenuKey] = useState<number>(1000);
   const [language, setLanguage] = useState<ELanguage>(ELanguage.English);
 
-  document.body.addEventListener("keydown", function (e) {
+  document.body.addEventListener("keydown", (e) => {
     const key = getKey(e);
     key && key.setAttribute("data-pressed", "on");
+    // if (key && e.code === "Tab")
+    key && setMenuKey(parseInt(key.getAttribute("data-character") || ""));
   });
 
-  document.body.addEventListener("keyup", function (e) {
+  document.body.addEventListener("keyup", (e) => {
     const key = getKey(e);
     key && key.removeAttribute("data-pressed");
   });
@@ -21,7 +23,7 @@ const Keyboard = () => {
   return (
     <div key={"keyboard"} id="keyboard">
       <Characters height={0} width={0} />
-      {buildKeyboard(menuKey, language)}
+      {buildKeyboard(menuKey, setMenuKey, language)}
     </div>
   );
 };

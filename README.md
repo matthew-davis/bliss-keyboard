@@ -19,8 +19,6 @@ SEPTEMBER
   * Create a function that takes a home/sub menu character and moves down a menu
     * Create a function that lets you move back up menus with the menu up button
   * Find a way to define/indicate the menu level (home, sub, diacritic)
-  
-  * Write keyboard tests
 
 OCTOBER
 
@@ -32,14 +30,12 @@ OCTOBER
     * Build functionality to translate this stream to characters
   * Need to set up function to type character when in the indicator menu
   * Need to build special functionality to respond to special characters (space, backspace and return)
-  * create output tests
 
 * Translation
   * Sort structure/aesthetics of the translation box
   * Create a translation using the first word in the series of words from the
     definition for each character/word in the output box
   * Run this from the same character array that runs the output box
-  * create translation tests
 
 NOVEMBER
 
@@ -49,7 +45,6 @@ NOVEMBER
   * Limit what is in the characters menu to search matches
   * Allow search to return words
   * Create key containers for words
-  * Create search tests
 
 
 * Languages
@@ -61,7 +56,6 @@ NOVEMBER
     turned off
   * Change keyboard key characters in response to language selection
   * Generate 13 (one for each language) keyboard character lists for each language
-  * Create language tests
 
 DECEMBER
 

@@ -18,7 +18,11 @@ const htmlDecode = (input: string, finalClass: string) => {
   return doc.documentElement.textContent;
 };
 
-export const buildKeyboard = (menuKey: number, language: ELanguage = ELanguage.English) => {
+export const buildKeyboard = (
+  menuKey: number,
+  setMenuKey: (num: number) => void,
+  language: ELanguage = ELanguage.English,
+) => {
   const menu: number[] = getMenu(menuKey);
   const menuLength: number = menu.length;
   const keyboardCharacters: TKeyboardKeys = keyboardLanguage[language];
@@ -91,7 +95,13 @@ export const buildKeyboard = (menuKey: number, language: ELanguage = ELanguage.E
       }
 
       return (
-        <div key={key.code} className={finalClass} data-code={key.code}>
+        <div
+          key={key.code}
+          data-character={menuCharacter ? menuCharacter.toString() : key.code}
+          className={finalClass}
+          data-code={key.code}
+          onClick={() => setMenuKey(menuCharacter || 0)}
+        >
           {menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
           <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>
           {menuCharacter && (

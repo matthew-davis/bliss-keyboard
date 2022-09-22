@@ -1,8 +1,8 @@
 import * as React from "react";
 import { TMenuProps } from "../../types";
-import "./menu.css";
+import "./menus.css";
 
-export const Menu = (props: TMenuProps): React.ReactElement => {
+export const Menus = (props: TMenuProps): React.ReactElement => {
   const { menuKey } = props;
   let menu: string;
 

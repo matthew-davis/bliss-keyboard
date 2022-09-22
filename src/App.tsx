@@ -3,10 +3,10 @@ import {
   Definitions,
   Keyboard,
   Languages,
-  Menu,
+  Menus,
   Output,
   Search,
-  Translation,
+  Translations,
 } from './components';
 import { ELanguage, IOptions } from "./types";
 import { sizeKeyboard } from "./utils";
@@ -32,10 +32,10 @@ const App = () => {
   return (
     <div id={"keyboardWrapper"}>
       <Output />
-      {options.translation && <Translation />}
+      {options.translation && <Translations />}
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
-        {options.menu && <Menu menuKey={menuKey} />}
+        {options.menu && <Menus menuKey={menuKey} />}
         {options.definitions && <Definitions />}
         {options.languages && <Languages />}
       </div>

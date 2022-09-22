@@ -2,7 +2,7 @@ import React from "react";
 import { IOptionsProps } from "../../types";
 import "./keyboard.css";
 import {buildKeyboard, getKey} from "../../utils";
-import { ReactComponent as Characters } from "../../assets/character.svg";
+import { ReactComponent as Characters } from "../../assets/characters.svg";
 
 export const Keyboard = (props: IOptionsProps) => {
   const { menuKey, setMenuKey, language, posColours } = props;

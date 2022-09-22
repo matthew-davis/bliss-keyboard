@@ -30,7 +30,7 @@ OCTOBER
   * Need to set up function to type character when in the indicator menu
   * Need to build special functionality to respond to special characters (space, backspace and return)
 
-* Translation
+* Translations
   * Sort structure/aesthetics of the translation box
   * Create a translation using the first word in the series of words from the
     definition for each character/word in the output box

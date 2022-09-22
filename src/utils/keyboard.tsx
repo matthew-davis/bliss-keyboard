@@ -1,8 +1,8 @@
 import React from "react";
-import {ELanguage, TKeyboardKey, TKeyboardKeys} from "../../types";
-import { getMenu } from "./keyboardMenu";
-import { keyboardLanguage } from "./keyboardLanguage";
-import {getRecordById} from "../translation";
+import {ELanguage, TKeyboardKey, TKeyboardKeys} from "../types";
+import { getMenu } from "./menus";
+import { keyboardLanguage } from "./languages";
+import {getRecordById} from "./translations";
 
 export const getKey = (event: KeyboardEvent) => {
   const selector: keyof HTMLElementTagNameMap = [`[data-code="${event.code}"]`] as unknown as keyof HTMLElementTagNameMap;

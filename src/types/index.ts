@@ -1,4 +1,4 @@
 export * from "./app";
 export * from "./keyboard";
 export * from "./languages";
-export * from "./menu";
+export * from "./menus";

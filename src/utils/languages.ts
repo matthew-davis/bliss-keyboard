@@ -1,4 +1,4 @@
-import { ELanguage, TKeyboardLanguage } from "../../types";
+import { ELanguage, TKeyboardLanguage } from "../types";
 
 export const keyboardLanguage: TKeyboardLanguage = {
   [ELanguage.English]: {

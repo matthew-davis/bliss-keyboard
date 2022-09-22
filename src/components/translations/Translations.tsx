@@ -1,7 +1,7 @@
 import * as React from "react";
-import './translation.css';
+import './translations.css';
 
-export const Translation = (): React.ReactElement => {
+export const Translations = (): React.ReactElement => {
 
   return (
     <div className={"translation"}>Translation</div>

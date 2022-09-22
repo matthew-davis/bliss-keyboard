@@ -11,10 +11,6 @@ Looking to use TypeScript and React
 SEPTEMBER
 
 * Keyboard
-  * Given a list of character keys write them to the keyboard
-  * Write characters to the keyboard keys instead of their keys
-  * Add the POS colours to the keys
-  
   * Aiming to group 35 base character shapes to a home-menu
   * Each home-menu character then relating to 35 characters in a sub-menu
   * Each sub-menu character then has a diacritic-menu 

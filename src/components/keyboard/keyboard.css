@@ -2,8 +2,6 @@
     text-align: center;
     font-size: 1em;
     font-family: sans-serif;
-    width: 55em;
-    height: 18.8em;
 }
 
 .keyboard__row {
@@ -15,7 +13,6 @@
 .keyboard__row > * {
     position: relative;
     background: #333;
-    text-align: center;
     color: #eee;
     float: left;
     border-radius: 0.3em;
@@ -40,12 +37,26 @@
     top: -1.8em;
     right: 0.4em;
     font-size: 0.5em;
-    height: 100%;
 }
 
-.key--letter > .menu--character {
-
+.key--pos {
+    position: absolute;
+    top: 0.3em;
+    left: 0.2em;
+    background-color: #fff;
+    height: 0.4em;
+    width: 0.4em;
+    border-radius: 0.1em;
 }
+
+.RED {background-color: #f9c7b0;}
+.GREEN {background-color: #dce8ba;}
+.BLUE {background-color: #d6ecf7;}
+.YELLOW {background-color: #fee885;}
+.GRAY {background-color: #ccc;}
+.WHITE {background-color: #fff;}
+.BLACK {background-color: #000;}
+.no-colour {background-color: #333;}
 
 .key--placeholder {
     background: #eee;
@@ -89,11 +100,11 @@
 }
 
 .key--w4 {
-    width: 8.3em;
+    width: 8.35em;
 }
 
-.key--space {
-    width: 18em;
+.key--w5 {
+    width: 18.2em;
 }
 
 .key--bottom-left > * {

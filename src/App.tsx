@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Keyboard from './components/Keyboard/Keyboard';
+import Keyboard from './components/keyboard/Keyboard';
 
 const sizeKeyboard = () => {
   const keyboard = document.getElementById('keyboard');

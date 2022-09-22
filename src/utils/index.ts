@@ -1,3 +1,3 @@
 // Exports
 export * from "./translation";
-export * from "./keyboard";
+export * from "./keyboard/keyboardMenu";

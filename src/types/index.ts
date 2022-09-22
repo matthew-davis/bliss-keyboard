@@ -1,3 +1,3 @@
 // Exports
 export * from "./app";
-export * from "./keyboard";
+export * from "./keyboard/keyboard";

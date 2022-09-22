@@ -1,0 +1,15 @@
+export enum ELanguage {
+  English = "ENGLISH",
+  Swedish = "SWEDISH",
+  Norwegian = "NORWEGIAN",
+  Finnish = "FINNISH",
+  Hungarian = "HUNGARIAN",
+  German = "GERMAN",
+  Dutch = "DUTCH",
+  Afrikaans = "AFRIKAANS",
+  Russian = "RUSSIAN",
+  Latvian = "LATVIAN",
+  Polish = "POLISH",
+  French = "FRENCH",
+  Spanish = "SPANISH",
+}

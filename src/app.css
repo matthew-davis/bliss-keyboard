@@ -1,0 +1,9 @@
+#keyboardWrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.settingsWrapper {
+    display: flex;
+    flex-direction: row;
+}

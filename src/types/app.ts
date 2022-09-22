@@ -1,26 +1,11 @@
-// Enum
-export enum ELanguage {
-  English = "ENGLISH",
-  Swedish = "SWEDISH",
-  Norwegian = "NORWEGIAN",
-  Finnish = "FINNISH",
-  Hungarian = "HUNGARIAN",
-  German = "GERMAN",
-  Dutch = "DUTCH",
-  Afrikaans = "AFRIKAANS",
-  Russian = "RUSSIAN",
-  Latvian = "LATVIAN",
-  Polish = "POLISH",
-  French = "FRENCH",
-  Spanish = "SPANISH",
-}
+import { ELanguage } from "./languages";
 
-// Interface
 export interface IOptions {
   translation: boolean;
   search: boolean;
+  menu: boolean;
+  definitions: boolean;
   languages: boolean;
   defaultLanguage: ELanguage;
-  displayDefinitions: boolean;
   posColours: boolean;
 }

@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { ELanguage } from "../../types";
+import React from "react";
+import { IOptionsProps } from "../../types";
 import "./keyboard.css";
-import {buildKeyboard, getKey} from "../../utils/keyboard/keyboardBuild";
+import {buildKeyboard, getKey} from "../../utils";
 import { ReactComponent as Characters } from "../../assets/character.svg";
 
-const Keyboard = () => {
-  const [menuKey, setMenuKey] = useState<number>(1000);
-  const [language, setLanguage] = useState<ELanguage>(ELanguage.English);
+export const Keyboard = (props: IOptionsProps) => {
+  const { menuKey, setMenuKey, language, posColours } = props;
 
   document.body.addEventListener("keydown", (e) => {
     const key = getKey(e);
     key && key.setAttribute("data-pressed", "on");
-    // if (key && e.code === "Tab")
     key && setMenuKey(parseInt(key.getAttribute("data-character") || ""));
   });
 
@@ -21,11 +19,9 @@ const Keyboard = () => {
   });
 
   return (
-    <div key={"keyboard"} id="keyboard">
+    <div key={"keyboard"} id={"keyboard"}>
       <Characters height={0} width={0} />
-      {buildKeyboard(menuKey, setMenuKey, language)}
+      {buildKeyboard(menuKey, posColours, setMenuKey, language)}
     </div>
   );
 };
-
-export default Keyboard;

@@ -20,6 +20,7 @@ const htmlDecode = (input: string, finalClass: string) => {
 
 export const buildKeyboard = (
   menuKey: number,
+  posColours: boolean,
   setMenuKey: (num: number) => void,
   language: ELanguage = ELanguage.English,
 ) => {
@@ -102,7 +103,7 @@ export const buildKeyboard = (
           data-code={key.code}
           onClick={() => setMenuKey(menuCharacter || 0)}
         >
-          {menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
+          {posColours && menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
           <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>
           {menuCharacter && (
             <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}><use href={`#${menuCharacter.toString()}`}></use></svg>

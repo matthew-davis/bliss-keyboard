@@ -16,9 +16,8 @@ SEPTEMBER
   * Each sub-menu character then has a diacritic-menu 
   * Order each menu's characters
   
-  * Create a function that takes a home/sub menu character and moves down a menu
-    * Create a function that lets you move back up menus with the menu up button
-  * Find a way to define/indicate the menu level (home, sub, diacritic)
+  * Create a function that takes a sub-menu character and moves down to a diacritic menu
+  * Create a function that moves up from either a diacritic menu or a sub-menu
 
 OCTOBER
 

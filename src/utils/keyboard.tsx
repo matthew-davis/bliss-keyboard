@@ -6,53 +6,62 @@ import {getRecordById} from "./translations";
 
 const specialKeys = ["Tab", "Backspace", "Enter", "Space"];
 
-export const keyDownHandler = (e: any, menuState: any, setMenuState: any) => {
-  const key = getKey(e);
+export const keyDownHandler = (e: any, menuState: any, setMenuState: any): void => {
+  const key: HTMLElement | null = getKey(e);
   key && key.setAttribute("data-pressed", "on");
-  if (key) {
-    const dataCharacter = key.getAttribute("data-character") || "";
-    const dataCharacterCode = parseInt(dataCharacter);
-    key.setAttribute("data-pressed", "on");
 
-    if (isNaN(dataCharacterCode) && specialKeys.indexOf(dataCharacter) > -1) {
-      switch (dataCharacter) {
-        case "Tab":
-          menuState.diacriticKey > 0
-            ? setMenuState({ menuKey: menuState.menuKey, diacriticKey: 0 })
-            : setMenuState({ menuKey: 1000, diacriticKey: 0 })
-          break;
-        case "Backspace":
-          break;
-        case "Enter":
-          break;
-        case "Space":
-          break;
-      }
-    }
-
-    if (!isNaN(dataCharacterCode)) {
-      if (menuState.menuKey === 1000 && menuState.diacriticKey === 0) {
-        setMenuState({ menuKey: dataCharacterCode, diacriticKey: 0 });
-      }
-
-      if (menuState.menuKey !== 1000 && menuState.diacriticKey === 0) {
-        setMenuState({ menuKey: menuState.menuKey, diacriticKey: dataCharacterCode });
-      }
-
-      if (menuState.diacriticKey > 0) {
-        console.log(`Type: ${dataCharacter}`);
-        setMenuState({ menuKey: menuState.menuKey, diacriticKey: menuState.diacriticKey });
-      }
-    }
-  }
+  if (key) keyType(key, menuState, setMenuState);
 };
 
-export const keyUpHandler = (e: any) => {
-  const key = getKey(e);
+export const keyUpHandler = (e: KeyboardEvent): void => {
+  const key: HTMLElement | null = getKey(e);
   key && key.removeAttribute("data-pressed");
 }
 
-export const getKey = (event: KeyboardEvent) => {
+const keyMouseClick = (e: any, menuState: any, setMenuState: any) => {
+  let key = e.target;
+  const keyCharacter = key.getAttribute("data-character");
+  if (keyCharacter === null) key = key.parentNode;
+  if (key) keyType(key, menuState, setMenuState);
+}
+
+const keyType = (key: HTMLElement, menuState: any, setMenuState: any) => {
+  const dataCharacter = key.getAttribute("data-character") || "";
+  const dataCharacterCode = parseInt(dataCharacter);
+
+  if (isNaN(dataCharacterCode) && specialKeys.indexOf(dataCharacter) > -1) {
+    switch (dataCharacter) {
+      case "Tab":
+        menuState.diacriticKey > 0
+          ? setMenuState({ menuKey: menuState.menuKey, diacriticKey: 0 })
+          : setMenuState({ menuKey: 1000, diacriticKey: 0 })
+        break;
+      case "Backspace":
+        break;
+      case "Enter":
+        break;
+      case "Space":
+        break;
+    }
+  }
+
+  if (!isNaN(dataCharacterCode)) {
+    if (menuState.menuKey === 1000 && menuState.diacriticKey === 0) {
+      setMenuState({ menuKey: dataCharacterCode, diacriticKey: 0 });
+    }
+
+    if (menuState.menuKey !== 1000 && menuState.diacriticKey === 0) {
+      setMenuState({ menuKey: menuState.menuKey, diacriticKey: dataCharacterCode });
+    }
+
+    if (menuState.diacriticKey > 0) {
+      console.log(`Type: ${dataCharacter}`);
+      setMenuState({ menuKey: menuState.menuKey, diacriticKey: menuState.diacriticKey });
+    }
+  }
+}
+
+const getKey = (event: KeyboardEvent) => {
   const selector: keyof HTMLElementTagNameMap = [`[data-code="${event.code}"]`] as unknown as keyof HTMLElementTagNameMap;
   ["Tab", "AltLeft", "Quote", "Slash"].indexOf(event.code) > -1 && event.preventDefault();
   return document.querySelector(selector);
@@ -78,7 +87,7 @@ export const buildKeyboard = (
   const keyboard: React.ReactNode[] = [];
   const rows: string[] = ["row1", "row2", "row3", "row4", "row5"];
 
-  rows.forEach((row, i) => {
+  rows.forEach((row) => {
     const buildKey = (key: TKeyboardKey, index: number) => {
       let finalClass: string = key.className;
       let menuCharacter: number | null = null;
@@ -97,39 +106,25 @@ export const buildKeyboard = (
       }
 
       if (row === "row2") {
-        if (menuLength < 10 && menuLength < index) finalClass = "key--placeholder";
-        if (menuLength < 30 && index === 11) finalClass = "key--placeholder";
-        if (menuLength < 31 && index === 12) finalClass = "key--placeholder";
+        if (menuLength < 12 && menuLength < index) finalClass = "key--placeholder";
         if (key.code === "Tab") finalClass = key.className;
         if (key.code === "IntlBackslash") finalClass = "key--placeholder";
         if (!finalClass.includes("placeholder")) menuCharacter = menu[index - 1];
-        if (menuLength >= 30 && index === 11 && !finalClass.includes("placeholder")) menuCharacter = menu[30 - 1];
-        if (menuLength >= 31 && index === 12 && !finalClass.includes("placeholder")) menuCharacter = menu[31 - 1];
       }
 
       if (row === "row3") {
-        if (menuLength < 11) finalClass = "key--placeholder";
-        if (menuLength >= 11 && menuLength <= 19 && menuLength - 10 < index) finalClass = "key--placeholder";
-        if (menuLength < 29 && index === 10) finalClass = "key--placeholder";
-        if (menuLength < 32 && index === 11) finalClass = "key--placeholder";
+        if (menuLength < 13) finalClass = "key--placeholder";
+        if (menuLength >= 13 && menuLength <= 23 && menuLength - 13 < index) finalClass = "key--placeholder";
         if (key.code === "CapsLock") finalClass = "key--w3 key--placeholder";
         if (key.code === "Enter") finalClass = key.className;
-        if (!finalClass.includes("placeholder") && key.code !== "Enter") menuCharacter = menu[(index + 10) - 1];
-        if (menuLength >= 29 && index === 10 && !finalClass.includes("placeholder")) menuCharacter = menu[29 - 1];
-        if (menuLength >= 32 && index === 11 && !finalClass.includes("placeholder")) menuCharacter = menu[32 - 1];
+        if (!finalClass.includes("placeholder") && key.code !== "Enter") menuCharacter = menu[(index + 12) - 1];
       }
 
       if (row === "row4") {
-        if (menuLength < 20) finalClass = "key--placeholder";
-        if (menuLength >= 20 && menuLength <= 26 && menuLength - 19 < index) finalClass = "key--placeholder";
-        if (menuLength < 27 && index === 8) finalClass = "key--placeholder";
-        if (menuLength < 28 && index === 9) finalClass = "key--placeholder";
-        if (menuLength < 33 && index === 10) finalClass = "key--placeholder";
+        if (menuLength < 24) finalClass = "key--placeholder";
+        if (menuLength >= 24 && menuLength <= 33 && menuLength - 24 < index) finalClass = "key--placeholder";
         if (["ShiftLeft", "ShiftRight"].indexOf(key.code) > -1) finalClass = "key--w4 key--placeholder";
-        if (!finalClass.includes("placeholder")) menuCharacter = menu[(index + 19) - 1];
-        if (menuLength >= 27 && index === 8 && !finalClass.includes("placeholder")) menuCharacter = menu[27 - 1];
-        if (menuLength >= 28 && index === 9 && !finalClass.includes("placeholder")) menuCharacter = menu[28 - 1];
-        if (menuLength >= 33 && index === 10 && !finalClass.includes("placeholder")) menuCharacter = menu[33 - 1];
+        if (!finalClass.includes("placeholder")) menuCharacter = menu[(index + 23) - 1];
       }
 
       if (row === "row5") {
@@ -143,17 +138,13 @@ export const buildKeyboard = (
         colour = getRecordById(menuCharacter).pos
       }
 
-
-      // Need to allow a mouse click to do the same as a keypress
-
-
       return (
         <div
           key={key.code}
           data-character={menuCharacter ? menuCharacter.toString() : key.code}
           className={finalClass}
           data-code={key.code}
-          // onClick={(e) => keyDownHandler(e, menuState, setMenuState)}
+          onClick={(e) => keyMouseClick(e, menuState, setMenuState)}
         >
           {posColours && menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
           <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>

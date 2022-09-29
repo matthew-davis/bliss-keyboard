@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IOptionsProps } from "../../types";
 import "./keyboard.css";
-import {buildKeyboard, getKey} from "../../utils";
+import { buildKeyboard, keyDownHandler, keyUpHandler } from "../../utils";
 import { ReactComponent as Characters } from "../../assets/characters.svg";
 
 export const Keyboard = (props: IOptionsProps) => {
-  const { menuKey, setMenuKey, language, posColours } = props;
+  const { menuState, setMenuState, language, posColours } = props;
 
-  document.body.addEventListener("keydown", (e) => {
-    const key = getKey(e);
-    key && key.setAttribute("data-pressed", "on");
-    key && setMenuKey(parseInt(key.getAttribute("data-character") || ""));
-  });
+  useEffect(() => {
+    const keyDownHandlerWrapper = (e: KeyboardEvent) => keyDownHandler(e, menuState, setMenuState);
 
-  document.body.addEventListener("keyup", (e) => {
-    const key = getKey(e);
-    key && key.removeAttribute("data-pressed");
-  });
+    document.body.addEventListener('keydown', keyDownHandlerWrapper);
+    document.body.addEventListener('keyup', keyUpHandler);
+    return () => {
+      document.body.removeEventListener('keydown', keyDownHandlerWrapper);
+      document.body.removeEventListener('keyup', keyUpHandler);
+    };
+  }, [menuState]);
 
   return (
     <div key={"keyboard"} id={"keyboard"}>
       <Characters height={0} width={0} />
-      {buildKeyboard(menuKey, posColours, setMenuKey, language)}
+      {buildKeyboard(menuState, posColours, setMenuState, language)}
     </div>
   );
 };

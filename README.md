@@ -8,17 +8,6 @@ Looking to use TypeScript and React
 
 ### Tasks
 
-SEPTEMBER
-
-* Keyboard
-  * Aiming to group 35 base character shapes to a home-menu
-  * Each home-menu character then relating to 35 characters in a sub-menu
-  * Each sub-menu character then has a diacritic-menu 
-  * Order each menu's characters
-  
-  * Create a function that takes a sub-menu character and moves down to a diacritic menu
-  * Create a function that moves up from either a diacritic menu or a sub-menu
-
 OCTOBER
 
 * Output
@@ -27,6 +16,7 @@ OCTOBER
   * Need to build the ability to accept Characters and depict them
     * Perhaps an array of objects holding the character/indicator pair
     * Build functionality to translate this stream to characters
+    
   * Need to set up function to type character when in the indicator menu
   * Need to build special functionality to respond to special characters (space, backspace and return)
 
@@ -34,8 +24,13 @@ OCTOBER
   * Sort structure/aesthetics of the translation box
   * Create a translation using the first word in the series of words from the
     definition for each character/word in the output box
+  
   * Run this from the same character array that runs the output box
 
+* Keyboard
+  * Order each menu's characters
+  * Need to build functionality to click keys with a mouse as well as a keypress
+  
 NOVEMBER
 
 * Search
@@ -63,12 +58,11 @@ DECEMBER
   * Support all tools supporting hard of hearing
   * Support all tools supporting poor eyesight
   * Support the highest level of web accessibility WCAG 2.0 AAA
+  * Ability to control size and stroke size of symbols
 
 
 * Further down the line
-  * Connect special characters to their equivalents on a keyboard
-  * If easy connect numbers and letters to their respective keys as well
-  * Also punctuation 
+  * Check if there are new symbols to be included
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm:

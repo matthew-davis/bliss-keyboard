@@ -3,10 +3,10 @@ import { TMenuProps } from "../../types";
 import "./menus.css";
 
 export const Menus = (props: TMenuProps): React.ReactElement => {
-  const { menuKey } = props;
+  const { menuState } = props;
   let menu: string;
 
-  switch (menuKey) {
+  switch (menuState.menuKey) {
     case 1000:
       menu = "Home Menu";
       break;

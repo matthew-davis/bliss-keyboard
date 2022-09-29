@@ -1,3 +1,6 @@
 export type TMenuProps = {
-  menuKey: number;
+  menuState: {
+    menuKey: number,
+    diacriticKey: number,
+  };
 }

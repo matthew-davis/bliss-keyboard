@@ -2,8 +2,11 @@ import { ELanguage } from "./languages";
 
 export interface IMenuMap { [id: number]: number[] }
 export interface IOptionsProps {
-  menuKey: number,
-  setMenuKey: (num: number) => void,
+  menuState: {
+    menuKey: number,
+    diacriticKey: number,
+  },
+  setMenuState: (x: any) => void,
   language: ELanguage,
   posColours: boolean,
 }

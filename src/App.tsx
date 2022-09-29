@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Definitions,
   Keyboard,
@@ -7,10 +7,10 @@ import {
   Output,
   Search,
   Translations,
-} from './components';
+} from "./components";
 import { ELanguage, IOptions } from "./types";
 import { sizeKeyboard } from "./utils";
-import './app.css';
+import "./app.css";
 
 const options: IOptions = {
   translation: true,
@@ -23,7 +23,7 @@ const options: IOptions = {
 }
 
 const App = () => {
-  const [menuKey, setMenuKey] = useState<number>(1000);
+  const [menuState, setMenuState] = useState<any>({ menuKey: 1000, diacriticKey: 0 });
   const [language, setLanguage] = useState<ELanguage>(options.defaultLanguage);
 
   useEffect(() => sizeKeyboard(), []);
@@ -35,13 +35,13 @@ const App = () => {
       {options.translation && <Translations />}
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
-        {options.menu && <Menus menuKey={menuKey} />}
+        {options.menu && <Menus menuState={{ menuKey: 1000, diacriticKey: 0 }} />}
         {options.definitions && <Definitions />}
         {options.languages && <Languages />}
       </div>
       <Keyboard
-        menuKey={menuKey}
-        setMenuKey={setMenuKey}
+        menuState={menuState}
+        setMenuState={setMenuState}
         language={language}
         posColours={options.posColours}
       />

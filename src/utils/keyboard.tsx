@@ -4,6 +4,54 @@ import { getMenu } from "./menus";
 import { keyboardLanguage } from "./languages";
 import {getRecordById} from "./translations";
 
+const specialKeys = ["Tab", "Backspace", "Enter", "Space"];
+
+export const keyDownHandler = (e: any, menuState: any, setMenuState: any) => {
+  const key = getKey(e);
+  key && key.setAttribute("data-pressed", "on");
+  if (key) {
+    const dataCharacter = key.getAttribute("data-character") || "";
+    const dataCharacterCode = parseInt(dataCharacter);
+    key.setAttribute("data-pressed", "on");
+
+    if (isNaN(dataCharacterCode) && specialKeys.indexOf(dataCharacter) > -1) {
+      switch (dataCharacter) {
+        case "Tab":
+          menuState.diacriticKey > 0
+            ? setMenuState({ menuKey: menuState.menuKey, diacriticKey: 0 })
+            : setMenuState({ menuKey: 1000, diacriticKey: 0 })
+          break;
+        case "Backspace":
+          break;
+        case "Enter":
+          break;
+        case "Space":
+          break;
+      }
+    }
+
+    if (!isNaN(dataCharacterCode)) {
+      if (menuState.menuKey === 1000 && menuState.diacriticKey === 0) {
+        setMenuState({ menuKey: dataCharacterCode, diacriticKey: 0 });
+      }
+
+      if (menuState.menuKey !== 1000 && menuState.diacriticKey === 0) {
+        setMenuState({ menuKey: menuState.menuKey, diacriticKey: dataCharacterCode });
+      }
+
+      if (menuState.diacriticKey > 0) {
+        console.log(`Type: ${dataCharacter}`);
+        setMenuState({ menuKey: menuState.menuKey, diacriticKey: menuState.diacriticKey });
+      }
+    }
+  }
+};
+
+export const keyUpHandler = (e: any) => {
+  const key = getKey(e);
+  key && key.removeAttribute("data-pressed");
+}
+
 export const getKey = (event: KeyboardEvent) => {
   const selector: keyof HTMLElementTagNameMap = [`[data-code="${event.code}"]`] as unknown as keyof HTMLElementTagNameMap;
   ["Tab", "AltLeft", "Quote", "Slash"].indexOf(event.code) > -1 && event.preventDefault();
@@ -19,18 +67,18 @@ const htmlDecode = (input: string, finalClass: string) => {
 };
 
 export const buildKeyboard = (
-  menuKey: number,
+  menuState: { menuKey: number, diacriticKey: number },
   posColours: boolean,
-  setMenuKey: (num: number) => void,
+  setMenuState: (x: any) => void,
   language: ELanguage = ELanguage.English,
 ) => {
-  const menu: number[] = getMenu(menuKey);
+  const menu: number[] = getMenu(menuState);
   const menuLength: number = menu.length;
   const keyboardCharacters: TKeyboardKeys = keyboardLanguage[language];
   const keyboard: React.ReactNode[] = [];
   const rows: string[] = ["row1", "row2", "row3", "row4", "row5"];
 
-  rows.forEach((row) => {
+  rows.forEach((row, i) => {
     const buildKey = (key: TKeyboardKey, index: number) => {
       let finalClass: string = key.className;
       let menuCharacter: number | null = null;
@@ -95,18 +143,33 @@ export const buildKeyboard = (
         colour = getRecordById(menuCharacter).pos
       }
 
+
+      // Need to allow a mouse click to do the same as a keypress
+
+
       return (
         <div
           key={key.code}
           data-character={menuCharacter ? menuCharacter.toString() : key.code}
           className={finalClass}
           data-code={key.code}
-          onClick={() => setMenuKey(menuCharacter || 0)}
+          // onClick={(e) => keyDownHandler(e, menuState, setMenuState)}
         >
           {posColours && menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
           <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>
-          {menuCharacter && (
+          {menuCharacter && menuState.diacriticKey === 0 && (
             <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}><use href={`#${menuCharacter.toString()}`}></use></svg>
+          )}
+          {menuCharacter === menuState.diacriticKey && (
+            <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
+              <use href={`#${menuState.diacriticKey.toString()}`} />
+            </svg>
+          )}
+          {menuCharacter && menuCharacter !== menuState.diacriticKey && menuState.diacriticKey > 0 && (
+            <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
+              <use href={`#${menuCharacter.toString()}`} />
+              <use href={`#${menuState.diacriticKey.toString()}`} />
+            </svg>
           )}
         </div>
       );

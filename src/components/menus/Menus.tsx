@@ -1,23 +1,17 @@
-import * as React from "react";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from "react";
 import { TMenuProps } from "../../types";
+import {getMenuName} from "../../utils";
 import "./menus.css";
 
 export const Menus = (props: TMenuProps): React.ReactElement => {
   const { menuState } = props;
-  let menu: string;
-
-  switch (menuState.menuKey) {
-    case 1000:
-      menu = "Home Menu";
-      break;
-    case 2000:
-      menu = "Diacritic Menu";
-      break;
-    default:
-      menu = "Sub-Menu"
-  }
 
   return (
-    <div className={"menu"}>{menu}</div>
+    <div className={"menuWrapper"}>
+      <FontAwesomeIcon className={"menuIcon"} icon={faBars} />
+      {getMenuName(menuState)}
+    </div>
   );
 };

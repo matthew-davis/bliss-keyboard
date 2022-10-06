@@ -1,15 +1,64 @@
 // Imports
-import { IMenuMap } from "../types";
+import {TMenuMap, TMenuName, TMenuState} from "../types";
 
 // Utils
-export const getMenu = (menuState: any): number[] => {
+export const getMenu = (menuState: TMenuState): number[] => {
   if (menuState.diacriticKey > 0) return menuMap[2000];
   if (Object.keys(menuMap).indexOf(menuState.menuKey.toString()) > -1) return menuMap[menuState.menuKey];
   return menuMap[1000];
 }
 
+export const getMenuName = (menuState: TMenuState): string => {
+  let menuType = "Menu";
+  if (menuState.diacriticKey > 0) menuType = "Diacritic Menu";
+  return `${menuNameMap[menuState.menuKey]} ${menuType}`
+}
+
+const menuNameMap: TMenuName = {
+  1000: "Home",
+  15214: "Long Vertical",
+  13901: "Long Horizontal",
+  15991: "Long Declining Diagonal",
+  24883: "Long Inclining Diagonal",
+  14417: "Large Shallow Curve",
+  13403: "Large Deep Curve",
+  17462: "Large Circle",
+  13607: "Large Triangle",
+  13934: "Large Square",
+  14164: "Specific Shapes",
+  14960: "Short Vertical",
+  15474: "Short Horizontal",
+  12321: "Short Declining Diagonal",
+  17700: "Short Inclining Diagonal",
+  17705: "Small Shallow Curve",
+  21061: "Small Deep Curve",
+  15666: "Small Circle",
+  14166: "Small Triangle",
+  17717: "Small Square",
+  23431: "Horizontal Rectangle",
+  15962: "Vertical Rectangle",
+  15742: "Numbers",
+  12374: "Mathematical",
+  12324: "Pointer",
+  17983: "Direction",
+  25011: "Uppercase Letters",
+  12366: "Lowercase Letters",
+  13867: "Dot",
+  8485: "Punctuation",
+  18232: "Wheels",
+  14647: "Cross",
+  17252: "Asterix",
+  23476: "IO",
+  15656: "Large Half Circle",
+  15923: "Container",
+  14167: "House",
+  26054: "Animals",
+  14626: "People",
+  16161: "Person",
+}
+
 // Menus
-const menuMap: IMenuMap = {
+const menuMap: TMenuMap = {
   // Home Menus
   1000: [
     15214, 13901, 15991, 24883, 14417, 13403, 17462, 13607, 13934, 14164,

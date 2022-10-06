@@ -1,29 +1,30 @@
 import React, { useEffect } from "react";
+import { TOutputProps } from "../../types";
+import { typeCharacters } from "../../utils";
 import "./output.css";
 
-export const Output = (): React.ReactElement => {
+export const Output = (props: TOutputProps): React.ReactElement => {
+  const { messageState } = props;
 
   useEffect(() => {
-    let show = "visible";
-    const time = 700;
-    const cursor = document.getElementById('cursor')!;
+    let show: string = "visible";
+    const time: number = 700;
+    const cursor: HTMLElement = document.getElementById("cursor")!;
 
-    const blink = () => {
+    const cursorBlink = (): void => {
       show = (show === "hidden") ? "visible" : "hidden";
       cursor.style.visibility = show;
-      setTimeout(blink, time);
+      setTimeout(cursorBlink, time);
     };
 
-    blink();
+    cursorBlink();
   }, []);
 
   return (
-    <div key={"output"} id={"output"}>
-      <div className={"outputScreen"}>
-        <div className={"outputTyping"}>
-          <div className={"characters"}>Characters go here!</div>
-          <div id={"cursor"}>&nbsp;</div>
-        </div>
+    <div id={"outputWrapper"}>
+      <div className={"output"}>
+        <div className={"outputCharacters"}>{typeCharacters(messageState)}</div>
+        <div id={"cursor"}>&nbsp;</div>
       </div>
     </div>
   );

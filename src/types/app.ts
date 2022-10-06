@@ -1,6 +1,6 @@
-import { ELanguage } from "./languages";
+import {ELanguage} from "./languages";
 
-export interface IOptions {
+export type TOptions = {
   translation: boolean;
   search: boolean;
   menu: boolean;

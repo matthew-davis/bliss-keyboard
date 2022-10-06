@@ -8,11 +8,12 @@ import {
   Search,
   Translations,
 } from "./components";
-import { ELanguage, IOptions } from "./types";
+import { ELanguage, TMenuState, TOptions } from "./types";
 import { sizeKeyboard } from "./utils";
 import "./app.css";
+import { ReactComponent as Characters } from "./assets/characters.svg";
 
-const options: IOptions = {
+const options: TOptions = {
   translation: true,
   search: true,
   menu: true,
@@ -23,26 +24,28 @@ const options: IOptions = {
 }
 
 const App = () => {
-  const [menuState, setMenuState] = useState<any>({ menuKey: 1000, diacriticKey: 0 });
   const [language, setLanguage] = useState<ELanguage>(options.defaultLanguage);
+  const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
+  const [messageState, setMessageState] = useState<TMenuState[]>([]);
 
   useEffect(() => sizeKeyboard(), []);
   window.addEventListener('resize', () => sizeKeyboard());
 
   return (
-    <div id={"keyboardWrapper"}>
-      <Output />
+    <div id={"appWrapper"}>
+      <Characters height={0} width={0} />
+      <Output messageState={messageState} />
       {options.translation && <Translations />}
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
-        {options.menu && <Menus menuState={{ menuKey: 1000, diacriticKey: 0 }} />}
+        {options.menu && <Menus menuState={menuState} />}
         {options.definitions && <Definitions />}
         {options.languages && <Languages />}
       </div>
       <Keyboard
-        menuState={menuState}
-        setMenuState={setMenuState}
         language={language}
+        menu={{menuState, setMenuState}}
+        message={{messageState, setMessageState}}
         posColours={options.posColours}
       />
     </div>

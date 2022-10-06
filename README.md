@@ -8,24 +8,14 @@ Looking to use TypeScript and React
 ### Tasks
 
 OCTOBER
-
-* Output
-  * Need to build the ability to accept Characters and depict them
-    * Perhaps an array of objects holding the character/indicator pair
-    * Build functionality to translate this stream to characters
-    
-  * Need to set up function to type character when in the indicator menu
-  * Need to build special functionality to respond to special characters (space, backspace and return)
-  * Need to build ability for mouse to highlight, delete, insert as well
-
+  
 * Translations
   * Sort structure/aesthetics of the translation box
   * Create a translation using the first word in the series of words from the
     definition for each character/word in the output box
-
   * Run this from the same character array that runs the output box
 
-* Keyboard
+* Menus
   * Order each menu's characters
   
 NOVEMBER
@@ -61,6 +51,7 @@ DECEMBER
 * Further down the line
   * Check if there are new symbols to be included
   * Settings page or menu to set the master values of translation, search, posColours, etc.
+  * Work on cursorBlink function
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm:

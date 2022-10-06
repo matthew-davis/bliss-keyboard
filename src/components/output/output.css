@@ -1,10 +1,10 @@
-#output {
+#outputWrapper {
     margin: 0.6em;
     text-align: left;
     font-size: 1em;
 }
 
-.outputScreen {
+.output {
     height: 3em;
     padding: 0.4em 0.8em;
     width: 100%;
@@ -13,11 +13,14 @@
     cursor: text;
     border: 1px solid #ddd;
     background: #eee;
-}
-
-.outputTyping {
     color: #111;
     line-height: 2.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.outputCharacters {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

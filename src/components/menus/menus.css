@@ -1,6 +1,11 @@
-.menu {
+.menuWrapper {
     margin: 0 0.6em 0.6em 0.6em;
     padding: 0.4em;
-    background-color: #f5f5f5;
-    flex-grow: 1;
+    flex-grow: 0.6;
+    flex-basis: 0;
+    color: #111;
+}
+
+.menuIcon {
+    margin-right: 0.5em;
 }

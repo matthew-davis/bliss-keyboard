@@ -1,13 +1,12 @@
 import { ELanguage } from "./languages";
+import {TMenuState} from "./menus";
 
-export interface IMenuMap { [id: number]: number[] }
-export interface IOptionsProps {
-  menuState: {
-    menuKey: number,
-    diacriticKey: number,
-  },
-  setMenuState: (x: any) => void,
+export type TMenuMap = { [id: number]: number[] };
+
+export type TKeyboardProps = {
   language: ELanguage,
+  menu: { menuState: TMenuState, setMenuState: (x: TMenuState) => void },
+  message: { messageState: TMenuState[], setMessageState: (x: TMenuState[]) => void },
   posColours: boolean,
 }
 

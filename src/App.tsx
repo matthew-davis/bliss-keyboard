@@ -35,7 +35,7 @@ const App = () => {
     <div id={"appWrapper"}>
       <Characters height={0} width={0} />
       <Output messageState={messageState} />
-      {options.translation && <Translations />}
+      {options.translation && <Translations language={language} messageState={messageState} />}
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
         {options.menu && <Menus menuState={menuState} />}

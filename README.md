@@ -8,12 +8,6 @@ Looking to use TypeScript and React
 ### Tasks
 
 OCTOBER
-  
-* Translations
-  * Sort structure/aesthetics of the translation box
-  * Create a translation using the first word in the series of words from the
-    definition for each character/word in the output box
-  * Run this from the same character array that runs the output box
 
 * Menus
   * Order each menu's characters

@@ -1,8 +1,8 @@
 import React from "react";
-import {ELanguage, TKeyboardKey, TKeyboardKeys, TMenuState} from "../types";
+import { ELanguage, TKeyboardKey, TKeyboardKeys, TMenuState } from "../types";
 import { getMenu } from "./menus";
 import { keyboardLanguage } from "./languages";
-import {getRecordById} from "./translations";
+import { getRecordById } from "./translations";
 
 const specialKeys: string[] = ["Tab", "Backspace", "Enter", "Space"];
 

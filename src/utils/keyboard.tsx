@@ -71,7 +71,7 @@ const keyType = (
     }
 
     if (menu.menuState.diacriticKey > 0) {
-      message.messageState.push(menu.menuState);
+      message.messageState.push({ menuKey: menu.menuState.diacriticKey, diacriticKey: dataCharacterCode });
       message.setMessageState([...message.messageState]);
       menu.setMenuState({ menuKey: 1000, diacriticKey: 0 });
     }
@@ -131,7 +131,7 @@ export const buildKeyboard = (
 
       if (row === "row3") {
         if (menuLength < 13) finalClass = "key--placeholder";
-        if (menuLength >= 13 && menuLength <= 23 && menuLength - 13 < index) finalClass = "key--placeholder";
+        if (menuLength >= 13 && menuLength <= 23 && menuLength - 12 < index) finalClass = "key--placeholder";
         if (key.code === "CapsLock") finalClass = "key--w3 key--placeholder";
         if (key.code === "Enter") finalClass = key.className;
         if (!finalClass.includes("placeholder") && key.code !== "Enter") menuCharacter = menuCurrent[(index + 12) - 1];
@@ -139,7 +139,7 @@ export const buildKeyboard = (
 
       if (row === "row4") {
         if (menuLength < 24) finalClass = "key--placeholder";
-        if (menuLength >= 24 && menuLength <= 33 && menuLength - 24 < index) finalClass = "key--placeholder";
+        if (menuLength >= 24 && menuLength <= 33 && menuLength - 23 < index) finalClass = "key--placeholder";
         if (["ShiftLeft", "ShiftRight"].indexOf(key.code) > -1) finalClass = "key--w4 key--placeholder";
         if (!finalClass.includes("placeholder")) menuCharacter = menuCurrent[(index + 23) - 1];
       }
@@ -165,20 +165,16 @@ export const buildKeyboard = (
         >
           {posColours && menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
           <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>
-          {menuCharacter && menu.menuState.diacriticKey === 0 && (
-            <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}><use href={`#${menuCharacter.toString()}`}></use></svg>
-          )}
-          {menuCharacter === menu.menuState.diacriticKey && (
-            <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
-              <use href={`#${menu.menuState.diacriticKey.toString()}`} />
-            </svg>
-          )}
-          {menuCharacter && menuCharacter !== menu.menuState.diacriticKey && menu.menuState.diacriticKey > 0 && (
-            <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
-              <use href={`#${menuCharacter.toString()}`} />
-              <use href={`#${menu.menuState.diacriticKey.toString()}`} />
-            </svg>
-          )}
+          <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
+            {menuCharacter && menu.menuState.diacriticKey === 0 && (<use href={`#${menuCharacter.toString()}`}></use>)}
+            {menuCharacter === menu.menuState.diacriticKey && (<use href={`#${menu.menuState.diacriticKey.toString()}`} />)}
+            {menuCharacter && menuCharacter !== menu.menuState.diacriticKey && menu.menuState.diacriticKey > 0 && (
+              <>
+                <use href={`#${menuCharacter.toString()}`} />
+                <use href={`#${menu.menuState.diacriticKey.toString()}`} />
+              </>
+            )}
+          </svg>
         </div>
       );
     };

@@ -1,12 +1,12 @@
 #outputWrapper {
     margin: 0.6em;
     text-align: left;
-    font-size: 1em;
+    font-size: 2em;
 }
 
 .output {
-    height: 3em;
-    padding: 0.4em 0.8em;
+    height: 2.6em;
+    padding: 0.2em 0.8em;
     width: 100%;
     border-radius: 0.3em;
     box-sizing: border-box;
@@ -29,6 +29,6 @@
 #cursor {
     height: 100%;
     margin-left: 0.2em;
-    width: 0.15em;
+    width: 0.1em;
     background: #16c0df;
 }

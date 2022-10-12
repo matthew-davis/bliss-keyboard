@@ -10,16 +10,16 @@ Looking to use TypeScript and React
 OCTOBER
 
 * Menus
-  * Order each menu's characters
+  * Order 5 menus
+  * Order 5 menus
   
-NOVEMBER
-
-* Search
-  * Create text input structure to accept characters
-  * Write function to search definitions for matches (use the selected language)
-  * Limit what is in the characters menu to search matches
-  * Allow search to return words
-  * Create key containers for words
+  * Order 5 menus
+  * Order 5 menus
+  * Order 5 menus
+  * Order 5 menus
+  * Order 5 menus
+  
+  * Order 4 menus
 
 
 * Languages
@@ -31,6 +31,23 @@ NOVEMBER
     turned off
   * Change keyboard key characters in response to language selection
   * Generate 13 (one for each language) keyboard character lists for each language
+  
+NOVEMBER
+
+* Search
+  * Create text input structure to accept characters
+  * Write function to search definitions for matches (use the selected language)
+  * Limit what is in the characters menu to search matches
+  * Allow search to return words
+  * Create key containers for words
+  * Add function to add words to messageState
+
+
+* Definitions
+  * Sort aesthetics of the component
+  * Add definition of last typed character
+  * Change to the definition of the character being hovered over
+  * Including characters/words that pop up in search results
 
 DECEMBER
 
@@ -58,7 +75,7 @@ made sense in multiple locations. I removed the duplicates and included all miss
 symbols.
 
 I considered breaking up the symbols by the POS colours, but the distribution of the 
-types are very uneven across the characters.
+colour types are very uneven across the characters.
 
-The layout was stolen from this work by Gregory Schier:
+The keyboard layout was stolen from this work by Gregory Schier:
 [https://codepen.io/gschier/pen/VKgyaY](https://codepen.io/gschier/pen/VKgyaY)

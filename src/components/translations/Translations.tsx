@@ -7,7 +7,7 @@ import './translations.css';
 
 export const Translations = (props: TTranslationsProps): React.ReactElement => {
   const { language, messageState } = props;
-  let translation: string = '';
+  let translation: string = "";
 
   messageState.map((x: TMenuState, i: number) => {
     const spacer: string = (messageState.length === i + 1) ? "" : " | ";

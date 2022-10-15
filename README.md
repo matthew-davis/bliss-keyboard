@@ -5,33 +5,32 @@ Currently, there are roughly 1200 Bliss Characters and 4800 Bliss Words availabl
 
 Looking to use TypeScript and React
 
+The symbols are arranged in a three tier menu system. The first menu or a home menu 
+dictates the overall shape or theme of them objects in the next menu. Examples include
+a long vertical line or animals. Then from the second menu you choose the specific 
+symbol you'd like to pick which leads on to a third menu displaying that specific 
+symbol with a series of diacritical marks that can be either chose or not from.
+
+Finally clicking on a symbol in the diacritical menu will type the symbol in the
+output.
+
 ### Tasks
 
 OCTOBER
 
 * Menus
-  * Order 5 menus
-  * Order 5 menus
-  
-  * Order 5 menus
-  * Order 5 menus
-  * Order 5 menus
-  * Order 5 menus
-  * Order 5 menus
-  
-  * Order 4 menus
+  * Order 8 menus
+  * Order 7 menus
+  * Try to consolidate and remove smaller menus
 
 
 * Languages
   * Create structure aesthetics for language list
   * Add in flags for each language
-  * onMouseOver of each flag writes the language in the area where definitions
-    go
-  * Make that area available 100% of the time even if the definitions are
-    turned off
-  * Change keyboard key characters in response to language selection
+  * Function when a flag is clicked it updates the language selection
   * Generate 13 (one for each language) keyboard character lists for each language
-  
+  * Change keyboard key characters in response to language selection
+
 NOVEMBER
 
 * Search
@@ -45,8 +44,11 @@ NOVEMBER
 
 * Definitions
   * Sort aesthetics of the component
+  * Make that area available 100% of the time even if the definitions are turned off
+  * onMouseOver of each flag writes the language in the area where definitions go
   * Add definition of last typed character
   * Change to the definition of the character being hovered over
+  * If in the home menu the definition is the menu name
   * Including characters/words that pop up in search results
 
 DECEMBER
@@ -69,7 +71,7 @@ I started with the bliss-keyboard from owencm:
 [https://github.com/owencm/bliss-keyboard](https://github.com/owencm/bliss-keyboard)
 
 This keyboard appears to be arranged roughly by shape. This seems logical as
-bliss symbols appear to be derived from common shapes. This keyboard however, does
+bliss symbols appear to be derived from common shapes. The above keyboard however, does
 not include the symbols, and it had a habit of including symbols twice if it
 made sense in multiple locations. I removed the duplicates and included all missing
 symbols.

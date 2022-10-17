@@ -19,9 +19,8 @@ output.
 OCTOBER
 
 * Menus
-  * Order 8 menus
   * Order 7 menus
-  * Try to consolidate and remove smaller menus
+  * Second pass to order menus
 
 
 * Languages
@@ -63,6 +62,10 @@ DECEMBER
 
 * Further down the line
   * Check if there are new symbols to be included
+  * Dividers between translations are coloured
+  * Space bar character is denoted in translations
+  * Look at the kerning of characters
+  * Possibly allow the ability to turn on character matrix guidelines
   * Settings page or menu to set the master values of translation, search, posColours, etc.
   * Work on cursorBlink function
 

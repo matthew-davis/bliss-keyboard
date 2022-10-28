@@ -8,7 +8,8 @@
 
 .flags {
     height: 1.4em;
-    padding-bottom: 0.4em
+    padding-bottom: 0.4em;
+    cursor: pointer;
 }
 
 .flags.active {
@@ -21,6 +22,6 @@
     100% { transform: scale(1, 1); }
 }
 
-a:focus {
+.flags:focus {
     animation: click 0.2s ease-out;
 }

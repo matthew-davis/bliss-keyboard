@@ -20,45 +20,149 @@ export const Languages = (props: TLanguagesProps): React.ReactElement => {
 
   return (
     <div className={"languagesWrapper"}>
-      <a className={`flags ${language.languageState === ELanguage.English && "active"}`} href={"#0"}>
+      <div
+        id={ELanguage.English}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.English && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.English)!.focus();
+        }}
+      >
         <English height={"100%"} onClick={() => language.setLanguageState(ELanguage.English)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Swedish && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Swedish}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Swedish && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Swedish)!.focus();
+        }}
+      >
         <Swedish height={"100%"} onClick={() => language.setLanguageState(ELanguage.Swedish)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Norwegian && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Norwegian}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Norwegian && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Norwegian)!.focus();
+        }}
+      >
         <Norwegian height={"100%"} onClick={() => language.setLanguageState(ELanguage.Norwegian)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Finnish && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Finnish}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Finnish && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Finnish)!.focus();
+        }}
+      >
         <Finnish height={"100%"} onClick={() => language.setLanguageState(ELanguage.Finnish)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Hungarian && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Hungarian}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Hungarian && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Hungarian)!.focus();
+        }}
+      >
         <Hungarian height={"100%"} onClick={() => language.setLanguageState(ELanguage.Hungarian)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.German && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.German}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.German && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.German)!.focus();
+        }}
+      >
         <German height={"100%"} onClick={() => language.setLanguageState(ELanguage.German)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Dutch && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Dutch}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Dutch && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Dutch)!.focus();
+        }}
+      >
         <Dutch height={"100%"} onClick={() => language.setLanguageState(ELanguage.Dutch)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Afrikaans && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Afrikaans}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Afrikaans && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Afrikaans)!.focus();
+        }}
+      >
         <Afrikaans height={"100%"} onClick={() => language.setLanguageState(ELanguage.Afrikaans)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Russian && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Russian}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Russian && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Russian)!.focus();
+        }}
+      >
         <Russian height={"100%"} onClick={() => language.setLanguageState(ELanguage.Russian)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Latvian && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Latvian}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Latvian && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Latvian)!.focus();
+        }}
+      >
         <Latvian height={"100%"} onClick={() => language.setLanguageState(ELanguage.Latvian)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Polish && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Polish}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Polish && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Polish)!.focus();
+        }}
+      >
         <Polish height={"100%"} onClick={() => language.setLanguageState(ELanguage.Polish)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.French && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.French}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.French && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.French)!.focus();
+        }}
+      >
         <French height={"100%"} onClick={() => language.setLanguageState(ELanguage.French)} />
-      </a>
-      <a className={`flags ${language.languageState === ELanguage.Spanish && "active"}`} href={"#0"}>
+      </div>
+      <div
+        id={ELanguage.Spanish}
+        tabIndex={-1}
+        className={`flags ${language.languageState === ELanguage.Spanish && "active"}`}
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById(ELanguage.Spanish)!.focus();
+        }}
+      >
         <Spanish height={"100%"} onClick={() => language.setLanguageState(ELanguage.Spanish)} />
-      </a>
+      </div>
     </div>
   );
 };

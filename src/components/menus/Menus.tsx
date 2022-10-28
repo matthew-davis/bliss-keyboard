@@ -6,12 +6,12 @@ import { getMenuName } from "../../utils";
 import "./menus.css";
 
 export const Menus = (props: TMenuProps): React.ReactElement => {
-  const { menuState } = props;
+  const { menuState, language } = props;
 
   return (
     <div className={"menuWrapper"}>
       <FontAwesomeIcon className={"menuIcon"} icon={faBars} />
-      {getMenuName(menuState)}
+      {getMenuName(menuState, language)}
     </div>
   );
 };

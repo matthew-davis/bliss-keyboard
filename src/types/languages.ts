@@ -13,3 +13,7 @@ export enum ELanguage {
   French = "french",
   Spanish = "spanish",
 }
+
+export type TLanguagesProps = {
+  language: { languageState: ELanguage, setLanguageState: (x: ELanguage) => void },
+}

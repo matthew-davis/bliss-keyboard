@@ -1,5 +1,8 @@
+import {ELanguage} from "./languages";
+
 export type TMenuProps = {
   menuState: TMenuState;
+  language: ELanguage;
 }
 
 export type TMenuState = {
@@ -8,5 +11,5 @@ export type TMenuState = {
 }
 
 export type TMenuName = {
-  [key: number]: string;
+  [key: number]: { [key: string]: string};
 }

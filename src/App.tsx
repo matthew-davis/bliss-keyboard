@@ -24,7 +24,7 @@ const options: TOptions = {
 }
 
 const App = () => {
-  const [language, setLanguage] = useState<ELanguage>(options.defaultLanguage);
+  const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
   const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
   const [messageState, setMessageState] = useState<TMenuState[]>([]);
 
@@ -35,15 +35,15 @@ const App = () => {
     <div id={"appWrapper"}>
       <Characters height={0} width={0} />
       <Output messageState={messageState} />
-      {options.translation && <Translations language={language} messageState={messageState} />}
+      {options.translation && <Translations language={languageState} messageState={messageState} />}
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
-        {options.menu && <Menus menuState={menuState} />}
+        {options.menu && <Menus menuState={menuState} language={languageState} />}
         {options.definitions && <Definitions />}
-        {options.languages && <Languages />}
+        {options.languages && <Languages language={{languageState, setLanguageState}} />}
       </div>
       <Keyboard
-        language={language}
+        language={languageState}
         menu={{menuState, setMenuState}}
         message={{messageState, setMessageState}}
         posColours={options.posColours}

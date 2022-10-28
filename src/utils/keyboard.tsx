@@ -117,7 +117,8 @@ export const buildKeyboard = (
         // TODO: Remove when I'm done making the menus
         if (menuLength > 45) return <div>XXX</div>;
 
-        if (key.code === "Backquote") finalClass = "key--placeholder";
+        if (key.code === "Backquote" && language === ELanguage.English) finalClass = "key--placeholder";
+        if (key.code === "Section") finalClass = "key--placeholder";
         if (key.code === "Backspace") finalClass = key.className;
         if (!finalClass.includes("placeholder") && key.code !== "Backspace") menuCharacter = menuCurrent[(index + 33) - 1];
       }
@@ -126,6 +127,7 @@ export const buildKeyboard = (
         if (menuLength < 12 && menuLength < index) finalClass = "key--placeholder";
         if (key.code === "Tab") finalClass = key.className;
         if (key.code === "IntlBackslash") finalClass = "key--placeholder";
+        if (key.code === "LessThan") finalClass = "key--placeholder";
         if (!finalClass.includes("placeholder")) menuCharacter = menuCurrent[index - 1];
       }
 

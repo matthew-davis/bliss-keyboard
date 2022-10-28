@@ -16,20 +16,6 @@ output.
 
 ### Tasks
 
-OCTOBER
-
-* Menus
-  * Order 7 menus
-  * Second pass to order menus
-
-
-* Languages
-  * Create structure aesthetics for language list
-  * Add in flags for each language
-  * Function when a flag is clicked it updates the language selection
-  * Generate 13 (one for each language) keyboard character lists for each language
-  * Change keyboard key characters in response to language selection
-
 NOVEMBER
 
 * Search
@@ -44,7 +30,7 @@ NOVEMBER
 * Definitions
   * Sort aesthetics of the component
   * Make that area available 100% of the time even if the definitions are turned off
-  * onMouseOver of each flag writes the language in the area where definitions go
+  * onMouseOver of each flag writes the language in the area where definitions go (in the correct language)
   * Add definition of last typed character
   * Change to the definition of the character being hovered over
   * If in the home menu the definition is the menu name
@@ -68,6 +54,7 @@ DECEMBER
   * Possibly allow the ability to turn on character matrix guidelines
   * Settings page or menu to set the master values of translation, search, posColours, etc.
   * Work on cursorBlink function
+  * Make sure all bliss rules are followed
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm:
@@ -75,7 +62,7 @@ I started with the bliss-keyboard from owencm:
 
 This keyboard appears to be arranged roughly by shape. This seems logical as
 bliss symbols appear to be derived from common shapes. The above keyboard however, does
-not include the symbols, and it had a habit of including symbols twice if it
+not include all the symbols, and it had a habit of including symbols twice if it
 made sense in multiple locations. I removed the duplicates and included all missing
 symbols.
 

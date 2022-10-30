@@ -3,6 +3,7 @@ import { ELanguage, TKeyboardKey, TKeyboardKeys, TMenuState } from "../types";
 import { getMenu } from "./menus";
 import { keyboardLanguage } from "./languages";
 import { getRecordById } from "./translations";
+import {IDefinitionKey} from "../types/definitions";
 
 const specialKeys: string[] = ["Tab", "Backspace", "Enter", "Space"];
 
@@ -97,6 +98,8 @@ export const buildKeyboard = (
   menu: { menuState: TMenuState, setMenuState: (x: TMenuState) => void },
   message: { messageState: TMenuState[], setMessageState: (x: TMenuState[]) => void },
   posColours: boolean,
+  keyCharacters: boolean,
+  setHoveredKey: (x: IDefinitionKey | undefined) => void,
 ): React.ReactNode[] => {
   const menuCurrent: number[] = getMenu(menu.menuState);
   const menuLength: number = menuCurrent.length;
@@ -164,9 +167,11 @@ export const buildKeyboard = (
           className={finalClass}
           data-code={key.code}
           onClick={(e) => keyMouseClick(e as unknown as MouseEvent, menu, message)}
+          onMouseEnter={() => setHoveredKey({ ...menu.menuState, menuCharacter: menuCharacter })}
+          onMouseLeave={() => setHoveredKey(undefined)}
         >
           {posColours && menuCharacter && (<span className={`key--pos ${colour}`}>&nbsp;</span>)}
-          <span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>
+          {(keyCharacters || ["Backspace", "Tab", "Enter"].includes(key.code)) && (<span className={"key--character"}>{htmlDecode(key.character, finalClass)}</span>)}
           <svg fill={"#eee"} width={"2.5em"} height={"2.5em"}>
             {menuCharacter && menu.menuState.diacriticKey === 0 && (<use href={`#${menuCharacter.toString()}`}></use>)}
             {menuCharacter === menu.menuState.diacriticKey && (<use href={`#${menu.menuState.diacriticKey.toString()}`} />)}

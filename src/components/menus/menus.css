@@ -1,8 +1,6 @@
 .menuWrapper {
     margin: 0 0.6em 0.6em 0.6em;
     padding: 0.4em;
-    flex-grow: 0.8;
-    flex-basis: 0;
     color: #111;
 }
 

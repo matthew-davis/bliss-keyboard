@@ -8,4 +8,5 @@ export type TOptions = {
   languages: boolean;
   defaultLanguage: ELanguage;
   posColours: boolean;
+  keyCharacters: boolean;
 }

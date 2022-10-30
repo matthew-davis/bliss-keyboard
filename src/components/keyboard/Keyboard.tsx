@@ -4,7 +4,7 @@ import { buildKeyboard, keyDownHandler, keyUpHandler } from "../../utils";
 import "./keyboard.css";
 
 export const Keyboard = (props: TKeyboardProps) => {
-  const { language, menu, message, posColours } = props;
+  const { language, menu, message, posColours, keyCharacters, setHoveredKey } = props;
 
   useEffect(() => {
     const keyDownHandlerWrapper = (e: KeyboardEvent) => keyDownHandler(e, menu, message);
@@ -19,7 +19,7 @@ export const Keyboard = (props: TKeyboardProps) => {
 
   return (
     <div id={"keyboardWrapper"}>
-      {buildKeyboard(language, menu, message, posColours)}
+      {buildKeyboard(language, menu, message, posColours, keyCharacters, setHoveredKey)}
     </div>
   );
 };

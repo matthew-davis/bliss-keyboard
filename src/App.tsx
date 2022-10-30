@@ -12,6 +12,7 @@ import { ELanguage, TMenuState, TOptions } from "./types";
 import { sizeKeyboard } from "./utils";
 import "./app.css";
 import { ReactComponent as Characters } from "./assets/characters.svg";
+import {IDefinitionKey} from "./types/definitions";
 
 const options: TOptions = {
   translation: true,
@@ -21,12 +22,14 @@ const options: TOptions = {
   languages: true,
   defaultLanguage: ELanguage.English,
   posColours: true,
+  keyCharacters: true,
 }
 
 const App = () => {
   const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
   const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
   const [messageState, setMessageState] = useState<TMenuState[]>([]);
+  const [hoveredKey, setHoveredKey] = useState<IDefinitionKey | undefined>(undefined);
 
   useEffect(() => sizeKeyboard(), []);
   window.addEventListener('resize', () => sizeKeyboard());
@@ -39,7 +42,7 @@ const App = () => {
       {options.search && <Search />}
       <div className={"settingsWrapper"}>
         {options.menu && <Menus menuState={menuState} language={languageState} />}
-        {options.definitions && <Definitions />}
+        {options.definitions && <Definitions language={languageState} hoveredKey={hoveredKey} />}
         {options.languages && <Languages language={{languageState, setLanguageState}} />}
       </div>
       <Keyboard
@@ -47,6 +50,8 @@ const App = () => {
         menu={{menuState, setMenuState}}
         message={{messageState, setMessageState}}
         posColours={options.posColours}
+        keyCharacters={options.keyCharacters}
+        setHoveredKey={setHoveredKey}
       />
     </div>
   );

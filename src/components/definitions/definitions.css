@@ -1,6 +1,25 @@
-.definitions {
+#definitionsWrapper {
     margin: 0 0.6em 0.6em 0.6em;
     padding: 0.4em;
-    background-color: #f5f5f5;
+    color: #111;
     flex-grow: 1;
+}
+
+.definitionsText {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.definitions {
+    font-size: 1em;
+}
+
+.definitionsIcon {
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+
+.definitionsSpacer {
+    color: #FC440F;
 }

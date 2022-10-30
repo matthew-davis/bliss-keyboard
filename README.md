@@ -37,7 +37,6 @@ NOVEMBER
 DECEMBER
 
 * Look at the kerning of characters
-* Make sure all bliss rules are followed
 * Support the highest level of web accessibility WCAG 2.0 AAA
 * Create a npm library
 

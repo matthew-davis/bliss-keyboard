@@ -37,8 +37,8 @@ NOVEMBER
 DECEMBER
 
 * Look at the kerning of characters
-* Support the highest level of web accessibility WCAG 2.0 AAA
 * Create a npm library
+* Support the highest level of web accessibility WCAG 2.0 AAA
 
 ### Keyboard Changes/Justificationg
 I started with the bliss-keyboard from owencm:

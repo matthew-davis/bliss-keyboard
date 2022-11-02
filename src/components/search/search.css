@@ -1,5 +1,58 @@
-.search {
-    margin: 0 0.6em 0.6em 0.6em;
-    padding: 0.4em;
-    background-color: #f5f5f5;
+#searchWrapper {
+    margin: 0 0.6em;
+    padding: 0 0.4em 0.4em 0.4em;
+    color: #111;
+}
+
+.searchFunctionsWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+form.searchInput {
+    width: 25%;
+}
+
+form.searchInput > * {
+    box-sizing: border-box;
+}
+
+form.searchInput input[type=search] {
+    padding: 10px;
+    font-size: inherit;
+    font-family:inherit;
+    border: 1px solid #111;
+    border-radius: 4px 0 0 4px;
+    float: left;
+    width: 80%;
+}
+
+form.searchInput button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #16c0df;
+    color: #fff;
+    font-size: inherit;
+    font-family:inherit;
+    border: 1px solid #111;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.searchInput button:hover {
+    background: #108ca2;
+}
+
+form.searchInput::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.searchOutput {
+    margin: 0 0 0 20px;
+    float: left;
+    width: 75%;
 }

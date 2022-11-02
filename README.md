@@ -27,12 +27,10 @@ output.
 NOVEMBER
 
 * Search
-  * Create text input structure to accept characters
-  * Write function to search definitions for matches (use the selected language)
-  * Limit what is in the characters menu to search matches
-  * Allow search to return words
-  * Create key containers for words
-  * Add function to add words to messageState
+  * Write function to search definitions for matches (using the selected language)
+  * Write characters to search output with their definition
+  * Clicking on a search output character opens the character diacritic menu
+  * Clicking on a search output word writes the word to the message
 
 DECEMBER
 
@@ -40,7 +38,7 @@ DECEMBER
 * Create a npm library
 * Support the highest level of web accessibility WCAG 2.0 AAA
 
-### Keyboard Changes/Justificationg
+### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm:
 [https://github.com/owencm/bliss-keyboard](https://github.com/owencm/bliss-keyboard)
 

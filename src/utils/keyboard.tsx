@@ -12,9 +12,11 @@ export const keyDownHandler = (
   menu: { menuState: TMenuState, setMenuState: (x: TMenuState) => void },
   message: { messageState: TMenuState[], setMessageState: (x: TMenuState[]) => void },
 ): void => {
-  const key: HTMLElement | null = getKey(event);
-  key && key.setAttribute("data-pressed", "on");
-  if (key) keyType(key, menu, message);
+  if (document.activeElement!.id !== "search") {
+    const key: HTMLElement | null = getKey(event);
+    key && key.setAttribute("data-pressed", "on");
+    if (key) keyType(key, menu, message);
+  }
 };
 
 export const keyUpHandler = (event: KeyboardEvent): void => {

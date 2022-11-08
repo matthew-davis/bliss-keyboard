@@ -24,16 +24,10 @@ output.
 
 ### Tasks
 
-NOVEMBER
-
 * Search
-  * Write function to search definitions for matches (using the selected language)
-  * Write characters to search output with their definition
-  * Clicking on a search output character opens the character diacritic menu
+  * Visually separate words and characters in search output and sort css
   * Clicking on a search output word writes the word to the message
-
-DECEMBER
-
+  * Clicking on a search output character opens the character diacritic menu
 * Look at the kerning of characters
 * Create a npm library
 * Support the highest level of web accessibility WCAG 2.0 AAA

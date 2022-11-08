@@ -12,6 +12,7 @@ import { ELanguage, TMenuState, TOptions } from "./types";
 import { sizeKeyboard } from "./utils";
 import "./app.css";
 import { ReactComponent as Characters } from "./assets/characters.svg";
+import { ReactComponent as Words } from "./assets/words.svg";
 import {IDefinitionKey} from "./types/definitions";
 
 const options: TOptions = {
@@ -37,9 +38,10 @@ const App = () => {
   return (
     <div id={"appWrapper"}>
       <Characters height={0} width={0} />
+      <Words height={0} width={0} />
       <Output messageState={messageState} />
       {options.translation && <Translations language={languageState} messageState={messageState} />}
-      {options.search && <Search />}
+      {options.search && <Search language={languageState} />}
       <div className={"settingsWrapper"}>
         {options.menu && <Menus menuState={menuState} language={languageState} />}
         {options.definitions && <Definitions language={languageState} hoveredKey={hoveredKey} />}

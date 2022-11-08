@@ -2,19 +2,22 @@ import * as React from "react";
 import './search.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
-import {onSubmit} from "../../utils/search";
+import {drawSearchResults, onSubmit} from "../../utils/search";
+import {TSearchProps} from "../../types/search";
+import {useState} from "react";
 
-export const Search = (): React.ReactElement => {
-
+export const Search = (props: TSearchProps): React.ReactElement => {
+  const { language } = props;
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   return (
     <div id={"searchWrapper"}>
       <div className={"searchFunctionsWrapper"}>
-        <form className={"searchInput"} onSubmit={onSubmit}>
+        <form className={"searchInput"} onSubmit={(event: any) => onSubmit(event, language, setSearchResults)}>
           <input id={"search"} type={"search"} placeholder={"Search..."} name={"search"} />
           <button type="submit"><FontAwesomeIcon className={"searchIcon"} icon={faMagnifyingGlass} /></button>
         </form>
-        <div className={"searchOutput"}>Search Output</div>
+        <div className={"searchOutput"}>{drawSearchResults(searchResults)}</div>
       </div>
       <hr />
     </div>

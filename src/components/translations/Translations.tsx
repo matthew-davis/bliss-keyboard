@@ -15,8 +15,9 @@ export const Translations = (props: TTranslationsProps): React.ReactElement => {
 
     let definitionSpacer = ""
     let diacritic = "";
-    if (x.diacriticKey !== 3333) {
+    if (x.diacriticKey !== 3333 && x.diacriticKey !== 0) {
       definitionSpacer = " | ";
+      console.log(x.diacriticKey);
       diacritic = getRecordById(x.diacriticKey)[language];
       if (character === "") diacritic = getRecordById(x.diacriticKey)[ELanguage.English];
     }

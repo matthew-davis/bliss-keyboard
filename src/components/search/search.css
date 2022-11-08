@@ -27,6 +27,14 @@ form.searchInput input[type=search] {
     width: 80%;
 }
 
+form.searchInput input[type=search]:focus {
+    border: 1px solid #16c0df;
+}
+
+form.searchInput input[type=search]:focus-visible {
+    outline: none;
+}
+
 form.searchInput button {
     float: left;
     width: 20%;

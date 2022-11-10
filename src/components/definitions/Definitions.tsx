@@ -3,7 +3,7 @@ import "./definitions.css";
 import {TDefinitionsProps} from "../../types/definitions";
 import {getMenuName, getRecordById} from "../../utils";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faComment, faLanguage} from "@fortawesome/free-solid-svg-icons";
+import {faComment} from "@fortawesome/free-solid-svg-icons";
 import {ELanguage} from "../../types";
 
 export const Definitions = (props: TDefinitionsProps): React.ReactElement => {
@@ -16,7 +16,14 @@ export const Definitions = (props: TDefinitionsProps): React.ReactElement => {
     let diacritic: string = "";
 
     if (hoveredKey.menuKey === 1000 && hoveredKey.diacriticKey === 0) {
-      character = getMenuName({ menuKey: hoveredKey.menuCharacter, diacriticKey: hoveredKey.diacriticKey }, language);
+      if (hoveredKey.menuCharacter) {
+        character = getRecordById(hoveredKey.menuCharacter)[language];
+        if (character === "") {
+          character = getRecordById(hoveredKey.menuCharacter)[ELanguage.English];
+        }
+      } else {
+        character = getMenuName({ menuKey: hoveredKey.menuCharacter, diacriticKey: hoveredKey.diacriticKey }, language);
+      }
     }
 
     if (hoveredKey.menuKey > 1000 && hoveredKey.diacriticKey === 0) {

@@ -7,17 +7,17 @@ import {TSearchProps} from "../../types/search";
 import {useState} from "react";
 
 export const Search = (props: TSearchProps): React.ReactElement => {
-  const { language } = props;
+  const { language, numberOfResults, menu, setHoveredKey } = props;
   const [searchResults, setSearchResults] = useState<any[]>([]);
 
   return (
     <div id={"searchWrapper"}>
       <div className={"searchFunctionsWrapper"}>
-        <form className={"searchInput"} onSubmit={(event: any) => onSubmit(event, language, setSearchResults)}>
+        <form className={"searchInput"} onSubmit={(event: any) => onSubmit(event, language, setSearchResults, numberOfResults)}>
           <input id={"search"} type={"search"} placeholder={"Search..."} name={"search"} />
           <button type="submit"><FontAwesomeIcon className={"searchIcon"} icon={faMagnifyingGlass} /></button>
         </form>
-        <div className={"searchOutput"}>{drawSearchResults(searchResults)}</div>
+        <div className={"searchOutput"}>{drawSearchResults(searchResults, menu, setHoveredKey)}</div>
       </div>
       <hr />
     </div>

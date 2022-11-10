@@ -118,10 +118,6 @@ export const buildKeyboard = (
       if (row === "row1") {
         if (menuLength < 34) finalClass = "key--placeholder";
         if (menuLength >= 34 && menuLength <= 45 && menuLength - 33 < index) finalClass = "key--placeholder";
-
-        // TODO: Remove when I'm done making the menus
-        if (menuLength > 45) return <div>XXX</div>;
-
         if (key.code === "Backquote" && language === ELanguage.English) finalClass = "key--placeholder";
         if (key.code === "Section") finalClass = "key--placeholder";
         if (key.code === "Backspace") finalClass = key.className;

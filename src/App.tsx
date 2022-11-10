@@ -18,6 +18,7 @@ import {IDefinitionKey} from "./types/definitions";
 const options: TOptions = {
   translation: true,
   search: true,
+  numberOfResults: 10,
   menu: true,
   definitions: true,
   languages: true,
@@ -41,7 +42,14 @@ const App = () => {
       <Words height={0} width={0} />
       <Output messageState={messageState} />
       {options.translation && <Translations language={languageState} messageState={messageState} />}
-      {options.search && <Search language={languageState} />}
+      {options.search &&
+        <Search
+          language={languageState}
+          numberOfResults={options.numberOfResults}
+          menu={menuState}
+          setHoveredKey={setHoveredKey}
+        />
+      }
       <div className={"settingsWrapper"}>
         {options.menu && <Menus menuState={menuState} language={languageState} />}
         {options.definitions && <Definitions language={languageState} hoveredKey={hoveredKey} />}

@@ -63,4 +63,33 @@ form.searchInput::after {
     margin: 0 0 0 20px;
     float: left;
     width: 75%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    min-height: 3em;
+    cursor: pointer;
+}
+
+.searchResult {
+    height: 4em;
+    width: 7em;
+    position: relative;
+}
+
+.searchResultWord {
+    width: 7em;
+}
+
+.searchResultCharacter {
+    width: 4em;
+}
+
+.searchSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

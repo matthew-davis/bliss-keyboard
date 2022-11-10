@@ -25,7 +25,6 @@ output.
 ### Tasks
 
 * Search
-  * Visually separate words and characters in search output and sort css
   * Clicking on a search output word writes the word to the message
   * Clicking on a search output character opens the character diacritic menu
 * Look at the kerning of characters

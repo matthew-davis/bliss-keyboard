@@ -14,6 +14,16 @@ export const getMenuName = (menuState: TMenuState, language: ELanguage = ELangua
   return `${menuNameMap[menuState.menuKey][language]} ${diacritic}`
 }
 
+export const getMenuNameFromCharacter = (character: number): number => {
+  let menu: number = 1000;
+
+  Object.values(menuMap).map((x: number[]) => {
+    if (x.includes(character)) menu = x[0];
+  });
+
+  return menu;
+}
+
 const menuNameMap: TMenuName = {
   1000: { english: "Home menu", swedish: "Hemmeny", norwegian: "Hjemmeny", finnish: "Kotivalikko", hungarian: "Főmenü", german: "Home-Menü", dutch: "Startmenu", afrikaans: "Tuis spyskaart", russian: "Главное меню", latvian: "Sākuma izvēlne", polish: "Menu główne", french: "Menu d'accueil", spanish: "Menú de inicio" },
   2000: { english: "Diacritics", swedish: "Diakritiska tecken", norwegian: "Diakritikk", finnish: "Diakriittiset", hungarian: "Diakritikusok", german: "Diakritische Zeichen", dutch: "Diakritische tekens", afrikaans: "Diakritiese tekens", russian: "Диакритические знаки", latvian: "Diakritiķi", polish: "Znaki diakrytyczne", french: "Diacritiques", spanish: "Diacríticos" },

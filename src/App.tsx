@@ -46,8 +46,9 @@ const App = () => {
         <Search
           language={languageState}
           numberOfResults={options.numberOfResults}
-          menu={menuState}
+          menu={{ menuState, setMenuState }}
           setHoveredKey={setHoveredKey}
+          message={{ messageState, setMessageState }}
         />
       }
       <div className={"settingsWrapper"}>

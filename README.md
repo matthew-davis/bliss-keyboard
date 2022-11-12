@@ -24,9 +24,6 @@ output.
 
 ### Tasks
 
-* Search
-  * Clicking on a search output word writes the word to the message
-  * Clicking on a search output character opens the character diacritic menu
 * Look at the kerning of characters
 * Create a npm library
 * Support the highest level of web accessibility WCAG 2.0 AAA

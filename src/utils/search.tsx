@@ -29,7 +29,7 @@ export const drawSearchResults = (
       }
 
       if (x.group === "character") {
-        menu.setMenuState({ menuKey: getMenuNameFromCharacter(x.av), diacriticKey: x.av });
+        menu.setMenuState({ menuKey: getMenuNameFromCharacter(x.av), diacriticKey: x.av, group: x.group });
       }
 
       setHoveredKey(undefined);

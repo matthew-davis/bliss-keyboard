@@ -32,3 +32,25 @@
     width: 0.1em;
     background: #16c0df;
 }
+
+.messageResult {
+    height: 2em;
+    position: relative;
+}
+
+.messageResultWord {
+    width: 3.5em;
+}
+
+.messageResultCharacter {
+    width: 2em;
+}
+
+.messageSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: #111;
+}

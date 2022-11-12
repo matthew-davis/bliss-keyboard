@@ -8,6 +8,7 @@ export type TMenuProps = {
 export type TMenuState = {
   menuKey: number;
   diacriticKey: number;
+  group?: string;
 }
 
 export type TMenuName = {

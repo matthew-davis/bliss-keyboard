@@ -3,7 +3,7 @@ import { TKeyboardProps } from "../../types";
 import { buildKeyboard, keyDownHandler, keyUpHandler } from "../../utils";
 import "./keyboard.css";
 
-export const Keyboard = (props: TKeyboardProps) => {
+export const Keyboard = (props: TKeyboardProps): React.ReactElement => {
   const { language, menu, message, posColours, keyCharacters, setHoveredKey } = props;
 
   useEffect(() => {

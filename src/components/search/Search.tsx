@@ -1,10 +1,10 @@
 import * as React from "react";
 import './search.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
-import {drawSearchResults, onSubmit} from "../../utils/search";
-import {TSearchProps} from "../../types/search";
-import {useState} from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { drawSearchResults, onSubmit } from "../../utils";
+import { TSearchProps } from "../../types";
+import { useState } from "react";
 
 export const Search = (props: TSearchProps): React.ReactElement => {
   const { language, numberOfResults, menu, setHoveredKey, message } = props;

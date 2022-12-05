@@ -22,9 +22,36 @@ symbol with a series of diacritical marks that can be either chose or not from.
 Finally clicking on a symbol in the diacritical menu will type the symbol in the
 output.
 
-### Tasks
+### Options
+* translation: <boolean> turns on or off translations below the character output
+* search: <boolean> turns on or off the ability to search for characters or words
+* numberOfResults: <number> is the number of results returned from a search
+* menu: <boolean> turns on or off the display of which menu you are currently in
+* definitions: <boolean> turns on or off the display of the definition of characters hovered over
+* languages: <boolean> turns on or off the ability to select different languages for the application
+* defaultLanguage: <ELanguage> One of 13 languages it currently defaults to English this effects, translations, definitions and search
+  * English
+  * Swedish
+  * Norwegian
+  * Finnish
+  * Hungarian
+  * German
+  * Dutch
+  * Afrikaans
+  * Russian
+  * Latvian
+  * Polish
+  * French
+  * Spanish
+* posColours: <boolean> turn on or off the display of POS colours on keyboard keys
+* keyCharacters: <boolean> turn on or off the display of the corresponding hardware keyboard key on keyboard keys
 
-* Create a npm library
+### Example
+???
+
+### Remaining Tasks
+* Create an npm library
+* Find a more elegant process for character kerning
 * Support the highest level of web accessibility WCAG 2.0 AAA
 
 ### Keyboard Changes/Justification

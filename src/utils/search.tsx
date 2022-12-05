@@ -1,11 +1,10 @@
-import {ELanguage, TMenuState} from "../types";
-import fuzzysort from 'fuzzysort'
-import {translationMap} from "./translations";
 import React from "react";
-import {IDefinitionKey} from "../types/definitions";
-import {getMenuNameFromCharacter} from "./menus";
+import fuzzysort from 'fuzzysort'
+import { getMenuNameFromCharacter } from "./menus";
+import { translationMap } from "./translations";
+import { ELanguage, IDefinitionKey, TMenuState } from "../types";
 
-export const onSubmit = (e: any, language: ELanguage, setSearchResults: (x: any) => void, numberOfResults: number) => {
+export const onSubmit = (e: any, language: ELanguage, setSearchResults: (x: any) => void, numberOfResults: number): void => {
   e.preventDefault();
   const results = fuzzysort.go(e.target.search.value, translationMap, { key: language }).slice(0, numberOfResults);
   const searchResults = results.map((x) => ({ av: x.obj.av, group: x.obj.group, translation: x.obj[language] }));
@@ -17,7 +16,7 @@ export const drawSearchResults = (
   menu: { menuState: TMenuState, setMenuState: (x: TMenuState) => void },
   setHoveredKey: (x: IDefinitionKey | undefined) => void,
   message: { messageState: TMenuState[], setMessageState: (x: TMenuState[]) => void },
-) => {
+): JSX.Element[] => {
   return search.searchResults.map((x: any, index: number) => {
     const resultClass = `searchResult ${x.group === "word" ? "searchResultWord" : "searchResultCharacter"}`
     const svgClass = `searchSvg ${x.group === "word" ? "searchSvgWord" : "searchSvgCharacter"}`

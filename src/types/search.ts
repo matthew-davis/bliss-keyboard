@@ -1,6 +1,6 @@
-import {ELanguage} from "./languages";
-import {TMenuState} from "./menus";
-import {IDefinitionKey} from "./definitions";
+import { ELanguage } from "./languages";
+import { TMenuState } from "./menus";
+import { IDefinitionKey } from "./definitions";
 
 export type TSearchProps = {
   language: ELanguage;

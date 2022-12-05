@@ -1,10 +1,9 @@
 import * as React from "react";
 import "./definitions.css";
-import {TDefinitionsProps} from "../../types/definitions";
-import {getMenuName, getRecordById} from "../../utils";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faComment} from "@fortawesome/free-solid-svg-icons";
-import {ELanguage} from "../../types";
+import { getMenuName, getRecordById } from "../../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { ELanguage, TDefinitionsProps } from "../../types";
 
 export const Definitions = (props: TDefinitionsProps): React.ReactElement => {
   const { language, hoveredKey } = props;

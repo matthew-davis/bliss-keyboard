@@ -1,5 +1,5 @@
 import React from "react";
-import {TMenuState} from "../types";
+import { TMenuState } from "../types";
 
 export const typeCharacters = (messageState: TMenuState[]): JSX.Element[] => {
   return messageState.map((x: TMenuState, index: number) => {

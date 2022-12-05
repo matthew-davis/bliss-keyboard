@@ -1,5 +1,7 @@
 import { TMenuState } from "./menus";
 
+export type TMessageState = TMenuState[];
+
 export type TOutputProps = {
-  messageState: TMenuState[],
+  messageState: TMessageState,
 }

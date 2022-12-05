@@ -1,7 +1,5 @@
-// Imports
-import {ELanguage, TMenuMap, TMenuName, TMenuState} from "../types";
+import { ELanguage, TMenuMap, TMenuName, TMenuState } from "../types";
 
-// Utils
 export const getMenu = (menuState: TMenuState): number[] => {
   if (menuState.diacriticKey > 0) return menuMap[2000];
   if (Object.keys(menuMap).indexOf(menuState.menuKey.toString()) > -1) return menuMap[menuState.menuKey];

@@ -1,4 +1,4 @@
-import {ELanguage} from "./languages";
+import { ELanguage } from "./languages";
 
 export type TMenuProps = {
   menuState: TMenuState;

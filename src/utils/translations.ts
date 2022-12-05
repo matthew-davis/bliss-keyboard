@@ -1,25 +1,5 @@
-// Interface
-interface IConversion {
-  av: number,
-  group: string,
-  pos: string,
-  derivationExplanation: string,
-  english: string,
-  swedish: string,
-  norwegian: string,
-  finnish: string,
-  hungarian: string,
-  german: string,
-  dutch: string,
-  afrikaans: string,
-  russian: string,
-  latvian: string,
-  polish: string,
-  french: string,
-  spanish: string,
-}
+import { IConversion } from "../types";
 
-// Utils
 export const getRecordById = (id: number): IConversion => translationMap.filter(x => x.av === id)[0];
 
 export const translationMap: IConversion[] = [

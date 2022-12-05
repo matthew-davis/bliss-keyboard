@@ -1,5 +1,5 @@
-import {ELanguage} from "./languages";
-import {TMenuState} from "./menus";
+import { ELanguage } from "./languages";
+import { TMenuState } from "./menus";
 
 export type TDefinitionsProps = {
   language: ELanguage,

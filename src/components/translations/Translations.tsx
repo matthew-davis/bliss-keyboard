@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-import {ELanguage, TMenuState, TTranslationsProps} from "../../types";
+import { ELanguage, TMenuState, TTranslationsProps } from "../../types";
 import { getRecordById } from "../../utils";
 import './translations.css';
 

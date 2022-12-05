@@ -8,12 +8,11 @@ import {
   Search,
   Translations,
 } from "./components";
-import { ELanguage, TMenuState, TOptions } from "./types";
+import {ELanguage, IDefinitionKey, TMenuState, TMessageState, TOptions} from "./types";
 import { sizeKeyboard } from "./utils";
 import "./app.css";
 import { ReactComponent as Characters } from "./assets/characters.svg";
 import { ReactComponent as Words } from "./assets/words.svg";
-import {IDefinitionKey} from "./types/definitions";
 
 const options: TOptions = {
   translation: true,
@@ -30,7 +29,7 @@ const options: TOptions = {
 const App = () => {
   const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
   const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
-  const [messageState, setMessageState] = useState<TMenuState[]>([]);
+  const [messageState, setMessageState] = useState<TMessageState>([]);
   const [hoveredKey, setHoveredKey] = useState<IDefinitionKey | undefined>(undefined);
 
   useEffect(() => sizeKeyboard(), []);

@@ -4,6 +4,10 @@ a npm package with typescript and react to allow for the integration of a bliss-
 into projects. Currently, there are roughly 1200 Bliss Characters and 4800 Bliss Words 
 available.
 
+### Example
+???
+
+### Description
 There are 7 key elements to the keyboard, from the bottom up there is the keyboard itself.
 Symbols are mapped onto a keyboard which can either be clicked with a mouse or a button
 press. Next there is a small display listing the users menu level. A display of the 
@@ -23,13 +27,13 @@ Finally clicking on a symbol in the diacritical menu will type the symbol in the
 output.
 
 ### Options
-* translation: <boolean> turns on or off translations below the character output
-* search: <boolean> turns on or off the ability to search for characters or words
-* numberOfResults: <number> is the number of results returned from a search
-* menu: <boolean> turns on or off the display of which menu you are currently in
-* definitions: <boolean> turns on or off the display of the definition of characters hovered over
-* languages: <boolean> turns on or off the ability to select different languages for the application
-* defaultLanguage: <ELanguage> One of 13 languages it currently defaults to English this effects, translations, definitions and search
+* translation: (boolean) turns on or off translations below the character output
+* search: (boolean) turns on or off the ability to search for characters or words
+* numberOfResults: (number) is the number of results returned from a search
+* menu: (boolean) turns on or off the display of which menu you are currently in
+* definitions: (boolean) turns on or off the display of the definition of characters hovered over
+* languages: (boolean) turns on or off the ability to select different languages for the application
+* defaultLanguage: (ELanguage) One of 13 languages it currently defaults to English this effects, translations, definitions and search
   * English
   * Swedish
   * Norwegian
@@ -43,11 +47,8 @@ output.
   * Polish
   * French
   * Spanish
-* posColours: <boolean> turn on or off the display of POS colours on keyboard keys
-* keyCharacters: <boolean> turn on or off the display of the corresponding hardware keyboard key on keyboard keys
-
-### Example
-???
+* posColours: (boolean) turn on or off the display of POS colours on keyboard keys
+* keyCharacters: (boolean) turn on or off the display of the corresponding hardware keyboard key on keyboard keys
 
 ### Remaining Tasks
 * Create an npm library
@@ -67,5 +68,5 @@ symbols.
 I considered breaking up the symbols by the POS colours, but the distribution of the 
 colour types are very uneven across the characters.
 
-The keyboard layout was stolen from this work by Gregory Schier:
+The keyboard layout was appropriated from this work by Gregory Schier:
 [https://codepen.io/gschier/pen/VKgyaY](https://codepen.io/gschier/pen/VKgyaY)

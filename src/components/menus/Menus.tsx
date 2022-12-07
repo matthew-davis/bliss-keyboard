@@ -9,7 +9,7 @@ export const Menus = (props: TMenuProps): React.ReactElement => {
   const { menuState, language } = props;
 
   return (
-    <div className={"menuWrapper"}>
+    <div id={"menuWrapper"}>
       <FontAwesomeIcon className={"menuIcon"} icon={faBars} />
       {getMenuName(menuState, language)}
     </div>

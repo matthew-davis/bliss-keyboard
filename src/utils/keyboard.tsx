@@ -69,9 +69,6 @@ const keyType = (
     }
 
     if (menu.menuState.menuKey !== 1000 && menu.menuState.diacriticKey === 0) {
-      console.log(menu.menuState.menuKey);
-      console.log(dataCharacterCode);
-
       menu.setMenuState({ menuKey: menu.menuState.menuKey, diacriticKey: dataCharacterCode });
     }
 

@@ -19,7 +19,7 @@ export const Languages = (props: TLanguagesProps): React.ReactElement => {
   const { language } = props;
 
   return (
-    <div className={"languagesWrapper"}>
+    <div id={"languagesWrapper"}>
       <div
         id={ELanguage.English}
         tabIndex={-1}

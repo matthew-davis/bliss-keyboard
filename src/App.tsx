@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Definitions,
   Keyboard,
@@ -7,12 +7,12 @@ import {
   Output,
   Search,
   Translations,
-} from "./components";
-import {ELanguage, IDefinitionKey, TMenuState, TMessageState, TOptions} from "./types";
-import { sizeKeyboard } from "./utils";
-import "./app.css";
-import { ReactComponent as Characters } from "./assets/characters.svg";
-import { ReactComponent as Words } from "./assets/words.svg";
+} from './components';
+import { ELanguage, IDefinitionKey, TMenuState, TMessageState, TOptions } from './types';
+import { sizeKeyboard } from './utils';
+import './app.css';
+import { ReactComponent as Characters } from './assets/characters.svg';
+import { ReactComponent as Words } from './assets/words.svg';
 
 const options: TOptions = {
   translation: true,
@@ -24,7 +24,7 @@ const options: TOptions = {
   defaultLanguage: ELanguage.English,
   posColours: true,
   keyCharacters: true,
-}
+};
 
 const App = () => {
   const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
@@ -36,12 +36,12 @@ const App = () => {
   window.addEventListener('resize', () => sizeKeyboard());
 
   return (
-    <div id={"appWrapper"}>
+    <div id={'appWrapper'}>
       <Characters height={0} width={0} />
       <Words height={0} width={0} />
       <Output messageState={messageState} />
       {options.translation && <Translations language={languageState} messageState={messageState} />}
-      {options.search &&
+      {options.search && (
         <Search
           language={languageState}
           numberOfResults={options.numberOfResults}
@@ -49,16 +49,16 @@ const App = () => {
           setHoveredKey={setHoveredKey}
           message={{ messageState, setMessageState }}
         />
-      }
-      <div className={"settingsWrapper"}>
+      )}
+      <div className={'settingsWrapper'}>
         {options.menu && <Menus menuState={menuState} language={languageState} />}
         {options.definitions && <Definitions language={languageState} hoveredKey={hoveredKey} />}
-        {options.languages && <Languages language={{languageState, setLanguageState}} />}
+        {options.languages && <Languages language={{ languageState, setLanguageState }} />}
       </div>
       <Keyboard
         language={languageState}
-        menu={{menuState, setMenuState}}
-        message={{messageState, setMessageState}}
+        menu={{ menuState, setMenuState }}
+        message={{ messageState, setMessageState }}
         posColours={options.posColours}
         keyCharacters={options.keyCharacters}
         setHoveredKey={setHoveredKey}

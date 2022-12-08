@@ -1,77 +1,93 @@
 #keyboardWrapper {
-    text-align: center;
-    font-size: 1em;
-    font-family: sans-serif;
+  text-align: center;
+  font-size: 1em;
+  font-family: sans-serif;
 }
 
 .keyboard__row {
-    display: inline-block;
-    height: 3em;
-    margin: 0.2em;
+  display: inline-block;
+  height: 3em;
+  margin: 0.2em;
 }
 
 .keyboard__row > * {
-    position: relative;
-    background: #333;
-    color: #eee;
-    float: left;
-    border-radius: 0.3em;
-    margin: 0.2em;
-    padding: 0.2em;
-    width: 3.3em;
-    height: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-    -webkit-user-select: none;
-    border: 1px solid #444;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    border-bottom-color: #555;
+  position: relative;
+  background: #333;
+  color: #eee;
+  float: left;
+  border-radius: 0.3em;
+  margin: 0.2em;
+  padding: 0.2em;
+  width: 3.3em;
+  height: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-user-select: none;
+  border: 1px solid #444;
+  box-shadow: 0 0.2em 0 0.05em #222;
+  border-bottom-color: #555;
 }
 
 .key--letter {
-    line-height: 2.8em;
+  line-height: 2.8em;
 }
 
 .key--letter > .key--character {
-    position: absolute;
-    top: -1.8em;
-    right: 0.4em;
-    font-size: 0.5em;
+  position: absolute;
+  top: -1.8em;
+  right: 0.4em;
+  font-size: 0.5em;
 }
 
 .key--pos {
-    position: absolute;
-    top: 0.3em;
-    left: 0.2em;
-    background-color: #fff;
-    height: 0.4em;
-    width: 0.4em;
-    border-radius: 0.1em;
+  position: absolute;
+  top: 0.3em;
+  left: 0.2em;
+  background-color: #fff;
+  height: 0.4em;
+  width: 0.4em;
+  border-radius: 0.1em;
 }
 
-.RED {background-color: #f9c7b0;}
-.GREEN {background-color: #dce8ba;}
-.BLUE {background-color: #d6ecf7;}
-.YELLOW {background-color: #fee885;}
-.GRAY {background-color: #ccc;}
-.WHITE {background-color: #fff;}
-.BLACK {background-color: #000;}
-.no-colour {background-color: #333;}
+.RED {
+  background-color: #f9c7b0;
+}
+.GREEN {
+  background-color: #dce8ba;
+}
+.BLUE {
+  background-color: #d6ecf7;
+}
+.YELLOW {
+  background-color: #fee885;
+}
+.GRAY {
+  background-color: #ccc;
+}
+.WHITE {
+  background-color: #fff;
+}
+.BLACK {
+  background-color: #000;
+}
+.no-colour {
+  background-color: #333;
+}
 
 .key--placeholder {
-    background: #eee;
-    cursor: default;
-    border: 1px solid #ddd;
-    box-shadow: 0 0.2em 0 0.05em #ccc;
-    border-bottom-color: #bbb;
+  background: #eee;
+  cursor: default;
+  border: 1px solid #ddd;
+  box-shadow: 0 0.2em 0 0.05em #ccc;
+  border-bottom-color: #bbb;
 }
 
 .key--placeholder > * {
-    position: absolute;
-    top: 0.3em;
-    right: 0.4em;
-    font-size: 0.5em;
-    color: #111;
+  position: absolute;
+  top: 0.3em;
+  right: 0.4em;
+  font-size: 0.5em;
+  color: #111;
 }
 
 .keyboard__row > .key--letter[data-pressed],
@@ -80,50 +96,50 @@
 .keyboard__row > .key--letter:active,
 .keyboard__row > .key--word:active,
 .keyboard__row > .key--space:active {
-    background: #2a2a2a;
-    color: #aaa;
-    position: relative;
-    top: 0.2em;
-    box-shadow: 0 0 0 0.05em black;
+  background: #2a2a2a;
+  color: #aaa;
+  position: relative;
+  top: 0.2em;
+  box-shadow: 0 0 0 0.05em black;
 }
 
 .key--w1 {
-    width: 4.6em;
+  width: 4.6em;
 }
 
 .key--w2 {
-    width: 6em;
+  width: 6em;
 }
 
 .key--w3 {
-    width: 6.5em;
+  width: 6.5em;
 }
 
 .key--w4 {
-    width: 8.35em;
+  width: 8.35em;
 }
 
 .key--w5 {
-    width: 18.2em;
+  width: 18.2em;
 }
 
 .key--bottom-left > * {
-    position: absolute;
-    bottom: 0.4em;
-    left: 0.4em;
+  position: absolute;
+  bottom: 0.4em;
+  left: 0.4em;
 }
 
 .key--bottom-right > * {
-    position: absolute;
-    bottom: 0.4em;
-    right: 0.4em;
+  position: absolute;
+  bottom: 0.4em;
+  right: 0.4em;
 }
 
 .key--word > * {
-    font-size: 0.7em;
+  font-size: 0.7em;
 }
 
 .key--arrow {
-    height: 1.8em;
-    margin-top: 1.4em;
+  height: 1.8em;
+  margin-top: 1.4em;
 }

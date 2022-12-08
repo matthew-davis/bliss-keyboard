@@ -1,104 +1,103 @@
 #searchWrapper {
-    margin: 0 0.6em;
-    padding: 0 0.4em 0.4em 0.4em;
-    color: #111;
+  margin: 0 0.6em;
+  padding: 0 0.4em 0.4em 0.4em;
+  color: #111;
 }
 
 .searchFunctionsWrapper {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 form.searchInput {
-    width: 25%;
+  width: 25%;
 }
 
 form.searchInput > * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-form.searchInput input[type=search] {
-    padding: 10px;
-    font-size: inherit;
-    font-family:inherit;
-    border: 1px solid #111;
-    border-radius: 4px 0 0 4px;
-    float: left;
-    width: 80%;
+form.searchInput input[type='search'] {
+  padding: 10px;
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid #111;
+  border-radius: 4px 0 0 4px;
+  float: left;
+  width: 80%;
 }
 
-form.searchInput input[type=search]:focus {
-    border: 1px solid #16c0df;
+form.searchInput input[type='search']:focus {
+  border: 1px solid #16c0df;
 }
 
-form.searchInput input[type=search]:focus-visible {
-    outline: none;
+form.searchInput input[type='search']:focus-visible {
+  outline: none;
 }
 
 form.searchInput button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #16c0df;
-    color: #fff;
-    font-size: inherit;
-    font-family:inherit;
-    border: 1px solid #111;
-    border-radius: 0 4px 4px 0;
-    border-left: none;
-    cursor: pointer;
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #16c0df;
+  color: #fff;
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid #111;
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  cursor: pointer;
 }
 
 form.searchInput button:hover {
-    background: #108ca2;
+  background: #108ca2;
 }
 
 form.searchInput::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: '';
+  clear: both;
+  display: table;
 }
 
 .searchOutput {
-    margin: 0 0 0 20px;
-    float: left;
-    width: 75%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1em;
-    min-height: 4em;
-    cursor: pointer;
+  margin: 0 0 0 20px;
+  float: left;
+  width: 75%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  min-height: 4em;
+  cursor: pointer;
 }
 
 .searchResult {
-    height: 4em;
-    position: relative;
+  height: 4em;
+  position: relative;
 }
 
 .searchResultWord {
-    width: 7em;
+  width: 7em;
 }
 
 .searchResultCharacter {
-    width: 4em;
+  width: 4em;
 }
 
 .searchSvg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    fill: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: #111;
 }
 
 .searchSvgCharacter:hover {
-    fill: #16c0df;
+  fill: #16c0df;
 }
 
 .searchSvgWord:hover {
-    fill: #f7567c;
+  fill: #f7567c;
 }
-

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Languages } from './Languages';
-import { ELanguage } from "../../types";
-import userEvent from "@testing-library/user-event";
+import { ELanguage } from '../../types';
+import userEvent from '@testing-library/user-event';
 
 it('renders the language flag icons', () => {
   const language = { languageState: ELanguage.English, setLanguageState: jest.fn() };
@@ -25,12 +25,12 @@ it('renders the language flag icons', () => {
 });
 
 it('clicking another flag changes the language', async () => {
-  const user = userEvent.setup()
+  const user = userEvent.setup();
   const setLanguageState = jest.fn();
   const language = { languageState: ELanguage.English, setLanguageState };
 
   render(<Languages language={language} />);
   await user.click(screen.getByText('se.svg'));
 
-  expect(setLanguageState).toHaveBeenCalledWith(ELanguage.Swedish)
+  expect(setLanguageState).toHaveBeenCalledWith(ELanguage.Swedish);
 });

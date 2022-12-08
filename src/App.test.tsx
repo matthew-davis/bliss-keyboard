@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-it('renders app with all of it\'s components', () => {
+it("renders app with all of it's components", () => {
   const result = render(<App />);
   const output = result.container.querySelector('#outputWrapper');
   const translations = result.container.querySelector('#translationsWrapper');

@@ -24,14 +24,27 @@
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.3.1",
+    "prettier": "^2.8.1",
     "typescript": "^4.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "browserslist": {
     "production": [

@@ -1,27 +1,33 @@
 #languagesWrapper {
-    margin: 0 0.6em;
-    padding: 0.2em;
-    display: flex;
-    flex-direction: row;
-    gap: 0.6em;
+  margin: 0 0.6em;
+  padding: 0.2em;
+  display: flex;
+  flex-direction: row;
+  gap: 0.6em;
 }
 
 .flags {
-    height: 1.4em;
-    padding-bottom: 0.4em;
-    cursor: pointer;
+  height: 1.4em;
+  padding-bottom: 0.4em;
+  cursor: pointer;
 }
 
 .flags.active {
-    border-bottom: 0.2em solid #16c0df;
+  border-bottom: 0.2em solid #16c0df;
 }
 
 @keyframes click {
-    0% { transform: scale(1, 1); }
-    50% { transform: scale(0.8, 0.8); }
-    100% { transform: scale(1, 1); }
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 .flags:focus {
-    animation: click 0.2s ease-out;
+  animation: click 0.2s ease-out;
 }

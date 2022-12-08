@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Definitions } from './Definitions';
-import {ELanguage} from "../../types";
+import { ELanguage } from '../../types';
 
 it('renders the comment icon', () => {
   const language = ELanguage.English;
@@ -20,7 +20,7 @@ it('renders Definitions with no key hovered', () => {
   const result = render(<Definitions language={language} hoveredKey={hoveredKey} />);
   const definition = result.container.querySelector('.definitions');
 
-  expect(definition).toBeEmpty();
+  expect(definition).toBeEmptyDOMElement();
 });
 
 describe('tests in the English language', () => {

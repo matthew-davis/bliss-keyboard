@@ -1,56 +1,56 @@
 #outputWrapper {
-    margin: 0.6em;
-    text-align: left;
-    font-size: 2em;
+  margin: 0.6em;
+  text-align: left;
+  font-size: 2em;
 }
 
 .output {
-    height: 2.6em;
-    padding: 0.2em 0.8em;
-    width: 100%;
-    border-radius: 0.3em;
-    box-sizing: border-box;
-    cursor: text;
-    border: 1px solid #ddd;
-    background: #eee;
-    color: #111;
-    line-height: 2.2em;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  height: 2.6em;
+  padding: 0.2em 0.8em;
+  width: 100%;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  cursor: text;
+  border: 1px solid #ddd;
+  background: #eee;
+  color: #111;
+  line-height: 2.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .outputCharacters {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 #cursor {
-    height: 100%;
-    margin-left: 0.2em;
-    width: 0.1em;
-    background: #16c0df;
+  height: 100%;
+  margin-left: 0.2em;
+  width: 0.1em;
+  background: #16c0df;
 }
 
 .messageResult {
-    height: 2em;
-    position: relative;
+  height: 2em;
+  position: relative;
 }
 
 .messageResultWord {
-    width: 3.5em;
+  width: 3.5em;
 }
 
 .messageResultCharacter {
-    width: 2em;
+  width: 2em;
 }
 
 .messageSvg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    fill: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: #111;
 }

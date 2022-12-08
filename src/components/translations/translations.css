@@ -1,28 +1,28 @@
 #translationsWrapper {
-    margin: 0 0.6em;
-    padding: 0 0.4em 0.4em 0.4em;
-    color: #111;
+  margin: 0 0.6em;
+  padding: 0 0.4em 0.4em 0.4em;
+  color: #111;
 }
 
 .translationsText {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .translations {
-    font-size: 0.7em;
+  font-size: 0.7em;
 }
 
 .translationsIcon {
-    font-size: 1.2em;
-    margin-right: 0.5em;
+  font-size: 1.2em;
+  margin-right: 0.5em;
 }
 
 .translationsSpacer {
-    color: #16c0df;
+  color: #16c0df;
 }
 
 .definitionsSpacer {
-    color: #FC440F;
+  color: #fc440f;
 }

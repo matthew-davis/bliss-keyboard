@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { TKeyboardProps } from "../../types";
-import { buildKeyboard, keyDownHandler, keyUpHandler } from "../../utils";
-import "./keyboard.css";
+import React, { useEffect } from 'react';
+import { TKeyboardProps } from '../../types';
+import { buildKeyboard, keyDownHandler, keyUpHandler } from '../../utils';
+import './keyboard.css';
 
 export const Keyboard = (props: TKeyboardProps): React.ReactElement => {
   const { language, menu, message, posColours, keyCharacters, setHoveredKey } = props;
@@ -18,7 +18,7 @@ export const Keyboard = (props: TKeyboardProps): React.ReactElement => {
   }, [menu.menuState]);
 
   return (
-    <div id={"keyboardWrapper"}>
+    <div id={'keyboardWrapper'}>
       {buildKeyboard(language, menu, message, posColours, keyCharacters, setHoveredKey)}
     </div>
   );

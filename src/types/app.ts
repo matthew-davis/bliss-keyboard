@@ -1,4 +1,4 @@
-import { ELanguage } from "./languages";
+import { ELanguage } from './languages';
 
 export type TOptions = {
   translation: boolean;
@@ -10,4 +10,4 @@ export type TOptions = {
   defaultLanguage: ELanguage;
   posColours: boolean;
   keyCharacters: boolean;
-}
+};

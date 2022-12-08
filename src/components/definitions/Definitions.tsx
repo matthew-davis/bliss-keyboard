@@ -1,46 +1,49 @@
-import * as React from "react";
-import "./definitions.css";
-import { getMenuName, getRecordById } from "../../utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { ELanguage, TDefinitionsProps } from "../../types";
+import * as React from 'react';
+import './definitions.css';
+import { getMenuName, getRecordById } from '../../utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { ELanguage, TDefinitionsProps } from '../../types';
 
 export const Definitions = (props: TDefinitionsProps): React.ReactElement => {
   const { language, hoveredKey } = props;
-  let definition: React.ReactElement = (<></>);
+  let definition: React.ReactElement = <></>;
 
   if (hoveredKey && hoveredKey.menuCharacter) {
-    let character: string = "";
-    let spacer: string = "";
-    let diacritic: string = "";
+    let character = '';
+    let spacer = '';
+    let diacritic = '';
 
     if (hoveredKey.menuKey === 1000 && hoveredKey.diacriticKey === 0) {
       if (hoveredKey.menuCharacter) {
         character = getRecordById(hoveredKey.menuCharacter)[language];
-        if (character === "") {
+        if (character === '') {
           character = getRecordById(hoveredKey.menuCharacter)[ELanguage.English];
         }
       } else {
-        character = getMenuName({ menuKey: hoveredKey.menuCharacter, diacriticKey: hoveredKey.diacriticKey }, language);
+        character = getMenuName(
+          { menuKey: hoveredKey.menuCharacter, diacriticKey: hoveredKey.diacriticKey },
+          language,
+        );
       }
     }
 
     if (hoveredKey.menuKey > 1000 && hoveredKey.diacriticKey === 0) {
       character = getRecordById(hoveredKey.menuCharacter)[language];
-      if (character === "") {
+      if (character === '') {
         character = getRecordById(hoveredKey.menuCharacter)[ELanguage.English];
       }
     }
 
     if (hoveredKey.menuKey > 1000 && hoveredKey.diacriticKey > 0) {
       character = getRecordById(hoveredKey.diacriticKey)[language];
-      if (character === "") {
+      if (character === '') {
         character = getRecordById(hoveredKey.diacriticKey)[ELanguage.English];
       }
       if (hoveredKey.menuCharacter !== 3333) {
-        spacer = " | ";
+        spacer = ' | ';
         diacritic = getRecordById(hoveredKey.menuCharacter)[language];
-        if (character === "") {
+        if (character === '') {
           diacritic = getRecordById(hoveredKey.menuCharacter)[ELanguage.English];
         }
       }
@@ -49,17 +52,17 @@ export const Definitions = (props: TDefinitionsProps): React.ReactElement => {
     definition = (
       <>
         <span>{character}</span>
-        <span className={"definitionsSpacer"}>{spacer}</span>
+        <span className={'definitionsSpacer'}>{spacer}</span>
         <span>{diacritic}</span>
       </>
     );
   }
 
   return (
-    <div id={"definitionsWrapper"}>
-      <div className={"definitionsText"}>
-        <FontAwesomeIcon className={"definitionsIcon"} icon={faComment} />
-        <div className={"definitions"}>{definition}</div>
+    <div id={'definitionsWrapper'}>
+      <div className={'definitionsText'}>
+        <FontAwesomeIcon className={'definitionsIcon'} icon={faComment} />
+        <div className={'definitions'}>{definition}</div>
       </div>
     </div>
   );

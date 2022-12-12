@@ -53,7 +53,7 @@ output.
 ### Remaining Tasks
 * Create an npm library
 * Find a more elegant process for character kerning
-* Support the highest level of web accessibility WCAG 2.0 AAA
+* Support web accessibility - WCAG 2.0 AAA
 
 ### Keyboard Changes/Justification
 I started with the bliss-keyboard from owencm:

@@ -24,14 +24,11 @@ export const keyUpHandler = (event: KeyboardEvent): void => {
 };
 
 const keyMouseClick = (
-  event: MouseEvent,
+  key: HTMLElement,
   menu: { menuState: TMenuState; setMenuState: (x: TMenuState) => void },
   message: { messageState: TMenuState[]; setMessageState: (x: TMenuState[]) => void },
 ): void => {
-  let key: Element | null = event.target as Element;
-  const keyCharacter: string | null = key && key.getAttribute('data-character');
-  if (keyCharacter === null) key = key && (key.parentNode as Element);
-  key && keyType(key as HTMLElement, menu, message);
+  keyType(key, menu, message);
 };
 
 const keyType = (
@@ -177,7 +174,7 @@ export const buildKeyboard = (
           data-character={menuCharacter ? menuCharacter.toString() : key.code}
           className={finalClass}
           data-code={key.code}
-          onClick={(e) => keyMouseClick(e as unknown as MouseEvent, menu, message)}
+          onClick={(e) => keyMouseClick(e.currentTarget, menu, message)}
           onMouseEnter={() => setHoveredKey({ ...menu.menuState, menuCharacter: menuCharacter })}
           onMouseLeave={() => setHoveredKey(undefined)}
         >

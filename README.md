@@ -1,11 +1,30 @@
 # bliss-keyboard
 An application that renders a keyboard of bliss symbols. The intention is to build
 a npm package with typescript and react to allow for the integration of a bliss-keyboard 
-into projects. Currently, there are roughly 1200 Bliss Characters and 4800 Bliss Words 
-available.
+into projects. Currently, there are 1,031 Bliss Characters and 5,112 Bliss Words
+available, synced with the BCI Authorized Vocabulary 2025-02-15 release.
+
+### Demo
+[Try it live on GitHub Pages](https://matthew-davis.github.io/bliss-keyboard/)
 
 ### Example
-???
+The app is configured via a single options object in `src/App.tsx`:
+
+```ts
+const options: TOptions = {
+  translation: true,
+  search: true,
+  numberOfResults: 10,
+  menu: true,
+  definitions: true,
+  languages: true,
+  defaultLanguage: ELanguage.English,
+  posColours: true,
+  keyCharacters: true,
+};
+```
+
+Run it locally with `npm install && npm start`, or see the [live demo](https://matthew-davis.github.io/bliss-keyboard/).
 
 ### Description
 There are 7 key elements to the keyboard, from the bottom up there is the keyboard itself.

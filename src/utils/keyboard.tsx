@@ -1,7 +1,7 @@
 import React from 'react';
 import { ELanguage, IDefinitionKey, TKeyboardKey, TKeyboardKeys, TMenuState } from '../types';
 import { getMenu } from './menus';
-import { keyboardLanguage } from './languages';
+import { keyboardLanguage, specialKeyLabels, specialKeyRoleByCode } from './languages';
 import { getRecordById } from './translations';
 
 const specialKeys: string[] = ['Tab', 'Backspace', 'Enter', 'Space'];
@@ -180,7 +180,11 @@ export const buildKeyboard = (
         >
           {posColours && menuCharacter && <span className={`key--pos ${colour}`}>&nbsp;</span>}
           {(keyCharacters || ['Backspace', 'Tab', 'Enter'].includes(key.code)) && (
-            <span className={'key--character'}>{htmlDecode(key.character, finalClass)}</span>
+            <span className={'key--character'}>
+              {specialKeyRoleByCode[key.code]
+                ? specialKeyLabels[specialKeyRoleByCode[key.code]][language]
+                : htmlDecode(key.character, finalClass)}
+            </span>
           )}
           <svg fill={'#eee'} width={'2.5em'} height={'2.5em'}>
             {menuCharacter && menu.menuState.diacriticKey === 0 && (

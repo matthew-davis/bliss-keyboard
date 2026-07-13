@@ -6,6 +6,16 @@ import { getRecordById } from './translations';
 
 const specialKeys: string[] = ['Tab', 'Backspace', 'Enter', 'Space'];
 
+const letterMenuKeys: number[] = [25011, 12366];
+
+// QWERTY reading order of the 26 physical letter keys, matching the order
+// the Letters menus in menus.ts are now stored in.
+const qwertyLetterCodes: string[] = [
+  'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP',
+  'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL',
+  'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM',
+];
+
 export const keyDownHandler = (
   event: KeyboardEvent,
   menu: { menuState: TMenuState; setMenuState: (x: TMenuState) => void },
@@ -106,6 +116,7 @@ export const buildKeyboard = (
 ): React.ReactNode[] => {
   const menuCurrent: number[] = getMenu(menu.menuState);
   const menuLength: number = menuCurrent.length;
+  const isLetterMenu: boolean = letterMenuKeys.includes(menu.menuState.menuKey);
   const keyboardCharacters: TKeyboardKeys = keyboardLanguage[language];
   const keyboard: React.ReactNode[] = [];
   const rows: string[] = ['row1', 'row2', 'row3', 'row4', 'row5'];
@@ -117,42 +128,84 @@ export const buildKeyboard = (
       let colour = 'no-colour';
 
       if (row === 'row1') {
-        if (menuLength < 34) finalClass = 'key--placeholder';
-        if (menuLength >= 34 && menuLength <= 45 && menuLength - 33 < index)
-          finalClass = 'key--placeholder';
-        if (key.code === 'Backquote' && language === ELanguage.English)
-          finalClass = 'key--placeholder';
-        if (key.code === 'Section') finalClass = 'key--placeholder';
-        if (key.code === 'Backspace') finalClass = key.className;
-        if (!finalClass.includes('placeholder') && key.code !== 'Backspace')
-          menuCharacter = menuCurrent[index + 33 - 1];
+        if (isLetterMenu) {
+          finalClass = key.code === 'Backspace' ? key.className : 'key--placeholder';
+        } else {
+          if (menuLength < 34) finalClass = 'key--placeholder';
+          if (menuLength >= 34 && menuLength <= 45 && menuLength - 33 < index)
+            finalClass = 'key--placeholder';
+          if (key.code === 'Backquote' && language === ELanguage.English)
+            finalClass = 'key--placeholder';
+          if (key.code === 'Section') finalClass = 'key--placeholder';
+          if (key.code === 'Backspace') finalClass = key.className;
+          if (!finalClass.includes('placeholder') && key.code !== 'Backspace')
+            menuCharacter = menuCurrent[index + 33 - 1];
+        }
       }
 
       if (row === 'row2') {
-        if (menuLength < 12 && menuLength < index) finalClass = 'key--placeholder';
-        if (key.code === 'Tab') finalClass = key.className;
-        if (key.code === 'IntlBackslash') finalClass = 'key--placeholder';
-        if (key.code === 'LessThan') finalClass = 'key--placeholder';
-        if (!finalClass.includes('placeholder')) menuCharacter = menuCurrent[index - 1];
+        if (isLetterMenu) {
+          if (key.code === 'Tab') {
+            finalClass = key.className;
+          } else if (key.code === 'BracketLeft') {
+            finalClass = key.className;
+            menuCharacter = menuCurrent[0];
+          } else if (qwertyLetterCodes.includes(key.code)) {
+            finalClass = key.className;
+            menuCharacter = menuCurrent[qwertyLetterCodes.indexOf(key.code) + 1];
+          } else {
+            finalClass = 'key--placeholder';
+          }
+        } else {
+          if (menuLength < 12 && menuLength < index) finalClass = 'key--placeholder';
+          if (key.code === 'Tab') finalClass = key.className;
+          if (key.code === 'IntlBackslash') finalClass = 'key--placeholder';
+          if (key.code === 'LessThan') finalClass = 'key--placeholder';
+          if (!finalClass.includes('placeholder')) menuCharacter = menuCurrent[index - 1];
+        }
       }
 
       if (row === 'row3') {
-        if (menuLength < 13) finalClass = 'key--placeholder';
-        if (menuLength >= 13 && menuLength <= 23 && menuLength - 12 < index)
-          finalClass = 'key--placeholder';
-        if (key.code === 'CapsLock') finalClass = 'key--w3 key--placeholder';
-        if (key.code === 'Enter') finalClass = key.className;
-        if (!finalClass.includes('placeholder') && key.code !== 'Enter')
-          menuCharacter = menuCurrent[index + 12 - 1];
+        if (isLetterMenu) {
+          if (key.code === 'CapsLock') {
+            finalClass = 'key--w3 key--placeholder';
+          } else if (key.code === 'Enter') {
+            finalClass = key.className;
+          } else if (qwertyLetterCodes.includes(key.code)) {
+            finalClass = key.className;
+            menuCharacter = menuCurrent[qwertyLetterCodes.indexOf(key.code) + 1];
+          } else {
+            finalClass = 'key--placeholder';
+          }
+        } else {
+          if (menuLength < 13) finalClass = 'key--placeholder';
+          if (menuLength >= 13 && menuLength <= 23 && menuLength - 12 < index)
+            finalClass = 'key--placeholder';
+          if (key.code === 'CapsLock') finalClass = 'key--w3 key--placeholder';
+          if (key.code === 'Enter') finalClass = key.className;
+          if (!finalClass.includes('placeholder') && key.code !== 'Enter')
+            menuCharacter = menuCurrent[index + 12 - 1];
+        }
       }
 
       if (row === 'row4') {
-        if (menuLength < 24) finalClass = 'key--placeholder';
-        if (menuLength >= 24 && menuLength <= 33 && menuLength - 23 < index)
-          finalClass = 'key--placeholder';
-        if (['ShiftLeft', 'ShiftRight'].indexOf(key.code) > -1)
-          finalClass = 'key--w4 key--placeholder';
-        if (!finalClass.includes('placeholder')) menuCharacter = menuCurrent[index + 23 - 1];
+        if (isLetterMenu) {
+          if (['ShiftLeft', 'ShiftRight'].indexOf(key.code) > -1) {
+            finalClass = 'key--w4 key--placeholder';
+          } else if (qwertyLetterCodes.includes(key.code)) {
+            finalClass = key.className;
+            menuCharacter = menuCurrent[qwertyLetterCodes.indexOf(key.code) + 1];
+          } else {
+            finalClass = 'key--placeholder';
+          }
+        } else {
+          if (menuLength < 24) finalClass = 'key--placeholder';
+          if (menuLength >= 24 && menuLength <= 33 && menuLength - 23 < index)
+            finalClass = 'key--placeholder';
+          if (['ShiftLeft', 'ShiftRight'].indexOf(key.code) > -1)
+            finalClass = 'key--w4 key--placeholder';
+          if (!finalClass.includes('placeholder')) menuCharacter = menuCurrent[index + 23 - 1];
+        }
       }
 
       if (row === 'row5') {

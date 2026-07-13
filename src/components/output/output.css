@@ -18,12 +18,36 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .outputCharacters {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+
+#clearAll {
+  margin-left: auto;
+  height: 1.4em;
+  width: 1.4em;
+  padding: 0;
+  border: none;
+  border-radius: 0.2em;
+  background: transparent;
+  color: #888;
+  font-size: 0.5em;
+  cursor: pointer;
+}
+
+#clearAll:hover:not(:disabled) {
+  background: #ddd;
+  color: #111;
+}
+
+#clearAll:disabled {
+  color: #ccc;
+  cursor: default;
 }
 
 #cursor {

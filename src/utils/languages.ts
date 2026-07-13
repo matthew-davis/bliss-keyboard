@@ -1103,7 +1103,8 @@ export type TSpecialKeyRole =
   | 'fn'
   | 'option'
   | 'alt'
-  | 'altGr';
+  | 'altGr'
+  | 'clearAll';
 
 export const specialKeyLabels: Record<TSpecialKeyRole, Record<ELanguage, string>> = {
   backspace: {
@@ -1255,6 +1256,21 @@ export const specialKeyLabels: Record<TSpecialKeyRole, Record<ELanguage, string>
     [ELanguage.Polish]: 'alt gr',
     [ELanguage.French]: 'alt gr',
     [ELanguage.Spanish]: 'alt gr',
+  },
+  clearAll: {
+    [ELanguage.English]: 'clear all',
+    [ELanguage.Swedish]: 'rensa allt',
+    [ELanguage.Norwegian]: 'fjern alt',
+    [ELanguage.Finnish]: 'tyhjennä kaikki',
+    [ELanguage.Hungarian]: 'összes törlése',
+    [ELanguage.German]: 'alles löschen',
+    [ELanguage.Dutch]: 'alles wissen',
+    [ELanguage.Afrikaans]: 'maak alles skoon',
+    [ELanguage.Russian]: 'очистить всё',
+    [ELanguage.Latvian]: 'notīrīt visu',
+    [ELanguage.Polish]: 'wyczyść wszystko',
+    [ELanguage.French]: 'tout effacer',
+    [ELanguage.Spanish]: 'borrar todo',
   },
 };
 

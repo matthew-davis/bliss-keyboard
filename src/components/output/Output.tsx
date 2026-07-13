@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TOutputProps } from '../../types';
-import { typeCharacters } from '../../utils';
+import { specialKeyLabels, typeCharacters } from '../../utils';
 import './output.css';
 
 export const Output = (props: TOutputProps): React.ReactElement => {
-  const { messageState } = props;
+  const { messageState, setMessageState, language } = props;
 
   useEffect(() => {
     let show = 'visible';
@@ -25,6 +27,16 @@ export const Output = (props: TOutputProps): React.ReactElement => {
       <div className={'output'}>
         <div className={'outputCharacters'}>{typeCharacters(messageState)}</div>
         <div id={'cursor'}>&nbsp;</div>
+        <button
+          id={'clearAll'}
+          type={'button'}
+          title={specialKeyLabels.clearAll[language]}
+          aria-label={specialKeyLabels.clearAll[language]}
+          disabled={messageState.length === 0}
+          onClick={() => setMessageState([])}
+        >
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
       </div>
     </div>
   );

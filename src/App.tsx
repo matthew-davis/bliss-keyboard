@@ -39,7 +39,11 @@ const App = () => {
     <div id={'appWrapper'}>
       <Characters height={0} width={0} />
       <Words height={0} width={0} />
-      <Output messageState={messageState} />
+      <Output
+        messageState={messageState}
+        setMessageState={setMessageState}
+        language={languageState}
+      />
       {options.translation && <Translations language={languageState} messageState={messageState} />}
       {options.search && (
         <Search
